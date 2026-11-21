@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IBCB-HUB — Email Marketing</title>
+  <title>Email Marketing Tools — iBCB-HUB</title>
   <meta name="description" content="Explore email marketing tools, platforms, and workflows to build your list, automate campaigns, and grow your business." />
   <style>
     :root{
@@ -587,28 +587,29 @@
       }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="/ibcb-hub/assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="/ibcb-hub/assets/css/hub-shell.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="/ibcb-hub/index.html" class="brand">
-        <span class="brand-mark">iB</span>
-        <span>IBCB-HUB</span>
+  <header class="hub-header">
+    <div class="hub-bar">
+      <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+        <span class="hub-brand-mark" aria-hidden="true">iB</span>
+        <span>iBCB-HUB</span>
       </a>
-
-      <nav class="nav-links">
-        <a href="/ibcb-hub/index.html">Home</a>
-        <a href="/ibcb-hub/tools/index.html" class="active">Tools</a>
-        <a href="/ibcb-hub/blog/">Blog</a>
-        <a href="/ibcb-hub/resources/">Resources</a>
-        <a href="/ibcb-hub/about/">About</a>
-        <a href="/ibcb-hub/contact/">Contact</a>
+      <button class="hub-menu-toggle" type="button" aria-expanded="false" aria-controls="hub-nav" aria-label="Open menu">
+        <svg class="hub-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="hub-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <nav class="hub-nav" id="hub-nav" aria-label="Main navigation">
+        <a href="/ibcb-hub/tools/" data-section="/ibcb-hub/tools/">Tools</a>
+        <a href="/ibcb-hub/tools/brokerage/" data-section="/ibcb-hub/tools/brokerage/">Funding</a>
+        <a href="/ibcb-hub/rocketmail/" data-section="/ibcb-hub/rocketmail/">RocketMail</a>
+        <a href="/ibcb-hub/resources/" data-section="/ibcb-hub/resources/">Resources</a>
+        <a href="/ibcb-hub/blog/" data-section="/ibcb-hub/blog/">Blog</a>
+        <a href="/ibcb-hub/about/" data-section="/ibcb-hub/about/">About</a>
       </nav>
-
-      <div class="nav-actions">
-        <a class="btn secondary" href="#starter-stack">Explore Tools</a>
-        <a class="btn primary" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
-      </div>
+      <a class="hub-cta" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
     </div>
   </header>
 
@@ -633,7 +634,7 @@
             <span class="pill">Campaign platforms</span>
             <span class="pill">Automation tools</span>
             <span class="pill">Growth-ready systems</span>
-            <span class="pill">RocketMail SaaS</span>
+            <span class="pill">iBCB RocketMail</span>
           </div>
         </div>
 
@@ -669,7 +670,7 @@
                 <li>Email campaigns and structured outreach</li>
                 <li>Lead capture and segmentation logic</li>
                 <li>Automation workflows for follow-up and nurture</li>
-                <li>A stronger SaaS signal across the full iBCB ecosystem</li>
+                <li>Designed for founders and small teams</li>
               </ul>
 
               <div class="hero-actions" style="margin-top:20px;margin-bottom:0;">
@@ -680,8 +681,8 @@
 
             <div class="mini-stats">
               <div class="mini-stat">
-                <strong>Why it matters</strong>
-                <span>RocketMail adds a proprietary product layer to the iBCB platform.</span>
+                <strong>Built in-house</strong>
+                <span>RocketMail is developed by iBCB, so it fits naturally with the tools on this hub.</span>
               </div>
 
               <div class="mini-stat">
@@ -690,8 +691,8 @@
               </div>
 
               <div class="mini-stat">
-                <strong>Strategic role</strong>
-                <span>It helps position iBCB as both a platform and a product company.</span>
+                <strong>Early access</strong>
+                <span>RocketMail is in its test phase. Join early and help shape the product.</span>
               </div>
             </div>
           </div>
@@ -926,7 +927,7 @@
             <div class="stars">★ Best ecosystem-native product</div>
             <h3>iBCB RocketMail</h3>
             <p class="tool-desc">
-              The strategic choice if you want email automation inside the broader iBCB platform and product vision.
+              A good choice if you want simple email automation from the team behind iBCB-HUB. Currently in early access.
             </p>
             <div class="cta-row">
               <a href="/ibcb-hub/rocketmail/" class="mini-btn gold">Launch RocketMail</a>
@@ -1037,12 +1038,52 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© 2026 IBCB LLC. All rights reserved.</span>
-      <span>Email Marketing • IBCB-HUB</span>
+<footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <div class="hub-footer-grid">
+        <div class="hub-footer-about">
+          <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+            <span class="hub-brand-mark" aria-hidden="true">iB</span>
+            <span>iBCB-HUB</span>
+          </a>
+          <p>Curated tools, funding options and practical guides to help entrepreneurs launch, run and grow their business.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/ibcb-hub/tools/">All tools</a></li>
+            <li><a href="/ibcb-hub/tools/ai-tools/">AI tools</a></li>
+            <li><a href="/ibcb-hub/tools/email-marketing/">Email marketing</a></li>
+            <li><a href="/ibcb-hub/tools/business-stack/">Business stack</a></li>
+            <li><a href="/ibcb-hub/tools/brokerage/">Business funding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>iBCB</h2>
+          <ul>
+            <li><a href="/ibcb-hub/about/">About us</a></li>
+            <li><a href="/ibcb-hub/rocketmail/">iBCB RocketMail</a></li>
+            <li><a href="/ibcb-hub/network/">The iBCB Network</a></li>
+            <li><a href="/ibcb-hub/blog/">Blog</a></li>
+            <li><a href="/ibcb-hub/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="/ibcb-hub/contact/">Contact form</a></li>
+            <li><a href="mailto:supportbcb@ibcb-s.com">supportbcb@ibcb-s.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hub-footer-bottom">
+        <span>&copy; 2026 iBCB LLC. All rights reserved.</span>
+        <p>Some links on iBCB-HUB are affiliate links: we may earn a commission if you sign up, at no extra cost to you. iBCB-HUB is not a lender and does not make credit decisions.</p>
+      </div>
     </div>
   </footer>
+
+    <script src="/ibcb-hub/assets/js/hub-shell.js" defer></script>
 </body>
 </html>
 

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — iBCB-HUB</title>
+  <meta name="description" content="Contact iBCB-HUB about business tools, funding requests, partnerships or iBCB RocketMail." />
+  <link rel="icon" type="image/svg+xml" href="/ibcb-hub/assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="/ibcb-hub/assets/css/hub-shell.css" />
+  <link rel="stylesheet" href="/ibcb-hub/assets/css/hub-pages.css" />
+</head>
+<body>
+  <header class="hub-header">
+    <div class="hub-bar">
+      <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+        <span class="hub-brand-mark" aria-hidden="true">iB</span>
+        <span>iBCB-HUB</span>
+      </a>
+      <button class="hub-menu-toggle" type="button" aria-expanded="false" aria-controls="hub-nav" aria-label="Open menu">
+        <svg class="hub-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="hub-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <nav class="hub-nav" id="hub-nav" aria-label="Main navigation">
+        <a href="/ibcb-hub/tools/" data-section="/ibcb-hub/tools/">Tools</a>
+        <a href="/ibcb-hub/tools/brokerage/" data-section="/ibcb-hub/tools/brokerage/">Funding</a>
+        <a href="/ibcb-hub/rocketmail/" data-section="/ibcb-hub/rocketmail/">RocketMail</a>
+        <a href="/ibcb-hub/resources/" data-section="/ibcb-hub/resources/">Resources</a>
+        <a href="/ibcb-hub/blog/" data-section="/ibcb-hub/blog/">Blog</a>
+        <a href="/ibcb-hub/about/" data-section="/ibcb-hub/about/">About</a>
+      </nav>
+      <a class="hub-cta" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+    </div>
+  </header>
+
+  <main class="hub-page">
+    <section class="page-hero">
+      <p class="page-kicker">Contact</p>
+      <h1>Get in <span>touch</span></h1>
+      <p class="page-lead">A question about a tool, a funding request, a partnership or RocketMail? Send us a message and we will reply by email.</p>
+    </section>
+
+    <section class="page-section contact-layout">
+      <div class="page-panel">
+        <form class="hub-form" action="/ibcb-hub/api/send.php" method="post">
+          <input type="hidden" name="form_type" value="contact" />
+          <div class="hub-hp" aria-hidden="true">
+            <label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <div class="hub-form-row">
+            <label>Name
+              <input type="text" name="name" required maxlength="120" autocomplete="name" />
+            </label>
+            <label>Email
+              <input type="email" name="email" required maxlength="190" autocomplete="email" />
+            </label>
+          </div>
+          <label>Subject
+            <select name="subject" required>
+              <option value="">Choose a subject</option>
+              <option>Question about a tool</option>
+              <option>Business funding</option>
+              <option>iBCB RocketMail</option>
+              <option>Partnership or advertising</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>Message
+            <textarea name="message" rows="6" required maxlength="5000"></textarea>
+          </label>
+          <button class="hub-form-submit" type="submit">Send message</button>
+          <p class="hub-form-note">We only use your details to reply to your message.</p>
+        </form>
+      </div>
+
+      <aside class="page-panel contact-aside">
+        <h2>Email</h2>
+        <p><a href="mailto:supportbcb@ibcb-s.com">supportbcb@ibcb-s.com</a></p>
+        <h2>Looking for funding?</h2>
+        <p>Use the <a href="/ibcb-hub/tools/brokerage/#funding-form">funding request form</a> so we have the details we need to help.</p>
+        <h2>About us</h2>
+        <p style="margin:0;">iBCB-HUB is run by iBCB LLC. <a href="/ibcb-hub/about/">Learn more</a>.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <div class="hub-footer-grid">
+        <div class="hub-footer-about">
+          <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+            <span class="hub-brand-mark" aria-hidden="true">iB</span>
+            <span>iBCB-HUB</span>
+          </a>
+          <p>Curated tools, funding options and practical guides to help entrepreneurs launch, run and grow their business.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/ibcb-hub/tools/">All tools</a></li>
+            <li><a href="/ibcb-hub/tools/ai-tools/">AI tools</a></li>
+            <li><a href="/ibcb-hub/tools/email-marketing/">Email marketing</a></li>
+            <li><a href="/ibcb-hub/tools/business-stack/">Business stack</a></li>
+            <li><a href="/ibcb-hub/tools/brokerage/">Business funding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>iBCB</h2>
+          <ul>
+            <li><a href="/ibcb-hub/about/">About us</a></li>
+            <li><a href="/ibcb-hub/rocketmail/">iBCB RocketMail</a></li>
+            <li><a href="/ibcb-hub/network/">The iBCB Network</a></li>
+            <li><a href="/ibcb-hub/blog/">Blog</a></li>
+            <li><a href="/ibcb-hub/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="/ibcb-hub/contact/">Contact form</a></li>
+            <li><a href="mailto:supportbcb@ibcb-s.com">supportbcb@ibcb-s.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hub-footer-bottom">
+        <span>&copy; 2026 iBCB LLC. All rights reserved.</span>
+        <p>Some links on iBCB-HUB are affiliate links: we may earn a commission if you sign up, at no extra cost to you. iBCB-HUB is not a lender and does not make credit decisions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/ibcb-hub/assets/js/hub-shell.js" defer></script>
+</body>
+</html>

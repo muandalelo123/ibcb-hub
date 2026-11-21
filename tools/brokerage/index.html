@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brokerage | IBCB-HUB</title>
-  <link rel="stylesheet" href="../../css/style.css" />
+  <title>Business Funding: Compare Lenders — iBCB-HUB</title>
+  <meta name="description" content="Compare business lenders, lines of credit and business credit cards, then request funding options matched to your business." />
   <style>
     :root{
       --bg0:#040816;
@@ -997,28 +997,30 @@
       }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="/ibcb-hub/assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="/ibcb-hub/assets/css/hub-shell.css" />
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a href="/ibcb-hub/index.html" class="brand">
-        <span class="brand-mark">iB</span>
-        <span class="brand-text">iBCB-HUB</span>
+  <header class="hub-header">
+    <div class="hub-bar">
+      <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+        <span class="hub-brand-mark" aria-hidden="true">iB</span>
+        <span>iBCB-HUB</span>
       </a>
-
-      <nav class="nav-links">
-        <a href="/ibcb-hub/index.html">Home</a>
-        <a href="/ibcb-hub/tools/index.html">Tools</a>
-        <a href="/ibcb-hub/resources/index.html">Resources</a>
-        <a href="/ibcb-hub/about/index.html">About</a>
-        <a href="#" class="active">Brokerage</a>
+      <button class="hub-menu-toggle" type="button" aria-expanded="false" aria-controls="hub-nav" aria-label="Open menu">
+        <svg class="hub-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="hub-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <nav class="hub-nav" id="hub-nav" aria-label="Main navigation">
+        <a href="/ibcb-hub/tools/" data-section="/ibcb-hub/tools/">Tools</a>
+        <a href="/ibcb-hub/tools/brokerage/" data-section="/ibcb-hub/tools/brokerage/">Funding</a>
+        <a href="/ibcb-hub/rocketmail/" data-section="/ibcb-hub/rocketmail/">RocketMail</a>
+        <a href="/ibcb-hub/resources/" data-section="/ibcb-hub/resources/">Resources</a>
+        <a href="/ibcb-hub/blog/" data-section="/ibcb-hub/blog/">Blog</a>
+        <a href="/ibcb-hub/about/" data-section="/ibcb-hub/about/">About</a>
       </nav>
-
-      <div class="nav-actions">
-        <a class="btn btn-secondary btn-small" href="../">Explore Tools</a>
-        <a class="btn btn-primary btn-small" href="#funding-form">Compare Lenders</a>
-      </div>
+      <a class="hub-cta" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
     </div>
   </header>
 
@@ -1027,22 +1029,19 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Brokerage • Funding • Lead Capture • Partner Monetization</span>
+          <span class="eyebrow">Business loans • Lines of credit • Business credit cards</span>
 
           <h1>Business Funding Solutions for <span class="accent">Entrepreneurs</span></h1>
 
           <p>
             Compare trusted lenders, discover financing options, and find the right
             funding solution for business growth, working capital, inventory, or expansion.
-            This page is built to turn funding intent into qualified leads, lender clicks,
-            and long-term monetization opportunities.
           </p>
 
           <div class="hero-badges">
-            <span class="badge">Funding up to $5M</span>
-            <span class="badge">Fast approvals</span>
             <span class="badge">Multiple lender options</span>
-            <span class="badge">Affiliate-ready structure</span>
+            <span class="badge">Loans and credit cards</span>
+            <span class="badge">Free to compare</span>
           </div>
 
           <div class="btn-group">
@@ -1053,27 +1052,27 @@
 
         <div class="hero-side">
           <aside class="hero-card">
-            <h3>Why use this page?</h3>
+            <h3>Why compare here?</h3>
             <ul>
               <li>Compare multiple business funding options in one place</li>
               <li>Discover lenders for working capital, growth, and expansion</li>
-              <li>Highlight your highest-converting funding partners first</li>
-              <li>Connect financing offers to the wider IBCB-HUB ecosystem</li>
+              <li>Understand what lenders look at before you apply</li>
+              <li>Find business tools for the next step once you are funded</li>
             </ul>
           </aside>
 
           <div class="hero-metrics">
             <div class="hero-metric">
-              <strong>Lead-first</strong>
-              <span>Designed for form capture and partner clicks</span>
+              <strong>One request</strong>
+              <span>Tell us your needs once and we point you to suitable options</span>
             </div>
             <div class="hero-metric">
-              <strong>Multi-offer</strong>
-              <span>Supports direct lenders, affiliates, and internal pages</span>
+              <strong>Several paths</strong>
+              <span>Term loans, working capital, equipment financing and cards</span>
             </div>
             <div class="hero-metric">
-              <strong>Premium UX</strong>
-              <span>Aligned with your strongest site pages visually</span>
+              <strong>No cost to you</strong>
+              <span>Comparing options on iBCB-HUB is free</span>
             </div>
           </div>
         </div>
@@ -1096,8 +1095,8 @@
           <div class="info-box">
             <h3>What you can request</h3>
             <p>
-              Use this section as your lead capture engine. Later, you can connect it
-              to your CRM, email automation flow, lender-routing system, or form backend.
+              Tell us about your business and what you need. We review each request
+              and reply by email with funding options that may fit.
             </p>
             <ul>
               <li>Working capital</li>
@@ -1122,26 +1121,30 @@
             <h3>Funding Request Form</h3>
             <p>Complete this quick form to start comparing business funding options.</p>
 
-            <form action="#" method="post">
+            <form action="/ibcb-hub/api/send.php" method="post">
+              <input type="hidden" name="form_type" value="funding" />
+              <div class="hub-hp" aria-hidden="true">
+                <label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+              </div>
               <div class="form-grid">
                 <div class="form-group">
                   <label for="name">Full Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your full name" />
+                  <input type="text" id="name" name="name" placeholder="Your full name" required maxlength="120" autocomplete="name" />
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email Address</label>
-                  <input type="email" id="email" name="email" placeholder="you@example.com" />
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required maxlength="190" autocomplete="email" />
                 </div>
 
                 <div class="form-group">
                   <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" />
+                  <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" maxlength="40" autocomplete="tel" />
                 </div>
 
                 <div class="form-group">
                   <label for="revenue">Monthly Revenue</label>
-                  <select id="revenue" name="revenue">
+                  <select id="revenue" name="revenue" required>
                     <option value="">Select revenue range</option>
                     <option value="under-5k">Under $5K</option>
                     <option value="5k-10k">$5K - $10K</option>
@@ -1153,7 +1156,7 @@
 
                 <div class="form-group full">
                   <label for="amount">Funding Amount Needed</label>
-                  <input type="text" id="amount" name="amount" placeholder="Example: $50,000" />
+                  <input type="text" id="amount" name="amount" placeholder="Example: $50,000" required maxlength="60" />
                 </div>
 
                 <div class="form-group full">
@@ -1163,13 +1166,14 @@
             </form>
 
             <div class="form-trust">
-              <span>Quick request flow</span>
-              <span>Built for entrepreneurs</span>
-              <span>Multiple lender categories</span>
+              <span>Takes 1 minute</span>
+              <span>No impact on your credit score</span>
+              <span>Reply by email</span>
             </div>
 
             <p class="helper-text">
-              Replace the form action with your lead processing system, CRM endpoint, or automated follow-up workflow.
+              By submitting, you agree that iBCB-HUB may contact you about funding options. iBCB-HUB is not a lender
+              and does not make credit decisions. Lenders may check your credit when you apply with them.
             </p>
           </div>
         </div>
@@ -1180,11 +1184,11 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Priority Offers</div>
+          <div class="section-kicker">Our picks</div>
           <h2 class="section-title">Top Picks</h2>
           <p class="section-subtitle">
-            Put your most strategic funding offers first. This section is designed to surface
-            the top partners you want visitors to click before they explore the full lender list.
+            Three lenders to start with, depending on whether you need speed, a mainstream
+            small business loan, or short-term working capital.
           </p>
         </div>
 
@@ -1196,9 +1200,9 @@
               <span class="offer-tag outline-gold">Fast Approval</span>
             </div>
             <h3>Clarify Capital</h3>
-            <p>A priority option for businesses looking for speed, scale, and broader funding potential.</p>
+            <p>For businesses looking for speed and a wide range of funding amounts.</p>
             <a href="#" class="btn btn-primary btn-small">Check Eligibility</a>
-            <div class="cta-soft">Best placed here if this is your strongest affiliate or direct partner.</div>
+            <div class="cta-soft">Good starting point if you need a fast decision.</div>
           </article>
 
           <article class="top-pick-card">
@@ -1210,7 +1214,7 @@
             <h3>Reliant Funding</h3>
             <p>A solid option for entrepreneurs seeking structured financing support and mainstream business funding.</p>
             <a href="#" class="btn btn-primary btn-small">See Funding Options</a>
-            <div class="cta-soft">Useful as a dependable second-click option for established businesses.</div>
+            <div class="cta-soft">Best suited to established businesses with steady revenue.</div>
           </article>
 
           <article class="top-pick-card">
@@ -1222,13 +1226,11 @@
             <h3>Fast Business Financial</h3>
             <p>A good fit for quicker capital needs, working capital requests, and short-term business momentum.</p>
             <a href="#" class="btn btn-primary btn-small">Start Request</a>
-            <div class="cta-soft">Works well when you want to push faster action-oriented applications.</div>
+            <div class="cta-soft">Useful for short-term cash needs.</div>
           </article>
         </div>
 
-        <p class="monetize-note">
-          Replace each <code>href="#"</code> with your priority affiliate links or highest-value partner destinations.
-        </p>
+        
       </div>
     </section>
 
@@ -1236,11 +1238,11 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Top Monetization Block</div>
+          <div class="section-kicker">Lenders</div>
           <h2 class="section-title">Featured Business Lenders</h2>
           <p class="section-subtitle">
-            Start with your highest-priority lender partners. This section should drive the strongest clicks,
-            support affiliate monetization, and help visitors move quickly toward a funding decision.
+            Funding ranges and approval times as published by each lender. Always confirm the
+            current terms with the lender before applying.
           </p>
         </div>
 
@@ -1294,9 +1296,7 @@
           </article>
         </div>
 
-        <p class="monetize-note">
-          Replace each <code>href="#"</code> with your lender affiliate links, partner landing pages, or internal comparison pages.
-        </p>
+        
       </div>
     </section>
 
@@ -1304,11 +1304,10 @@
     <section id="comparison-table" class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Comparison Layer</div>
+          <div class="section-kicker">Compare</div>
           <h2 class="section-title">Compare Business Loan Options</h2>
           <p class="section-subtitle">
-            Use a comparison table to improve clarity, increase trust, and help visitors choose
-            the right funding solution more quickly.
+            Funding range, typical approval time and best use, side by side.
           </p>
         </div>
 
@@ -1362,18 +1361,17 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Extended Network</div>
-          <h2 class="section-title">Expanded Lender Network</h2>
+          <div class="section-kicker">More lenders</div>
+          <h2 class="section-title">Other Lenders and Funding Platforms</h2>
           <p class="section-subtitle">
-            This section is designed for your wider lending ecosystem. You can connect these entries
-            to affiliate links, direct partner pages, or internal lender detail pages.
+            More options to explore, from community lenders to funding marketplaces.
           </p>
         </div>
 
         <div class="network-grid">
           <div class="network-item">
             <h4>GoFundShop</h4>
-            <p>Referral-based funding access for business financing opportunities.</p>
+            <p>Access to business financing opportunities through a network of providers.</p>
             <a href="#" class="btn btn-secondary btn-small">Learn More</a>
           </div>
 
@@ -1397,13 +1395,13 @@
 
           <div class="network-item">
             <h4>United Capital Source</h4>
-            <p>Funding marketplace and referral-driven business lending options.</p>
+            <p>Funding marketplace that connects businesses with several lenders.</p>
             <a href="#" class="btn btn-secondary btn-small">Learn More</a>
           </div>
 
           <div class="network-item">
             <h4>NextWave Funding</h4>
-            <p>Fast business loan pathways and partner-oriented lender access.</p>
+            <p>Business loans with a focus on quick decisions.</p>
             <a href="#" class="btn btn-secondary btn-small">Learn More</a>
           </div>
 
@@ -1421,7 +1419,7 @@
 
           <div class="network-item">
             <h4>BNC Finance</h4>
-            <p>Referral-ready finance solutions for small business lead generation.</p>
+            <p>Finance solutions for small businesses.</p>
             <a href="#" class="btn btn-secondary btn-small">Learn More</a>
           </div>
         </div>
@@ -1435,8 +1433,8 @@
           <div class="section-kicker">Credit Offers</div>
           <h2 class="section-title">Business Credit Cards for Entrepreneurs</h2>
           <p class="section-subtitle">
-            Keep credit card offers visually distinct from loan offers to make the page easier
-            to understand, easier to compare, and easier to monetize.
+            For everyday expenses and building business credit. Card terms and rewards change
+            often: check the issuer's page for current details.
           </p>
         </div>
 
@@ -1475,9 +1473,7 @@
           </article>
         </div>
 
-        <p class="monetize-note">
-          Replace each <code>href="#"</code> with your card affiliate links, issuer landing pages, or internal comparison pages.
-        </p>
+        
       </div>
     </section>
 
@@ -1485,10 +1481,10 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Education Layer</div>
+          <div class="section-kicker">Before you apply</div>
           <h2 class="section-title">How to Choose the Right Business Loan</h2>
           <p class="section-subtitle">
-            Add short educational content to improve trust and help visitors act with more confidence.
+            Three things lenders look at, and what they mean for you.
           </p>
         </div>
 
@@ -1515,11 +1511,10 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Conversion FAQ</div>
+          <div class="section-kicker">FAQ</div>
           <h2 class="section-title">Frequently Asked Questions</h2>
           <p class="section-subtitle">
-            This section helps answer common objections before the final CTA, while still leaving room
-            for your future agent to guide and personalize the experience.
+            Quick answers to the questions entrepreneurs ask most.
           </p>
         </div>
 
@@ -1549,40 +1544,40 @@
           </article>
 
           <article class="faq-item">
-            <h4>Will this page later work with an agent?</h4>
+            <h4>Is iBCB-HUB a lender?</h4>
             <p>
-              Yes. The FAQ handles common questions, while your future agent can guide users through
-              recommendations, offer matching, qualification, and form assistance.
+              No. iBCB-HUB helps you compare options and points you to lenders and card issuers.
+              The lender reviews your application and makes the credit decision.
             </p>
           </article>
 
           <article class="faq-item">
-            <h4>Can I connect this page to my CRM or workflow?</h4>
+            <h4>Does sending a request affect my credit score?</h4>
             <p>
-              Yes. The form section can later be connected to a CRM, email automation, routing logic,
-              or lead distribution system without changing the overall page structure.
+              No. Our request form does not check your credit. When you apply with a lender, that lender
+              may run a credit check: ask them whether it is a soft or hard inquiry.
             </p>
           </article>
 
           <article class="faq-item">
-            <h4>Can I replace these links with affiliate or partner URLs?</h4>
+            <h4>Does iBCB-HUB earn money from these offers?</h4>
             <p>
-              Yes. The page is already structured so you can progressively replace placeholder links
-              with affiliate URLs, lender landing pages, or internal detail pages.
+              Some links are affiliate links: we may receive a commission if you sign up, at no extra
+              cost to you. This never changes the terms a lender offers you.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- WHY IBCB-HUB -->
+    <!-- WHY iBCB-HUB -->
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Platform Connection</div>
-          <h2 class="section-title">Why Entrepreneurs Use IBCB-HUB</h2>
+          <div class="section-kicker">iBCB-HUB</div>
+          <h2 class="section-title">Why Entrepreneurs Use iBCB-HUB</h2>
           <p class="section-subtitle">
-            This section connects the Brokerage page to the broader value proposition of your platform.
+            Funding is one step. iBCB-HUB also helps with the tools you need to run and grow your business.
           </p>
         </div>
 
@@ -1641,10 +1636,49 @@
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© 2026 iBCB LLC. All rights reserved.</span>
-      <span>Brokerage • IBCB-HUB</span>
+
+  <footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <div class="hub-footer-grid">
+        <div class="hub-footer-about">
+          <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+            <span class="hub-brand-mark" aria-hidden="true">iB</span>
+            <span>iBCB-HUB</span>
+          </a>
+          <p>Curated tools, funding options and practical guides to help entrepreneurs launch, run and grow their business.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/ibcb-hub/tools/">All tools</a></li>
+            <li><a href="/ibcb-hub/tools/ai-tools/">AI tools</a></li>
+            <li><a href="/ibcb-hub/tools/email-marketing/">Email marketing</a></li>
+            <li><a href="/ibcb-hub/tools/business-stack/">Business stack</a></li>
+            <li><a href="/ibcb-hub/tools/brokerage/">Business funding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>iBCB</h2>
+          <ul>
+            <li><a href="/ibcb-hub/about/">About us</a></li>
+            <li><a href="/ibcb-hub/rocketmail/">iBCB RocketMail</a></li>
+            <li><a href="/ibcb-hub/network/">The iBCB Network</a></li>
+            <li><a href="/ibcb-hub/blog/">Blog</a></li>
+            <li><a href="/ibcb-hub/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="/ibcb-hub/contact/">Contact form</a></li>
+            <li><a href="mailto:supportbcb@ibcb-s.com">supportbcb@ibcb-s.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hub-footer-bottom">
+        <span>&copy; 2026 iBCB LLC. All rights reserved.</span>
+        <p>Some links on iBCB-HUB are affiliate links: we may earn a commission if you sign up, at no extra cost to you. iBCB-HUB is not a lender and does not make credit decisions.</p>
+      </div>
     </div>
   </footer>
 
@@ -1666,7 +1700,7 @@
       if(!value) return;
 
       body.innerHTML += '<div class="agent-msg"><strong>You:</strong> ' + escapeHtml(value) + '</div>';
-      body.innerHTML += '<div class="agent-msg"><strong>Assistant:</strong> Based on your question, compare the Top Picks first, then use the funding request form if you want broader matching. You can later connect this assistant to real lender-matching logic.</div>';
+      body.innerHTML += '<div class="agent-msg"><strong>Assistant:</strong> Based on your question, compare the Top Picks first, then use the funding request form if you want options matched to your business. You can also email us at supportbcb@ibcb-s.com.</div>';
 
       input.value = "";
       body.scrollTop = body.scrollHeight;
@@ -1688,6 +1722,7 @@
       }
     });
   </script>
+  <script src="/ibcb-hub/assets/js/hub-shell.js" defer></script>
 </body>
 </html>
 

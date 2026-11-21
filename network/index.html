@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore Our Stores | iBCB-HUB</title>
-  <meta name="description" content="Discover iBCB online shopping platforms, curated stores, premium products, and future specialized marketplaces." />
+  <title>The iBCB Network — iBCB-HUB</title>
+  <meta name="description" content="Explore the iBCB Network: our online stores, directories and upcoming platforms, all run by iBCB LLC." />
   <style>
     :root {
       --bg: #030817;
@@ -367,48 +367,49 @@
       .visual { min-height: 145px; margin-bottom: 20px; }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="/ibcb-hub/assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="/ibcb-hub/assets/css/hub-shell.css" />
 </head>
 <body>
-  <header class="topbar">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="../index.html" aria-label="iBCB-HUB Home">
-        <span class="brand-mark">iB</span>
-        <span>IBCB-HUB</span>
+  <header class="hub-header">
+    <div class="hub-bar">
+      <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+        <span class="hub-brand-mark" aria-hidden="true">iB</span>
+        <span>iBCB-HUB</span>
       </a>
-
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="../tools/index.html">Tools</a>
-        <a href="../blog/index.html">Blog</a>
-        <a href="../resources/index.html">Resources</a>
-        <a href="../about/index.html">About</a>
-        <a href="../contact/index.html">Contact</a>
-      </div>
-
-      <div class="nav-actions">
-        <a class="btn outline" href="../tools/index.html">Explore Tools</a>
-        <a class="btn gold" href="../resources/index.html">View Resources</a>
-      </div>
-    </nav>
+      <button class="hub-menu-toggle" type="button" aria-expanded="false" aria-controls="hub-nav" aria-label="Open menu">
+        <svg class="hub-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="hub-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <nav class="hub-nav" id="hub-nav" aria-label="Main navigation">
+        <a href="/ibcb-hub/tools/" data-section="/ibcb-hub/tools/">Tools</a>
+        <a href="/ibcb-hub/tools/brokerage/" data-section="/ibcb-hub/tools/brokerage/">Funding</a>
+        <a href="/ibcb-hub/rocketmail/" data-section="/ibcb-hub/rocketmail/">RocketMail</a>
+        <a href="/ibcb-hub/resources/" data-section="/ibcb-hub/resources/">Resources</a>
+        <a href="/ibcb-hub/blog/" data-section="/ibcb-hub/blog/">Blog</a>
+        <a href="/ibcb-hub/about/" data-section="/ibcb-hub/about/">About</a>
+      </nav>
+      <a class="hub-cta" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+    </div>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow">iBCB Shopping Network</p>
-      <h1>Explore Our Stores</h1>
-      <p class="subtitle">Discover iBCB online shopping platforms, curated stores, premium products, and future specialized marketplaces.</p>
+      <p class="eyebrow">Stores, directories and platforms by iBCB LLC</p>
+      <h1>Explore the iBCB Network</h1>
+      <p class="subtitle">The websites we run beyond iBCB-HUB: online stores you can visit today, and new directories and platforms on the way.</p>
       <div class="hero-actions">
-        <a class="btn gold" href="#active-stores">View Active Stores</a>
-        <a class="btn outline" href="#coming-soon">Future Marketplaces</a>
+        <a class="btn gold" href="#active-stores">See live sites</a>
+        <a class="btn outline" href="#coming-soon">Coming next</a>
       </div>
     </section>
 
     <section id="active-stores" aria-labelledby="active-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Current active stores</p>
-          <h2 id="active-title">Shop from our live platforms</h2>
-          <p>Each card opens the selected store in a new tab.</p>
+          <p class="eyebrow">Live now</p>
+          <h2 id="active-title">Visit our live sites</h2>
+          <p>Each site opens in a new tab.</p>
         </div>
       </div>
 
@@ -434,11 +435,11 @@
               </svg>
             </div>
             <div class="content">
-              <div class="status-row"><span class="badge">Active Store</span></div>
+              <div class="status-row"><span class="badge">Online store · Live</span></div>
               <h3>iBCB-A Store</h3>
-              <p>Best Selling Products Store</p>
+              <p>A selection of best-selling products from Amazon.</p>
               <div class="tags"><span class="tag">Amazon</span><span class="tag">Best Sellers</span><span class="tag">Online Shopping</span></div>
-              <div class="card-action"><a class="open-link" href="https://ibcb-a.com" target="_blank" rel="noopener noreferrer">Open Store</a></div>
+              <div class="card-action"><a class="open-link" href="https://ibcb-a.com" target="_blank" rel="noopener noreferrer">Visit site</a></div>
             </div>
           </div>
         </article>
@@ -467,11 +468,11 @@
               </svg>
             </div>
             <div class="content">
-              <div class="status-row"><span class="badge">Active Store</span></div>
+              <div class="status-row"><span class="badge">Online store · Live</span></div>
               <h3>Royal Watches Store</h3>
               <p>Premium and luxury watches for men, women, and gift buyers.</p>
               <div class="tags"><span class="tag">Luxury Watches</span><span class="tag">Gifts</span><span class="tag">Premium</span></div>
-              <div class="card-action"><a class="open-link" href="https://www.royalwatchesstore.com/" target="_blank" rel="noopener noreferrer">Open Store</a></div>
+              <div class="card-action"><a class="open-link" href="https://www.royalwatchesstore.com/" target="_blank" rel="noopener noreferrer">Visit site</a></div>
             </div>
           </div>
         </article>
@@ -481,9 +482,9 @@
     <section id="coming-soon" aria-labelledby="coming-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Future stores</p>
-          <h2 id="coming-title">Specialized marketplaces coming soon</h2>
-          <p>These cards prepare the portal for future iBCB projects.</p>
+          <p class="eyebrow">Coming next</p>
+          <h2 id="coming-title">New platforms on the way</h2>
+          <p>Stores and directories we are building. Check back soon.</p>
         </div>
       </div>
 
@@ -499,7 +500,7 @@
               </svg>
             </div>
             <div class="content">
-              <span class="badge">Coming Soon</span>
+              <span class="badge">Online store · Coming soon</span>
               <h3>Men &amp; Women High Quality Fashion</h3>
               <p>Premium fashion selections for men and women.</p>
               <div class="tags"><span class="tag">Fashion</span><span class="tag">Men</span><span class="tag">Women</span></div>
@@ -520,7 +521,7 @@
               </svg>
             </div>
             <div class="content">
-              <span class="badge">Coming Soon</span>
+              <span class="badge">Directory · Coming soon</span>
               <h3>Tourism Directory</h3>
               <p>A curated tourism directory organized by category, state, and destination.</p>
               <div class="tags"><span class="tag">Tourism</span><span class="tag">Directory</span><span class="tag">Destinations</span></div>
@@ -542,7 +543,7 @@
               </svg>
             </div>
             <div class="content">
-              <span class="badge">Coming Soon</span>
+              <span class="badge">Online store · Coming soon</span>
               <h3>Premium Vehicles Store</h3>
               <p>High-end vehicles and premium automotive selections.</p>
               <div class="tags"><span class="tag">Vehicles</span><span class="tag">Premium</span><span class="tag">Automotive</span></div>
@@ -553,9 +554,52 @@
       </div>
     </section>
 
-    <div class="footer-note">
-      Recommended HUB update: replace the Amazon &amp; E-Commerce button label with <strong>Explore Stores</strong> and link it to this intermediate page instead of opening iBCB-A directly.
-    </div>
   </main>
+
+  <footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <div class="hub-footer-grid">
+        <div class="hub-footer-about">
+          <a class="hub-brand" href="/ibcb-hub/" aria-label="iBCB-HUB home">
+            <span class="hub-brand-mark" aria-hidden="true">iB</span>
+            <span>iBCB-HUB</span>
+          </a>
+          <p>Curated tools, funding options and practical guides to help entrepreneurs launch, run and grow their business.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/ibcb-hub/tools/">All tools</a></li>
+            <li><a href="/ibcb-hub/tools/ai-tools/">AI tools</a></li>
+            <li><a href="/ibcb-hub/tools/email-marketing/">Email marketing</a></li>
+            <li><a href="/ibcb-hub/tools/business-stack/">Business stack</a></li>
+            <li><a href="/ibcb-hub/tools/brokerage/">Business funding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>iBCB</h2>
+          <ul>
+            <li><a href="/ibcb-hub/about/">About us</a></li>
+            <li><a href="/ibcb-hub/rocketmail/">iBCB RocketMail</a></li>
+            <li><a href="/ibcb-hub/network/">The iBCB Network</a></li>
+            <li><a href="/ibcb-hub/blog/">Blog</a></li>
+            <li><a href="/ibcb-hub/resources/">Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="/ibcb-hub/contact/">Contact form</a></li>
+            <li><a href="mailto:supportbcb@ibcb-s.com">supportbcb@ibcb-s.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hub-footer-bottom">
+        <span>&copy; 2026 iBCB LLC. All rights reserved.</span>
+        <p>Some links on iBCB-HUB are affiliate links: we may earn a commission if you sign up, at no extra cost to you. iBCB-HUB is not a lender and does not make credit decisions.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/ibcb-hub/assets/js/hub-shell.js" defer></script>
 </body>
 </html>

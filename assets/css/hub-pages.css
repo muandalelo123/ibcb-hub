@@ -1,0 +1,166 @@
+/* Styles for the simple iBCB-HUB pages (Blog, Resources, Contact, 404,
+   form confirmation). Uses the same palette as the rest of the hub. */
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:#eef3ff;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(34,89,255,.18), transparent 0 24%),
+    radial-gradient(circle at 85% 12%, rgba(240,198,60,.10), transparent 0 18%),
+    linear-gradient(180deg, #030712 0%, #061027 34%, #07122b 100%);
+  background-color:#040816;
+  line-height:1.6;
+  min-height:100vh;
+}
+
+a{color:inherit}
+
+.page-hero{margin-bottom:36px}
+
+.page-kicker{
+  color:#f0c63c;
+  font-weight:800;
+  font-size:.95rem;
+  margin:0 0 10px;
+}
+
+.page-hero h1{
+  margin:0 0 14px;
+  font-size:clamp(2.1rem,4vw,3.4rem);
+  line-height:1.08;
+  letter-spacing:-.03em;
+  font-weight:900;
+}
+
+.page-hero h1 span{color:#f0c63c}
+
+.page-lead{
+  margin:0;
+  max-width:720px;
+  color:#b9c7e8;
+  font-size:1.1rem;
+}
+
+.page-section{margin:0 0 44px}
+
+.page-section > h2{
+  margin:0 0 8px;
+  font-size:clamp(1.4rem,2.4vw,1.9rem);
+  letter-spacing:-.02em;
+}
+
+.page-section > p{
+  margin:0 0 20px;
+  color:#b9c7e8;
+  max-width:720px;
+}
+
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.page-grid.two{grid-template-columns:repeat(2,1fr)}
+
+@media (max-width:900px){
+  .page-grid,
+  .page-grid.two{grid-template-columns:1fr}
+}
+
+.page-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:24px 22px;
+  border-radius:22px;
+  border:1px solid rgba(116,145,212,.16);
+  background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+  box-shadow:0 24px 70px rgba(0,0,0,.35);
+  text-decoration:none;
+}
+
+a.page-card{transition:transform .2s ease, border-color .2s ease}
+a.page-card:hover{transform:translateY(-2px);border-color:rgba(240,198,60,.3)}
+
+.page-card h3{margin:0;font-size:1.15rem;line-height:1.25}
+.page-card p{margin:0;color:#b9c7e8}
+
+.page-card .page-link{
+  margin-top:auto;
+  padding-top:6px;
+  color:#f0c63c;
+  font-weight:700;
+}
+
+.page-badge{
+  align-self:flex-start;
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:700;
+  color:#94a8d6;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.03);
+}
+
+.page-badge.live{
+  color:#34d399;
+  border-color:rgba(52,211,153,.35);
+  background:rgba(52,211,153,.08);
+}
+
+.page-panel{
+  padding:28px;
+  border-radius:24px;
+  border:1px solid rgba(116,145,212,.16);
+  background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+  box-shadow:0 24px 70px rgba(0,0,0,.35);
+}
+
+.contact-layout{
+  display:grid;
+  grid-template-columns:1.4fr .9fr;
+  gap:24px;
+  align-items:start;
+}
+
+@media (max-width:900px){
+  .contact-layout{grid-template-columns:1fr}
+}
+
+.contact-aside h2{margin:0 0 8px;font-size:1.15rem}
+.contact-aside p{margin:0 0 18px;color:#b9c7e8}
+.contact-aside a{color:#f0c63c;font-weight:700;word-break:break-word}
+
+.page-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+.page-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 20px;
+  border-radius:12px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.page-btn.primary{color:#0c142b;background:linear-gradient(180deg, #f7d55b, #ebb91f)}
+.page-btn.secondary{color:#f0c63c;border:1px solid rgba(240,198,60,.6)}
+
+.notice{
+  padding:14px 16px;
+  border-radius:14px;
+  margin:0 0 18px;
+  font-weight:600;
+}
+
+.notice.error{
+  color:#fecaca;
+  background:rgba(239,68,68,.12);
+  border:1px solid rgba(239,68,68,.35);
+}
