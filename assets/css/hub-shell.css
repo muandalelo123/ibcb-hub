@@ -341,3 +341,27 @@ html{background-color:#040816}
 
 /* Honeypot field for spam bots: hidden from people. */
 .hub-hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+
+/* Legal links in the footer */
+.hub-footer nav.hub-legal{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 18px;
+  margin:0;
+  padding:0;
+  background:none;
+  border:0;
+}
+
+.hub-footer nav.hub-legal a{
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:none;
+  color:var(--hub-muted);
+  font-size:.86rem;
+}
+
+.hub-footer-bottom p{flex-basis:100%}
+
+.hub-form-note a{color:var(--hub-gold)}
