@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brokerage | IBCB-HUB</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    :root{
+      --bg0:#040816;
+      --bg1:#081127;
+      --bg2:#0d1834;
+      --panel:#111f43;
+      --panel-soft:#0e1a37;
+      --panel-deep:#0b1833;
+      --card:#142447;
+      --card-2:#10203f;
+      --text:#eef3ff;
+      --muted:#b9c7e8;
+      --muted-2:#8fa4d6;
+      --gold:#f0c63c;
+      --gold-2:#d6a92a;
+      --line:rgba(255,255,255,.08);
+      --line-strong:rgba(240,198,60,.22);
+      --success:#22c55e;
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --radius:22px;
+      --radius-lg:28px;
+      --max:1180px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Inter, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 16% 10%, rgba(34,89,255,.18), transparent 0 24%),
+        radial-gradient(circle at 84% 12%, rgba(240,198,60,.12), transparent 0 18%),
+        linear-gradient(180deg, #030712 0%, #061027 36%, #07122b 100%);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(10px);
+      background:rgba(4,8,22,.72);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .brand-mark{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:#111827;
+      background:linear-gradient(180deg, var(--gold), #ddb22f);
+      box-shadow:0 10px 22px rgba(240,198,60,.22);
+      font-weight:900;
+    }
+
+    .brand-text{
+      color:var(--gold);
+      font-weight:800;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .section{
+      padding:44px 0;
+    }
+
+    .section-head{
+      margin-bottom:22px;
+    }
+
+    .section-kicker{
+      color:var(--gold);
+      font-size:1rem;
+      font-weight:900;
+      margin-bottom:10px;
+      letter-spacing:.02em;
+    }
+
+    .section-title{
+      font-size:clamp(1.9rem, 2.7vw, 2.8rem);
+      line-height:1.08;
+      letter-spacing:-.03em;
+      margin-bottom:12px;
+      font-weight:850;
+    }
+
+    .section-subtitle{
+      color:var(--muted);
+      max-width:760px;
+      font-size:1.03rem;
+    }
+
+    .hero{
+      padding:54px 0 34px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.18fr .82fr;
+      gap:34px;
+      align-items:stretch;
+    }
+
+    .hero-copy{
+      padding-top:18px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:.92rem;
+      background:rgba(255,255,255,.03);
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:clamp(2.8rem, 4.8vw, 5rem);
+      line-height:1.02;
+      letter-spacing:-.055em;
+      margin-bottom:18px;
+      font-weight:900;
+      max-width:900px;
+    }
+
+    .accent{
+      color:var(--gold);
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.1rem;
+      max-width:760px;
+      margin-bottom:26px;
+    }
+
+    .hero-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:26px;
+    }
+
+    .badge{
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      padding:11px 16px;
+      border-radius:999px;
+      font-size:.95rem;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    .btn-group,
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 20px;
+      border-radius:14px;
+      font-weight:800;
+      transition:.22s ease;
+      white-space:nowrap;
+      cursor:pointer;
+      border:none;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      color:#0d162d;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      box-shadow:0 14px 28px rgba(240,198,60,.18);
+    }
+
+    .btn-primary:hover{
+      box-shadow:0 18px 34px rgba(240,198,60,.24);
+    }
+
+    .btn-secondary{
+      color:var(--gold);
+      border:1px solid rgba(240,198,60,.68);
+      background:rgba(255,255,255,.02);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(240,198,60,.06);
+    }
+
+    .btn-small{
+      min-height:44px;
+      padding:0 16px;
+      border-radius:12px;
+      font-size:.96rem;
+    }
+
+    .panel,
+    .hero-card,
+    .form-card,
+    .card,
+    .info-box,
+    .network-item,
+    .credit-card,
+    .choose-card,
+    .why-card,
+    .hero-metric,
+    .top-pick-card,
+    .faq-item,
+    .agent-inline,
+    .agent-chat,
+    table,
+    .cta-panel{
+      border:1px solid rgba(116,145,212,.16);
+      background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-side{
+      display:grid;
+      gap:18px;
+      align-content:start;
+    }
+
+    .hero-card{
+      padding:28px 26px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:200px;
+      height:200px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,198,60,.18), transparent 65%);
+      pointer-events:none;
+    }
+
+    .hero-card h3{
+      font-size:1.08rem;
+      color:var(--gold);
+      margin-bottom:14px;
+      font-weight:900;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-card ul{
+      list-style:none;
+      display:grid;
+      gap:14px;
+      color:var(--muted);
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-card li{
+      position:relative;
+      padding-left:24px;
+    }
+
+    .hero-card li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--success);
+      font-weight:900;
+    }
+
+    .hero-metrics{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .hero-metric{
+      padding:18px;
+      background:linear-gradient(180deg, rgba(17,31,67,.96), rgba(12,24,51,.96));
+    }
+
+    .hero-metric strong{
+      display:block;
+      color:var(--gold);
+      font-size:1.15rem;
+      margin-bottom:6px;
+    }
+
+    .hero-metric span{
+      color:var(--muted);
+      font-size:.94rem;
+      display:block;
+    }
+
+    .funding-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .info-box{
+      padding:24px;
+    }
+
+    .info-box h3{
+      margin-bottom:10px;
+      color:var(--gold);
+      font-size:1.2rem;
+    }
+
+    .info-box p{
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .info-box ul{
+      list-style:none;
+      display:grid;
+      gap:10px;
+      color:var(--muted);
+    }
+
+    .info-box li::before{
+      content:"•";
+      color:var(--gold);
+      margin-right:10px;
+    }
+
+    .agent-inline{
+      margin-bottom:22px;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(240,198,60,.25);
+      background:linear-gradient(180deg, rgba(240,198,60,.08), rgba(240,198,60,.02));
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+
+    .agent-inline-text strong{
+      color:var(--gold);
+    }
+
+    .agent-inline-text p{
+      color:var(--muted);
+      margin-top:4px;
+      font-size:.95rem;
+    }
+
+    .form-card{
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .form-card::before{
+      content:"";
+      position:absolute;
+      top:-40px;
+      right:-40px;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,110,255,.24), transparent 66%);
+      pointer-events:none;
+    }
+
+    .form-card h3{
+      margin-bottom:10px;
+      font-size:1.55rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .form-card p{
+      color:var(--muted);
+      margin-bottom:22px;
+      position:relative;
+      z-index:1;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .form-group{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .form-group.full{
+      grid-column:1 / -1;
+    }
+
+    label{
+      margin-bottom:8px;
+      font-size:.94rem;
+      color:var(--muted);
+    }
+
+    input,
+    select{
+      width:100%;
+      padding:13px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+
+    input:focus,
+    select:focus{
+      border-color:rgba(240,198,60,.4);
+      box-shadow:0 0 0 4px rgba(240,198,60,.08);
+    }
+
+    input::placeholder{
+      color:#8ea0c4;
+    }
+
+    .form-trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .form-trust span{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    .helper-text{
+      margin-top:14px;
+      font-size:.88rem;
+      color:var(--muted-2);
+      position:relative;
+      z-index:1;
+    }
+
+    .top-picks-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .top-pick-card{
+      padding:24px 22px;
+      position:relative;
+      overflow:hidden;
+      transition:.2s ease;
+    }
+
+    .top-pick-card::before{
+      content:"";
+      position:absolute;
+      top:-30px;
+      right:-30px;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,198,60,.14), transparent 66%);
+      pointer-events:none;
+    }
+
+    .top-pick-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(240,198,60,.22);
+    }
+
+    .top-pick-rank{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      margin-bottom:12px;
+      font-weight:900;
+      color:#0d162d;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      position:relative;
+      z-index:1;
+    }
+
+    .top-pick-card h3{
+      margin-bottom:10px;
+      font-size:1.2rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .top-pick-card p{
+      color:var(--muted);
+      margin-bottom:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .cards-grid,
+    .network-grid,
+    .credit-grid,
+    .choose-grid,
+    .why-grid,
+    .faq-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .card,
+    .network-item,
+    .credit-card,
+    .choose-card,
+    .why-card,
+    .faq-item{
+      padding:24px 22px;
+      transition:.2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::after,
+    .network-item::after,
+    .credit-card::after,
+    .choose-card::after,
+    .why-card::after,
+    .faq-item::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 100% 0%, rgba(46,110,255,.10), transparent 34%);
+      pointer-events:none;
+    }
+
+    .card:hover,
+    .network-item:hover,
+    .credit-card:hover,
+    .choose-card:hover,
+    .why-card:hover,
+    .faq-item:hover{
+      transform:translateY(-2px);
+      border-color:rgba(240,198,60,.22);
+    }
+
+    .card h3,
+    .network-item h4,
+    .credit-card h4,
+    .choose-card h4,
+    .why-card h4,
+    .faq-item h4{
+      margin-bottom:10px;
+      font-size:1.18rem;
+      color:var(--text);
+      position:relative;
+      z-index:1;
+    }
+
+    .card p,
+    .network-item p,
+    .credit-card p,
+    .choose-card p,
+    .why-card p,
+    .faq-item p{
+      color:var(--muted);
+      margin-bottom:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .offer-tags,
+    .tag-row{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .offer-tag,
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.07);
+      color:var(--muted-2);
+      background:rgba(255,255,255,.03);
+      font-size:.82rem;
+      font-weight:700;
+    }
+
+    .offer-tag.gold{
+      color:#0d162d;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      border-color:rgba(240,198,60,.35);
+    }
+
+    .offer-tag.outline-gold{
+      color:var(--gold);
+      border-color:rgba(240,198,60,.35);
+      background:rgba(240,198,60,.06);
+    }
+
+    .meta{
+      display:grid;
+      gap:8px;
+      margin-bottom:18px;
+      color:#dce4f5;
+      font-size:.95rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .meta span strong{
+      color:var(--gold);
+    }
+
+    .cta-soft{
+      margin-top:10px;
+      color:var(--muted-2);
+      font-size:.9rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .comparison-wrap{
+      overflow-x:auto;
+    }
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+    }
+
+    th,
+    td{
+      padding:16px 14px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      vertical-align:middle;
+    }
+
+    th{
+      background:rgba(255,255,255,.03);
+      color:var(--gold);
+      font-size:.96rem;
+      font-weight:800;
+    }
+
+    td{
+      color:var(--muted);
+    }
+
+    td strong{
+      color:var(--text);
+    }
+
+    tr:last-child td{
+      border-bottom:none;
+    }
+
+    .monetize-note{
+      margin-top:18px;
+      color:var(--muted-2);
+      font-size:.93rem;
+    }
+
+    .agent-floating{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      z-index:999;
+    }
+
+    .agent-button{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:none;
+      cursor:pointer;
+      background:linear-gradient(180deg,#f7d55b,#ebb91f);
+      color:#111;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(0,0,0,.4);
+    }
+
+    .agent-chat{
+      position:fixed;
+      bottom:92px;
+      right:20px;
+      width:340px;
+      max-height:440px;
+      display:none;
+      flex-direction:column;
+      overflow:hidden;
+      z-index:1000;
+    }
+
+    .agent-chat-header{
+      padding:14px 16px;
+      background:#111f43;
+      font-weight:800;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .agent-chat-body{
+      flex:1;
+      padding:14px 16px;
+      font-size:.92rem;
+      color:#d8e1fb;
+      overflow-y:auto;
+      background:linear-gradient(180deg, rgba(15,27,59,.96), rgba(11,22,47,.98));
+      min-height:220px;
+    }
+
+    .agent-msg{
+      margin-bottom:12px;
+    }
+
+    .agent-msg strong{
+      color:var(--gold);
+    }
+
+    .agent-chat-input{
+      display:flex;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:#0f1a37;
+    }
+
+    .agent-chat-input input{
+      flex:1;
+      border:none;
+      padding:12px 14px;
+      background:transparent;
+      color:#fff;
+      outline:none;
+      box-shadow:none;
+    }
+
+    .agent-chat-input button{
+      background:#f0c63c;
+      border:none;
+      padding:0 16px;
+      cursor:pointer;
+      font-weight:800;
+      color:#111;
+    }
+
+    .cta{
+      padding:54px 0 70px;
+    }
+
+    .cta-panel{
+      text-align:center;
+      padding:32px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .cta-panel::before{
+      content:"";
+      position:absolute;
+      top:-50px;
+      right:-40px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,110,255,.20), transparent 66%);
+      pointer-events:none;
+    }
+
+    .cta-panel::after{
+      content:"";
+      position:absolute;
+      left:-40px;
+      bottom:-60px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,198,60,.12), transparent 66%);
+      pointer-events:none;
+    }
+
+    .cta-panel h2{
+      font-size:clamp(2rem, 3vw, 3rem);
+      margin-bottom:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .cta-panel p{
+      color:var(--muted);
+      max-width:760px;
+      margin:0 auto 26px;
+      position:relative;
+      z-index:1;
+    }
+
+    .cta-panel .btn-group{
+      justify-content:center;
+      position:relative;
+      z-index:1;
+    }
+
+    .footer{
+      border-top:1px solid rgba(255,255,255,.05);
+      padding:26px 0 48px;
+      color:var(--muted-2);
+      font-size:.95rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:1060px){
+      .hero-grid,
+      .funding-grid,
+      .top-picks-grid,
+      .cards-grid,
+      .network-grid,
+      .credit-grid,
+      .choose-grid,
+      .why-grid,
+      .faq-grid,
+      .hero-metrics{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:720px){
+      .nav{
+        padding:14px 0;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links,
+      .nav-actions{
+        width:100%;
+      }
+
+      .section{
+        padding:34px 0;
+      }
+
+      .hero{
+        padding:38px 0 22px;
+      }
+
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .btn-group,
+      .cta-row{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn{
+        text-align:center;
+      }
+
+      .agent-inline{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .agent-chat{
+        width:calc(100% - 24px);
+        right:12px;
+        bottom:84px;
+      }
+
+      .agent-floating{
+        right:12px;
+        bottom:12px;
+      }
+
+      .hero-card,
+      .form-card,
+      .card,
+      .network-item,
+      .credit-card,
+      .choose-card,
+      .why-card,
+      .top-pick-card,
+      .faq-item,
+      .cta-panel,
+      .info-box,
+      .hero-metric{
+        padding:22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/ibcb-hub/index.html" class="brand">
+        <span class="brand-mark">iB</span>
+        <span class="brand-text">iBCB-HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/ibcb-hub/index.html">Home</a>
+        <a href="/ibcb-hub/tools/index.html">Tools</a>
+        <a href="/ibcb-hub/resources/index.html">Resources</a>
+        <a href="/ibcb-hub/about/index.html">About</a>
+        <a href="#" class="active">Brokerage</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary btn-small" href="../">Explore Tools</a>
+        <a class="btn btn-primary btn-small" href="#funding-form">Compare Lenders</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Brokerage • Funding • Lead Capture • Partner Monetization</span>
+
+          <h1>Business Funding Solutions for <span class="accent">Entrepreneurs</span></h1>
+
+          <p>
+            Compare trusted lenders, discover financing options, and find the right
+            funding solution for business growth, working capital, inventory, or expansion.
+            This page is built to turn funding intent into qualified leads, lender clicks,
+            and long-term monetization opportunities.
+          </p>
+
+          <div class="hero-badges">
+            <span class="badge">Funding up to $5M</span>
+            <span class="badge">Fast approvals</span>
+            <span class="badge">Multiple lender options</span>
+            <span class="badge">Affiliate-ready structure</span>
+          </div>
+
+          <div class="btn-group">
+            <a href="#funding-form" class="btn btn-primary">Start Funding Request</a>
+            <a href="#comparison-table" class="btn btn-secondary">Explore Funding Options</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <aside class="hero-card">
+            <h3>Why use this page?</h3>
+            <ul>
+              <li>Compare multiple business funding options in one place</li>
+              <li>Discover lenders for working capital, growth, and expansion</li>
+              <li>Highlight your highest-converting funding partners first</li>
+              <li>Connect financing offers to the wider IBCB-HUB ecosystem</li>
+            </ul>
+          </aside>
+
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <strong>Lead-first</strong>
+              <span>Designed for form capture and partner clicks</span>
+            </div>
+            <div class="hero-metric">
+              <strong>Multi-offer</strong>
+              <span>Supports direct lenders, affiliates, and internal pages</span>
+            </div>
+            <div class="hero-metric">
+              <strong>Premium UX</strong>
+              <span>Aligned with your strongest site pages visually</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNDING FORM -->
+    <section id="funding-form" class="section">
+      <div class="container funding-grid">
+        <div>
+          <div class="section-head">
+            <div class="section-kicker">Funding Request</div>
+            <h2 class="section-title">Get Matched With Business Lenders</h2>
+            <p class="section-subtitle">
+              Submit a quick request and discover financing options tailored to your
+              business profile, funding objective, and revenue stage.
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>What you can request</h3>
+            <p>
+              Use this section as your lead capture engine. Later, you can connect it
+              to your CRM, email automation flow, lender-routing system, or form backend.
+            </p>
+            <ul>
+              <li>Working capital</li>
+              <li>Expansion funding</li>
+              <li>Equipment or inventory financing</li>
+              <li>Startup and growth-related business needs</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <!-- AGENT ENTRY -->
+          <div class="agent-inline">
+            <div class="agent-inline-text">
+              <strong>Need help choosing the right funding option?</strong>
+              <p>Ask the assistant before filling out the form and get guided toward the best fit.</p>
+            </div>
+            <button class="btn btn-primary btn-small" type="button" onclick="openAgent()">Ask Assistant</button>
+          </div>
+
+          <div class="form-card">
+            <h3>Funding Request Form</h3>
+            <p>Complete this quick form to start comparing business funding options.</p>
+
+            <form action="#" method="post">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your full name" />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" />
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" />
+                </div>
+
+                <div class="form-group">
+                  <label for="revenue">Monthly Revenue</label>
+                  <select id="revenue" name="revenue">
+                    <option value="">Select revenue range</option>
+                    <option value="under-5k">Under $5K</option>
+                    <option value="5k-10k">$5K - $10K</option>
+                    <option value="10k-25k">$10K - $25K</option>
+                    <option value="25k-50k">$25K - $50K</option>
+                    <option value="50k-plus">$50K+</option>
+                  </select>
+                </div>
+
+                <div class="form-group full">
+                  <label for="amount">Funding Amount Needed</label>
+                  <input type="text" id="amount" name="amount" placeholder="Example: $50,000" />
+                </div>
+
+                <div class="form-group full">
+                  <button type="submit" class="btn btn-primary">Find Funding Options</button>
+                </div>
+              </div>
+            </form>
+
+            <div class="form-trust">
+              <span>Quick request flow</span>
+              <span>Built for entrepreneurs</span>
+              <span>Multiple lender categories</span>
+            </div>
+
+            <p class="helper-text">
+              Replace the form action with your lead processing system, CRM endpoint, or automated follow-up workflow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOP PICKS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Priority Offers</div>
+          <h2 class="section-title">Top Picks</h2>
+          <p class="section-subtitle">
+            Put your most strategic funding offers first. This section is designed to surface
+            the top partners you want visitors to click before they explore the full lender list.
+          </p>
+        </div>
+
+        <div class="top-picks-grid">
+          <article class="top-pick-card">
+            <span class="top-pick-rank">1</span>
+            <div class="offer-tags">
+              <span class="offer-tag gold">Top Pick</span>
+              <span class="offer-tag outline-gold">Fast Approval</span>
+            </div>
+            <h3>Clarify Capital</h3>
+            <p>A priority option for businesses looking for speed, scale, and broader funding potential.</p>
+            <a href="#" class="btn btn-primary btn-small">Check Eligibility</a>
+            <div class="cta-soft">Best placed here if this is your strongest affiliate or direct partner.</div>
+          </article>
+
+          <article class="top-pick-card">
+            <span class="top-pick-rank">2</span>
+            <div class="offer-tags">
+              <span class="offer-tag gold">Popular Option</span>
+              <span class="offer-tag">Small Business</span>
+            </div>
+            <h3>Reliant Funding</h3>
+            <p>A solid option for entrepreneurs seeking structured financing support and mainstream business funding.</p>
+            <a href="#" class="btn btn-primary btn-small">See Funding Options</a>
+            <div class="cta-soft">Useful as a dependable second-click option for established businesses.</div>
+          </article>
+
+          <article class="top-pick-card">
+            <span class="top-pick-rank">3</span>
+            <div class="offer-tags">
+              <span class="offer-tag gold">Best for Growth</span>
+              <span class="offer-tag">Working Capital</span>
+            </div>
+            <h3>Fast Business Financial</h3>
+            <p>A good fit for quicker capital needs, working capital requests, and short-term business momentum.</p>
+            <a href="#" class="btn btn-primary btn-small">Start Request</a>
+            <div class="cta-soft">Works well when you want to push faster action-oriented applications.</div>
+          </article>
+        </div>
+
+        <p class="monetize-note">
+          Replace each <code>href="#"</code> with your priority affiliate links or highest-value partner destinations.
+        </p>
+      </div>
+    </section>
+
+    <!-- FEATURED LENDERS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Top Monetization Block</div>
+          <h2 class="section-title">Featured Business Lenders</h2>
+          <p class="section-subtitle">
+            Start with your highest-priority lender partners. This section should drive the strongest clicks,
+            support affiliate monetization, and help visitors move quickly toward a funding decision.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="offer-tags">
+              <span class="offer-tag gold">Top Pick</span>
+              <span class="offer-tag outline-gold">Fast Approval</span>
+            </div>
+            <h3>Clarify Capital</h3>
+            <p>Flexible financing solutions for small businesses and growth-focused companies.</p>
+            <div class="meta">
+              <span><strong>Funding Range:</strong> $10K - $5M</span>
+              <span><strong>Best For:</strong> Expansion and fast approvals</span>
+              <span><strong>Approval Time:</strong> 24h</span>
+            </div>
+            <a href="#" class="btn btn-primary btn-small">Check Eligibility</a>
+            <div class="cta-soft">A strong option for businesses seeking speed and larger funding potential.</div>
+          </article>
+
+          <article class="card">
+            <div class="offer-tags">
+              <span class="offer-tag gold">Popular Option</span>
+              <span class="offer-tag">Small Business</span>
+            </div>
+            <h3>Reliant Funding</h3>
+            <p>Working capital loans and funding support for established and growing businesses.</p>
+            <div class="meta">
+              <span><strong>Funding Range:</strong> $5K - $2M</span>
+              <span><strong>Best For:</strong> Small business financing</span>
+              <span><strong>Approval Time:</strong> 48h</span>
+            </div>
+            <a href="#" class="btn btn-primary btn-small">See Funding Options</a>
+            <div class="cta-soft">Well suited for entrepreneurs looking for structured funding support.</div>
+          </article>
+
+          <article class="card">
+            <div class="offer-tags">
+              <span class="offer-tag gold">Best for Growth</span>
+              <span class="offer-tag">Working Capital</span>
+            </div>
+            <h3>Fast Business Financial</h3>
+            <p>Quick approval and flexible repayment options for short-term business funding needs.</p>
+            <div class="meta">
+              <span><strong>Funding Range:</strong> $10K - $1M</span>
+              <span><strong>Best For:</strong> Working capital</span>
+              <span><strong>Approval Time:</strong> 24h</span>
+            </div>
+            <a href="#" class="btn btn-primary btn-small">Start Request</a>
+            <div class="cta-soft">Useful for short-term capital needs and faster operational decisions.</div>
+          </article>
+        </div>
+
+        <p class="monetize-note">
+          Replace each <code>href="#"</code> with your lender affiliate links, partner landing pages, or internal comparison pages.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section id="comparison-table" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Comparison Layer</div>
+          <h2 class="section-title">Compare Business Loan Options</h2>
+          <p class="section-subtitle">
+            Use a comparison table to improve clarity, increase trust, and help visitors choose
+            the right funding solution more quickly.
+          </p>
+        </div>
+
+        <div class="comparison-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Lender</th>
+                <th>Loan Range</th>
+                <th>Approval Time</th>
+                <th>Best For</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Clarify Capital</strong></td>
+                <td>$10K - $5M</td>
+                <td>24h</td>
+                <td>Business expansion</td>
+                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
+              </tr>
+              <tr>
+                <td><strong>Reliant Funding</strong></td>
+                <td>$5K - $2M</td>
+                <td>48h</td>
+                <td>Small business financing</td>
+                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
+              </tr>
+              <tr>
+                <td><strong>Fast Business Financial</strong></td>
+                <td>$10K - $1M</td>
+                <td>24h</td>
+                <td>Working capital</td>
+                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
+              </tr>
+              <tr>
+                <td><strong>Honeycomb Credit</strong></td>
+                <td>$25K - $1M</td>
+                <td>3-5 days</td>
+                <td>Community funding</td>
+                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPANDED LENDER NETWORK -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Extended Network</div>
+          <h2 class="section-title">Expanded Lender Network</h2>
+          <p class="section-subtitle">
+            This section is designed for your wider lending ecosystem. You can connect these entries
+            to affiliate links, direct partner pages, or internal lender detail pages.
+          </p>
+        </div>
+
+        <div class="network-grid">
+          <div class="network-item">
+            <h4>GoFundShop</h4>
+            <p>Referral-based funding access for business financing opportunities.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>Pacific Community Ventures</h4>
+            <p>Small business lending and support-oriented financing programs.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>Liberty Capital Group</h4>
+            <p>Business funding partner solutions for entrepreneurs and growing companies.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>1st Merchant Funding</h4>
+            <p>Alternative business financing options for revenue-based operations.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>United Capital Source</h4>
+            <p>Funding marketplace and referral-driven business lending options.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>NextWave Funding</h4>
+            <p>Fast business loan pathways and partner-oriented lender access.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>Breakout Finance</h4>
+            <p>Flexible capital solutions for businesses seeking operational growth.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>Honeycomb Credit</h4>
+            <p>Community-centered capital access for small business funding campaigns.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+
+          <div class="network-item">
+            <h4>BNC Finance</h4>
+            <p>Referral-ready finance solutions for small business lead generation.</p>
+            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS CREDIT CARDS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Credit Offers</div>
+          <h2 class="section-title">Business Credit Cards for Entrepreneurs</h2>
+          <p class="section-subtitle">
+            Keep credit card offers visually distinct from loan offers to make the page easier
+            to understand, easier to compare, and easier to monetize.
+          </p>
+        </div>
+
+        <div class="credit-grid">
+          <article class="credit-card">
+            <div class="offer-tags">
+              <span class="offer-tag gold">Top Card</span>
+              <span class="offer-tag outline-gold">Rewards</span>
+            </div>
+            <h4>American Express Business Gold</h4>
+            <p>Reward-focused business card designed for recurring professional expenses.</p>
+            <a href="#" class="btn btn-primary btn-small">View Card Details</a>
+            <div class="cta-soft">A strong option for businesses with frequent category-based spending.</div>
+          </article>
+
+          <article class="credit-card">
+            <div class="offer-tags">
+              <span class="offer-tag gold">Popular Choice</span>
+              <span class="offer-tag">Startup-Friendly</span>
+            </div>
+            <h4>Chase Ink Business Preferred</h4>
+            <p>A strong option for startups and entrepreneurs managing business purchases.</p>
+            <a href="#" class="btn btn-primary btn-small">Compare Card Benefits</a>
+            <div class="cta-soft">Well suited for founders who want flexible business spending support.</div>
+          </article>
+
+          <article class="credit-card">
+            <div class="offer-tags">
+              <span class="offer-tag gold">Everyday Spend</span>
+              <span class="offer-tag">Flexible Use</span>
+            </div>
+            <h4>Capital One Spark Business</h4>
+            <p>Flexible business credit solutions for everyday operational spending.</p>
+            <a href="#" class="btn btn-primary btn-small">Explore This Card</a>
+            <div class="cta-soft">Useful for ongoing operational expenses and day-to-day business purchases.</div>
+          </article>
+        </div>
+
+        <p class="monetize-note">
+          Replace each <code>href="#"</code> with your card affiliate links, issuer landing pages, or internal comparison pages.
+        </p>
+      </div>
+    </section>
+
+    <!-- HOW TO CHOOSE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Education Layer</div>
+          <h2 class="section-title">How to Choose the Right Business Loan</h2>
+          <p class="section-subtitle">
+            Add short educational content to improve trust and help visitors act with more confidence.
+          </p>
+        </div>
+
+        <div class="choose-grid">
+          <div class="choose-card">
+            <h4>Revenue</h4>
+            <p>Most lenders evaluate monthly revenue and cash flow before presenting funding options.</p>
+          </div>
+
+          <div class="choose-card">
+            <h4>Credit Score</h4>
+            <p>A stronger credit profile may help unlock better rates, terms, and lender eligibility.</p>
+          </div>
+
+          <div class="choose-card">
+            <h4>Loan Purpose</h4>
+            <p>Choose financing based on your business goal: inventory, expansion, payroll, or equipment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Conversion FAQ</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            This section helps answer common objections before the final CTA, while still leaving room
+            for your future agent to guide and personalize the experience.
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h4>Do I need perfect credit to apply?</h4>
+            <p>
+              Not always. Different lenders evaluate businesses differently, and some focus more on
+              revenue, time in business, or funding purpose than on credit score alone.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h4>How fast can I get approved?</h4>
+            <p>
+              Some offers are designed for faster decisions, sometimes within 24 to 48 hours, while
+              others may take longer depending on documentation and lender requirements.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h4>What type of funding can I request?</h4>
+            <p>
+              You can use this page to explore working capital, expansion funding, equipment financing,
+              inventory-related needs, and other business growth use cases.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h4>Will this page later work with an agent?</h4>
+            <p>
+              Yes. The FAQ handles common questions, while your future agent can guide users through
+              recommendations, offer matching, qualification, and form assistance.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h4>Can I connect this page to my CRM or workflow?</h4>
+            <p>
+              Yes. The form section can later be connected to a CRM, email automation, routing logic,
+              or lead distribution system without changing the overall page structure.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h4>Can I replace these links with affiliate or partner URLs?</h4>
+            <p>
+              Yes. The page is already structured so you can progressively replace placeholder links
+              with affiliate URLs, lender landing pages, or internal detail pages.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY IBCB-HUB -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Platform Connection</div>
+          <h2 class="section-title">Why Entrepreneurs Use IBCB-HUB</h2>
+          <p class="section-subtitle">
+            This section connects the Brokerage page to the broader value proposition of your platform.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <h4>Curated Financial Solutions</h4>
+            <p>We organize lender and funding opportunities for entrepreneurs in one structured hub.</p>
+          </div>
+
+          <div class="why-card">
+            <h4>Multiple Funding Options</h4>
+            <p>Compare different financing paths instead of relying on a single provider.</p>
+          </div>
+
+          <div class="why-card">
+            <h4>Business Resources</h4>
+            <p>Discover business tools, growth resources, and practical recommendations beyond funding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="section-kicker">Ready to Take Action?</div>
+          <h2>Ready to Grow Your Business?</h2>
+          <p>
+            Discover financing options and explore business tools designed to help entrepreneurs
+            launch, manage, and scale with more structure and confidence.
+          </p>
+          <div class="btn-group">
+            <a href="#funding-form" class="btn btn-primary">Compare Lenders</a>
+            <a href="../" class="btn btn-secondary">Explore Business Tools</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING AGENT -->
+  <div class="agent-floating">
+    <button class="agent-button" onclick="toggleAgent()">AI</button>
+  </div>
+
+  <!-- CHAT PANEL -->
+  <div id="agentChat" class="agent-chat">
+    <div class="agent-chat-header">Funding Assistant</div>
+    <div class="agent-chat-body" id="chatBody">
+      <div class="agent-msg"><strong>Assistant:</strong> Ask about funding options, lender fit, working capital, revenue range, or which offer may suit your business.</div>
+    </div>
+    <div class="agent-chat-input">
+      <input id="chatInput" placeholder="Type a question..." />
+      <button onclick="sendMessage()">→</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 iBCB LLC. All rights reserved.</span>
+      <span>Brokerage • IBCB-HUB</span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleAgent(){
+      const chat = document.getElementById("agentChat");
+      chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+    }
+
+    function openAgent(){
+      document.getElementById("agentChat").style.display = "flex";
+    }
+
+    function sendMessage(){
+      const input = document.getElementById("chatInput");
+      const body = document.getElementById("chatBody");
+      const value = input.value.trim();
+
+      if(!value) return;
+
+      body.innerHTML += '<div class="agent-msg"><strong>You:</strong> ' + escapeHtml(value) + '</div>';
+      body.innerHTML += '<div class="agent-msg"><strong>Assistant:</strong> Based on your question, compare the Top Picks first, then use the funding request form if you want broader matching. You can later connect this assistant to real lender-matching logic.</div>';
+
+      input.value = "";
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function escapeHtml(str){
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    document.getElementById("chatInput").addEventListener("keydown", function(e){
+      if(e.key === "Enter"){
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

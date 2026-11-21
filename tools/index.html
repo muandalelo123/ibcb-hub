@@ -1,0 +1,1340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Explore curated tools, business systems, funding resources, AI tools, and email marketing solutions across the IBCB-HUB platform."
+  />
+  <title>Explore Tools — IBCB-HUB</title>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+
+  <style>
+    :root{
+      --bg0:#040816;
+      --bg1:#081127;
+      --bg2:#0d1834;
+      --panel:#111f43;
+      --panel-soft:#0e1a37;
+      --panel-deep:#0b1833;
+      --line:rgba(255,255,255,.08);
+      --line-strong:rgba(240,198,60,.22);
+      --text:#eef3ff;
+      --muted:#b9c7e8;
+      --muted-2:#94a8d6;
+      --gold:#f0c63c;
+      --gold-2:#d6a92a;
+      --success:#22c55e;
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --radius:22px;
+      --radius-lg:28px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 14%, rgba(34,89,255,.18), transparent 0 24%),
+        radial-gradient(circle at 85% 12%, rgba(240,198,60,.10), transparent 0 18%),
+        linear-gradient(180deg, #030712 0%, #061027 34%, #07122b 100%);
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+      padding:20px 0 80px;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(10px);
+      background:rgba(4,8,22,.72);
+      border-bottom:1px solid rgba(255,255,255,.05);
+      margin-bottom:10px;
+    }
+
+    .topbar{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:6px 0 10px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .logo{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:#111827;
+      background:linear-gradient(180deg, var(--gold), #ddb22f);
+      box-shadow:0 10px 22px rgba(240,198,60,.22);
+      font-weight:900;
+    }
+
+    .brand b{
+      color:var(--gold);
+      font-size:14px;
+      letter-spacing:.6px;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      border:1px solid transparent;
+      transition:.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    nav a.active{
+      border-color:rgba(240,198,60,.25);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn.primary{
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      box-shadow:0 14px 28px rgba(240,198,60,.18);
+    }
+
+    .btn.secondary{
+      color:var(--gold);
+      border:1px solid rgba(240,198,60,.6);
+      background:rgba(255,255,255,.02);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .btn.secondary:hover{
+      background:rgba(240,198,60,.06);
+    }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:1.22fr .88fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-copy{
+      padding-top:10px;
+    }
+
+    .crumb{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:var(--muted);
+      font-size:12px;
+      padding:7px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+
+    h1,h2,h3{
+      margin:0 0 12px;
+      line-height:1.08;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    h1{
+      margin-top:14px;
+      font-size:clamp(2.7rem,4vw,4.6rem);
+      letter-spacing:-.04em;
+      font-weight:900;
+    }
+
+    h2{
+      font-size:clamp(1.8rem,2.5vw,2.6rem);
+      letter-spacing:-.03em;
+      font-weight:850;
+    }
+
+    h3{
+      font-size:1.18rem;
+      font-weight:800;
+    }
+
+    .gold{color:var(--gold)}
+
+    .sub{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:62ch;
+      margin:16px 0 24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .panel,
+    .card,
+    .wide-panel,
+    .route-card,
+    .agent-inline,
+    .agent-chat{
+      border:1px solid rgba(116,145,212,.16);
+      background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .side-panel{
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .side-panel::before{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,198,60,.16), transparent 65%);
+      pointer-events:none;
+    }
+
+    .side-title{
+      color:var(--gold);
+      font-size:1.02rem;
+      font-weight:900;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .search{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:13px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      position:relative;
+      z-index:1;
+    }
+
+    .search input{
+      flex:1;
+      background:transparent;
+      border:0;
+      outline:none;
+      color:var(--text);
+      font-size:14px;
+    }
+
+    .search input::placeholder{
+      color:var(--muted-2);
+    }
+
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .chip{
+      padding:8px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:12px;
+      cursor:pointer;
+      user-select:none;
+      transition:.2s ease;
+    }
+
+    .chip:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .chip.active{
+      border-color:rgba(240,198,60,.55);
+      background:rgba(240,198,60,.10);
+      color:var(--text);
+    }
+
+    .tip{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .tip code{
+      color:var(--text);
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      padding:2px 6px;
+      border-radius:8px;
+    }
+
+    .section{
+      margin-top:34px;
+    }
+
+    .section-head{
+      margin-bottom:18px;
+    }
+
+    .section-kicker{
+      color:var(--gold);
+      font-size:1rem;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .section p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .route-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .route-card{
+      padding:20px;
+      position:relative;
+      overflow:hidden;
+      transition:.25s ease;
+    }
+
+    .route-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 100% 0%, rgba(46,110,255,.10), transparent 32%);
+      pointer-events:none;
+    }
+
+    .route-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(240,198,60,.25);
+      box-shadow:0 22px 50px rgba(0,0,0,.45);
+    }
+
+    .route-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+      position:relative;
+      z-index:1;
+    }
+
+    .route-label{
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:800;
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+    }
+
+    .route-card p{
+      font-size:13px;
+      margin-bottom:14px;
+    }
+
+    .route-tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .route-tag{
+      font-size:11px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:5px 8px;
+      border-radius:999px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .card{
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 100% 0%, rgba(46,110,255,.10), transparent 30%);
+      pointer-events:none;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(240,198,60,.25);
+      box-shadow:0 22px 50px rgba(0,0,0,.45);
+    }
+
+    .ic{
+      width:46px;
+      height:46px;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(240,198,60,.18), rgba(240,198,60,.08));
+      border:1px solid rgba(240,198,60,.24);
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      color:var(--gold);
+      box-shadow:0 10px 20px rgba(240,198,60,.08);
+      flex:0 0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .card h3{
+      margin:0 0 5px;
+      font-size:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .card p{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:13px;
+      position:relative;
+      z-index:1;
+    }
+
+    .tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+
+    .tag{
+      font-size:11px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:5px 8px;
+      border-radius:999px;
+    }
+
+    .card .right{
+      margin-left:auto;
+      display:flex;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+
+    .open{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 14px;
+      border-radius:12px;
+      border:none;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      color:#0c142b;
+      font-weight:800;
+      box-shadow:0 12px 24px rgba(240,198,60,.16);
+      white-space:nowrap;
+      transition:.2s ease;
+    }
+
+    .open:hover{
+      transform:translateY(-1px);
+    }
+
+    .agent-inline{
+      padding:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-top:18px;
+      border:1px solid rgba(240,198,60,.25);
+      background:linear-gradient(180deg, rgba(240,198,60,.08), rgba(240,198,60,.02));
+    }
+
+    .agent-inline strong{
+      color:var(--gold);
+    }
+
+    .agent-inline p{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .rocketmail{
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .rocketmail::before{
+      content:"";
+      position:absolute;
+      top:-40px;
+      right:-40px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,110,255,.24), transparent 66%);
+      pointer-events:none;
+    }
+
+    .rocketmail-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.15fr .9fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .feature-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
+      display:grid;
+      gap:12px;
+    }
+
+    .feature-list li{
+      color:var(--muted);
+      padding:13px 15px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stats{
+      display:grid;
+      gap:14px;
+    }
+
+    .mini-stat{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stat strong{
+      display:block;
+      color:var(--gold);
+      font-size:1rem;
+      margin-bottom:6px;
+    }
+
+    .mini-stat span{
+      color:var(--muted);
+      display:block;
+      font-size:.96rem;
+    }
+
+    .featured-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .featured-card{
+      padding:20px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(116,145,212,.16);
+      background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+
+    .featured-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 100% 0%, rgba(46,110,255,.10), transparent 30%);
+      pointer-events:none;
+    }
+
+    .featured-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(240,198,60,.25);
+    }
+
+    .featured-badge{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:800;
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .featured-card h3,
+    .featured-card p,
+    .featured-card .tags,
+    .featured-card .hero-actions{
+      position:relative;
+      z-index:1;
+    }
+
+    .featured-card p{
+      margin-bottom:14px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .why-card{
+      padding:20px;
+      border:1px solid rgba(116,145,212,.16);
+      background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .why-card h3{
+      margin-bottom:8px;
+    }
+
+    .why-card p{
+      color:var(--muted);
+      font-size:14px;
+      margin:0;
+    }
+
+    .agent-floating{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:999;
+    }
+
+    .agent-button{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:none;
+      cursor:pointer;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      color:#111;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(0,0,0,.4);
+    }
+
+    .agent-chat{
+      position:fixed;
+      right:20px;
+      bottom:92px;
+      width:340px;
+      max-height:440px;
+      display:none;
+      flex-direction:column;
+      overflow:hidden;
+      z-index:1000;
+    }
+
+    .agent-chat-header{
+      padding:14px 16px;
+      background:#111f43;
+      font-weight:800;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .agent-chat-body{
+      flex:1;
+      padding:14px 16px;
+      font-size:.92rem;
+      color:#d8e1fb;
+      overflow-y:auto;
+      background:linear-gradient(180deg, rgba(15,27,59,.96), rgba(11,22,47,.98));
+      min-height:220px;
+    }
+
+    .agent-msg{
+      margin-bottom:12px;
+    }
+
+    .agent-msg strong{
+      color:var(--gold);
+    }
+
+    .agent-chat-input{
+      display:flex;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:#0f1a37;
+    }
+
+    .agent-chat-input input{
+      flex:1;
+      border:none;
+      padding:12px 14px;
+      background:transparent;
+      color:#fff;
+      outline:none;
+      box-shadow:none;
+    }
+
+    .agent-chat-input button{
+      background:#f0c63c;
+      border:none;
+      padding:0 16px;
+      cursor:pointer;
+      font-weight:800;
+      color:#111;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:20px;
+      border-top:1px solid var(--line);
+      color:var(--muted-2);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:1060px){
+      .hero,
+      .rocketmail-inner,
+      .route-grid,
+      .why-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:860px){
+      .grid,
+      .featured-grid{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:36px;
+      }
+    }
+
+    @media (max-width:720px){
+      .topbar{
+        padding:10px 0;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      nav,
+      .nav-actions{
+        width:100%;
+      }
+
+      .side-panel,
+      .rocketmail,
+      .route-card,
+      .featured-card,
+      .why-card{
+        padding:22px;
+      }
+
+      .agent-inline{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .agent-chat{
+        width:calc(100% - 24px);
+        right:12px;
+        bottom:84px;
+      }
+
+      .agent-floating{
+        right:12px;
+        bottom:12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">iB</div>
+          <b>IBCB-HUB</b>
+        </div>
+
+        <nav>
+          <a href="../index.html">Home</a>
+          <a class="active" href="./">Tools</a>
+          <a href="../blog/">Blog</a>
+          <a href="../resources/">Resources</a>
+          <a href="../about/">About</a>
+          <a href="../contact/">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn secondary" href="./">Explore Tools</a>
+          <a class="btn primary" href="../resources/">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="crumb">One platform • Tools • Resources • Services</div>
+        <h1>Explore <span class="gold">Tools & Systems for Growth</span></h1>
+        <p class="sub">
+          Discover curated tools organized by category and follow the best path for your next goal.
+          Explore practical systems for AI, email marketing, business operations, e-commerce, and
+          funding — all designed to help entrepreneurs move faster and build with more structure.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#start-here">Start Here</a>
+          <a class="btn secondary" href="#categories">Browse Categories</a>
+          <a class="btn secondary" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+        </div>
+
+        <div class="pillrow">
+          <div class="pill">Curated recommendations</div>
+          <div class="pill">Smart automation picks</div>
+          <div class="pill">Guides & templates</div>
+          <div class="pill">Growth-ready systems</div>
+        </div>
+      </div>
+
+      <aside class="panel side-panel">
+        <div class="side-title">Find the right tools faster</div>
+
+        <div class="search">
+          <span style="opacity:.8">🔎</span>
+          <input id="searchInput" type="text" placeholder="Search tools (e.g., email, AI, CRM)..." autocomplete="off" />
+        </div>
+
+        <div class="chips" id="chips">
+          <div class="chip active" data-filter="all">All</div>
+          <div class="chip" data-filter="ai">AI</div>
+          <div class="chip" data-filter="email">Email Marketing</div>
+          <div class="chip" data-filter="stack">Business Stack</div>
+          <div class="chip" data-filter="commerce">E-Commerce</div>
+          <div class="chip" data-filter="brokerage">Brokerage</div>
+        </div>
+
+        <div class="tip">
+          Tip: your category pages already support expansion into subpages like
+          <code>/tools/ai-tools/</code>, <code>/tools/brokerage/</code>, and <code>/tools/email-marketing/</code>.
+        </div>
+
+        <div class="agent-inline">
+          <div>
+            <strong>Need help choosing where to start?</strong>
+            <p>Ask the assistant to guide you to the right category, system, or next step.</p>
+          </div>
+          <button class="btn primary" type="button" onclick="openAgent()">Ask Assistant</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="start-here">
+      <div class="section-head">
+        <div class="section-kicker">Start Here</div>
+        <h2>Choose the path that matches your goal</h2>
+        <p>This section turns the Tools page into a routing page, not just a catalogue.</p>
+      </div>
+
+      <div class="route-grid">
+        <article class="route-card">
+          <div class="route-top">
+            <span class="route-label">High Priority</span>
+          </div>
+          <h3>Get Funding</h3>
+          <p>
+            Compare lenders, explore credit offers, and move into one of the most directly
+            monetizable sections of the platform.
+          </p>
+          <div class="route-tags">
+            <span class="route-tag">Brokerage</span>
+            <span class="route-tag">Funding</span>
+            <span class="route-tag">Credit</span>
+          </div>
+          <a class="btn primary" href="./brokerage/">Open Brokerage</a>
+        </article>
+
+        <article class="route-card">
+          <div class="route-top">
+            <span class="route-label">Product Layer</span>
+          </div>
+          <h3>Launch Email Systems</h3>
+          <p>
+            Explore email marketing tools and RocketMail to build campaigns, lead capture,
+            follow-up automation, and outbound workflows.
+          </p>
+          <div class="route-tags">
+            <span class="route-tag">RocketMail</span>
+            <span class="route-tag">Campaigns</span>
+            <span class="route-tag">Automation</span>
+          </div>
+          <a class="btn primary" href="./email-marketing/">View Email Tools</a>
+        </article>
+
+        <article class="route-card">
+          <div class="route-top">
+            <span class="route-label">Operations</span>
+          </div>
+          <h3>Build Your Stack</h3>
+          <p>
+            Find the core tools for CRM, payments, analytics, productivity, and operations
+            inside your structured business stack.
+          </p>
+          <div class="route-tags">
+            <span class="route-tag">CRM</span>
+            <span class="route-tag">Analytics</span>
+            <span class="route-tag">Ops</span>
+          </div>
+          <a class="btn primary" href="./business-stack/">Open Business Stack</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel rocketmail">
+        <div class="rocketmail-inner">
+          <div>
+            <div class="section-kicker">Featured Product</div>
+            <h2>Meet <span class="gold">iBCB RocketMail</span></h2>
+            <p style="color:var(--muted); max-width:700px;">
+              Our email automation platform is built to help businesses capture leads,
+              launch campaigns, structure follow-up workflows, and scale communication
+              with more control.
+            </p>
+
+            <ul class="feature-list">
+              <li>Email campaigns and structured outreach</li>
+              <li>Lead capture and segmentation logic</li>
+              <li>Automation workflows for follow-up and nurture</li>
+              <li>A stronger SaaS signal across the full iBCB ecosystem</li>
+            </ul>
+
+            <div class="hero-actions" style="margin-top:20px;">
+              <a class="btn primary" href="/ibcb-hub/rocketmail/">Launch RocketMail</a>
+              <a class="btn secondary" href="./email-marketing/">View Email Tools</a>
+            </div>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <strong>Why it matters</strong>
+              <span>RocketMail adds a proprietary product layer to the iBCB platform.</span>
+            </div>
+
+            <div class="mini-stat">
+              <strong>Best fit</strong>
+              <span>Ideal for founders and teams who want email automation inside a broader business ecosystem.</span>
+            </div>
+
+            <div class="mini-stat">
+              <strong>Strategic role</strong>
+              <span>It helps position iBCB as both a platform and a product company.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="section-head">
+        <div class="section-kicker">Core Categories</div>
+        <h2>Explore the platform by category</h2>
+        <p>Choose a category. Each one already points to the corresponding page in your current structure.</p>
+      </div>
+
+      <div class="grid" id="cards">
+        <article class="card" data-tags="ai,automation,content">
+          <div class="ic">AI</div>
+          <div>
+            <h3>AI Tools</h3>
+            <p>Assistants, writing tools, automation, content generation, and productivity enhancers.</p>
+            <div class="tags">
+              <span class="tag">Productivity</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Content</span>
+            </div>
+          </div>
+          <div class="right">
+            <a class="open" href="./ai-tools/">Open</a>
+          </div>
+        </article>
+
+        <article class="card" data-tags="email,smtp,campaigns,deliverability">
+          <div class="ic">@</div>
+          <div>
+            <h3>Email Marketing</h3>
+            <p>Campaign tools, SMTP services, deliverability, templates, and workflows.</p>
+            <div class="tags">
+              <span class="tag">SMTP</span>
+              <span class="tag">Campaigns</span>
+              <span class="tag">Deliverability</span>
+            </div>
+          </div>
+          <div class="right">
+            <a class="open" href="./email-marketing/">Open</a>
+          </div>
+        </article>
+
+        <article class="card" data-tags="stack,crm,analytics,ops">
+          <div class="ic">BS</div>
+          <div>
+            <h3>Business Stack</h3>
+            <p>CRM, project management, payments, analytics, and essential business tools.</p>
+            <div class="tags">
+              <span class="tag">CRM</span>
+              <span class="tag">Analytics</span>
+              <span class="tag">Ops</span>
+            </div>
+          </div>
+          <div class="right">
+            <a class="open" href="./business-stack/">Open</a>
+          </div>
+        </article>
+
+        <article class="card" data-tags="commerce,amazon,seo,growth">
+          <div class="ic">EC</div>
+          <div>
+            <h3>Amazon & E-Commerce</h3>
+            <p>Discover curated Amazon products and our online store with recommended items.</p>
+            <div class="tags">
+              <span class="tag">Amazon</span>
+              <span class="tag">SEO</span>
+              <span class="tag">Growth</span>
+            </div>
+          </div>
+          <div class="right">
+            <a class="open" href="explore-our-stores.html" target="_blank" rel="noopener">Visit Store</a
+            
+          </div>
+        </article>
+
+        <article class="card" data-tags="brokerage,funding,credit,cards,banking">
+          <div class="ic">BR</div>
+          <div>
+            <h3>Brokerage</h3>
+            <p>Business lenders, funding offers, business credit cards, and financial resources for entrepreneurs.</p>
+            <div class="tags">
+              <span class="tag">Business Lenders</span>
+              <span class="tag">Credit Cards</span>
+              <span class="tag">Funding</span>
+            </div>
+          </div>
+          <div class="right">
+            <a class="open" href="./brokerage/">Open</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="section-head">
+        <div class="section-kicker">Featured Paths</div>
+        <h2>Start with the most strategic entry points</h2>
+        <p>Use this section to push the pages that matter most for growth, monetization, and positioning.</p>
+      </div>
+
+      <div class="featured-grid">
+        <article class="featured-card">
+          <div class="featured-badge">Most Monetizable</div>
+          <h3>Brokerage — Funding & Credit</h3>
+          <p>
+            Use <b>/tools/brokerage/</b> to route high-intent visitors toward business lenders,
+            credit offers, and funding-related decisions.
+          </p>
+          <div class="tags">
+            <span class="tag">Affiliates</span>
+            <span class="tag">Leads</span>
+            <span class="tag">High intent</span>
+          </div>
+          <div class="hero-actions" style="margin-top:16px;">
+            <a class="btn primary" href="./brokerage/">Open Brokerage</a>
+          </div>
+        </article>
+
+        <article class="featured-card">
+          <div class="featured-badge">SaaS Signal</div>
+          <h3>RocketMail + Email Systems</h3>
+          <p>
+            Use this section to connect visitors to email automation, product-led workflows,
+            and your broader outbound and lead-generation stack.
+          </p>
+          <div class="tags">
+            <span class="tag">Automation</span>
+            <span class="tag">Campaigns</span>
+            <span class="tag">Product layer</span>
+          </div>
+          <div class="hero-actions" style="margin-top:16px;">
+            <a class="btn primary" href="./email-marketing/">View Email Tools</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="section-kicker">Why This Page Matters</div>
+        <h2>More than a catalogue</h2>
+        <p>This page should qualify visitors, guide choices, and direct traffic toward your highest-value pages.</p>
+      </div>
+
+      <div class="why-grid">
+        <article class="why-card">
+          <h3>Discovery</h3>
+          <p>Visitors can quickly understand what the platform covers and where to go next.</p>
+        </article>
+
+        <article class="why-card">
+          <h3>Routing</h3>
+          <p>High-intent users are guided toward the strongest sections like Brokerage and Email Marketing.</p>
+        </article>
+
+        <article class="why-card">
+          <h3>Scalability</h3>
+          <p>You can keep adding pages, guides, and affiliate-ready subcategories without changing the structure.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 IBCB. All rights reserved.</div>
+      <div>Structure: <span style="opacity:.9">/ibcb-hub/tools/</span> with linked category folders</div>
+    </footer>
+  </div>
+
+  <!-- FLOATING AGENT -->
+  <div class="agent-floating">
+    <button class="agent-button" onclick="toggleAgent()">AI</button>
+  </div>
+
+  <!-- CHAT PANEL -->
+  <div id="agentChat" class="agent-chat">
+    <div class="agent-chat-header">Tools Assistant</div>
+    <div class="agent-chat-body" id="chatBody">
+      <div class="agent-msg"><strong>Assistant:</strong> Ask me where to start: funding, AI tools, business systems, email marketing, or store-related tools.</div>
+    </div>
+    <div class="agent-chat-input">
+      <input id="chatInput" placeholder="Type a question..." />
+      <button onclick="sendMessage()">→</button>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const search = document.getElementById('searchInput');
+      const chips = document.getElementById('chips');
+      const cards = Array.from(document.querySelectorAll('#cards .card'));
+      let active = 'all';
+
+      function norm(s){ return (s || '').toLowerCase().trim(); }
+
+      function apply(){
+        const q = norm(search.value);
+        cards.forEach(card => {
+          const tags = norm(card.getAttribute('data-tags'));
+          const text = norm(card.innerText);
+          const hitText = !q || text.includes(q) || tags.includes(q);
+          const hitFilter = (active === 'all') || tags.split(',').map(t => t.trim()).includes(active);
+          card.style.display = (hitText && hitFilter) ? '' : 'none';
+        });
+      }
+
+      chips.addEventListener('click', (e) => {
+        const chip = e.target.closest('.chip');
+        if(!chip) return;
+        active = chip.dataset.filter;
+        Array.from(chips.querySelectorAll('.chip')).forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        apply();
+      });
+
+      search.addEventListener('input', apply);
+      apply();
+    })();
+
+    function toggleAgent(){
+      const chat = document.getElementById('agentChat');
+      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function openAgent(){
+      document.getElementById('agentChat').style.display = 'flex';
+    }
+
+    function sendMessage(){
+      const input = document.getElementById('chatInput');
+      const body = document.getElementById('chatBody');
+      const value = input.value.trim();
+
+      if(!value) return;
+
+      body.innerHTML += '<div class="agent-msg"><strong>You:</strong> ' + escapeHtml(value) + '</div>';
+      body.innerHTML += '<div class="agent-msg"><strong>Assistant:</strong> Based on your question, start with Brokerage for funding, Email Marketing for campaigns, Business Stack for operations, and AI Tools for automation.</div>';
+
+      input.value = '';
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function escapeHtml(str){
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    document.getElementById('chatInput').addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+

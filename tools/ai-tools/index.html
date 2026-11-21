@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IBCB-HUB — AI Tools</title>
+  <meta name="description" content="Explore AI tools for productivity, writing, automation, design, and business growth." />
+  <style>
+    :root{
+      --bg0:#070a12;
+      --bg1:#0b1020;
+      --card:#0e152b;
+      --card2:#0b1124;
+      --line:rgba(255,255,255,.08);
+      --text:#e9edf7;
+      --muted:rgba(233,237,247,.72);
+      --gold:#d8b36a;
+      --gold2:#b89245;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:24px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 14% 18%, rgba(26,69,190,.20), transparent 30%),
+        radial-gradient(circle at 80% 18%, rgba(216,179,106,.12), transparent 24%),
+        linear-gradient(180deg,var(--bg0),#050814 56%, #060a17 100%);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(7,10,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      border:1px solid rgba(216,179,106,.28);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.03));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+      font-weight:800;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border:1px solid rgba(216,179,106,.34);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.04));
+      color:#f5e7c8;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(216,179,106,.5);
+      box-shadow:0 10px 24px rgba(0,0,0,.24);
+    }
+
+    .btn.secondary{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    .section{
+      padding:42px 0;
+    }
+
+    .hero{
+      padding:54px 0 24px;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.25fr .95fr;
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background:
+        radial-gradient(circle at 78% 12%, rgba(216,179,106,.10), transparent 28%),
+        radial-gradient(circle at 12% 18%, rgba(41,89,221,.16), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{
+      padding:28px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:.92rem;
+      background:rgba(255,255,255,.03);
+      margin-bottom:16px;
+    }
+
+    h1,h2,h3{
+      margin:0 0 12px;
+      line-height:1.1;
+      font-family:Georgia,"Times New Roman",serif;
+    }
+
+    h1{
+      font-size:clamp(2.3rem,4vw,4rem);
+      letter-spacing:-.03em;
+    }
+
+    h2{
+      font-size:clamp(1.7rem,2.6vw,2.5rem);
+      letter-spacing:-.02em;
+    }
+
+    h3{
+      font-size:1.35rem;
+    }
+
+    .accent{color:var(--gold)}
+
+    .lead{
+      font-size:1.08rem;
+      color:var(--muted);
+      max-width:62ch;
+      margin:0 0 22px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .pill-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      padding:10px 13px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      font-size:.95rem;
+    }
+
+    .hero-side{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      justify-content:center;
+    }
+
+    .search{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      padding:15px 16px;
+      outline:none;
+      font-size:1rem;
+    }
+
+    .search::placeholder{color:rgba(233,237,247,.42)}
+
+    .mini-note{
+      color:var(--muted);
+      font-size:.95rem;
+      margin:0;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:56ch;
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .grid-3{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .grid-2{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .tool-card{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:100%;
+    }
+
+    .tool-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .tool-label{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .tool-badge{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(216,179,106,.26);
+      color:var(--gold);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.03));
+      font-weight:800;
+      flex:0 0 auto;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:.97rem;
+      margin-top:2px;
+    }
+
+    .tool-desc{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+    }
+
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:rgba(255,255,255,.02);
+      font-size:.84rem;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .mini-btn.gold{
+      border-color:rgba(216,179,106,.34);
+      color:#f5e7c8;
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.04));
+    }
+
+    .list{
+      display:grid;
+      gap:12px;
+    }
+
+    .list-item{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+
+    .list-item strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .stars{
+      color:var(--gold);
+      font-weight:700;
+      margin-bottom:10px;
+      letter-spacing:.02em;
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      margin-top:28px;
+      padding:26px 0 50px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 1060px){
+      .hero-wrap,
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 720px){
+      .nav{
+        padding:14px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav-links,
+      .nav-actions{
+        width:100%;
+      }
+
+      .hero-card,
+      .hero-side{
+        padding:20px;
+      }
+
+      .section{
+        padding:34px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/ibcb-hub/index.html" class="brand">
+        <span class="brand-mark">iB</span>
+        <span>IBCB-HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/ibcb-hub/index.html">Home</a>
+        <a href="/ibcb-hub/tools/index.html" class="active">Tools</a>
+        <a href="/ibcb-hub/blog.html">Blog</a>
+        <a href="/ibcb-hub/resources.html">Resources</a>
+        <a href="/ibcb-hub/about.html">About</a>
+        <a href="/ibcb-hub/contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn secondary" href="#starter-stack">Explore Tools</a>
+        <a class="btn" href="#ai-categories">View Stack</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="panel hero-card">
+          <span class="eyebrow">AI Productivity • Writing • Automation • Design</span>
+          <h1>Build Your <span class="accent">AI Tools Stack</span></h1>
+          <p class="lead">
+            Discover AI tools that help entrepreneurs, creators, and digital businesses
+            save time, improve workflows, generate content, and work more efficiently.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#starter-stack" class="btn">Explore Tools</a>
+            <a href="#use-cases" class="btn secondary">Start Your Setup</a>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Writing assistants</span>
+            <span class="pill">Automation tools</span>
+            <span class="pill">Creative systems</span>
+          </div>
+        </div>
+
+        <aside class="panel hero-side">
+          <input class="search" type="text" placeholder="Search tools (e.g., writing, automation, design, AI chat)..." />
+          <div class="pill-row">
+            <span class="pill">ChatGPT</span>
+            <span class="pill">Claude</span>
+            <span class="pill">Notion AI</span>
+            <span class="pill">Canva AI</span>
+            <span class="pill">Jasper</span>
+          </div>
+          <p class="mini-note">
+            Start with the tools that solve real workflow problems first, then expand your AI stack gradually.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="starter-stack">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Recommended Starter Stack</h2>
+            <p>These are strong starting options for entrepreneurs who want to improve writing, productivity, and content workflows with AI.</p>
+          </div>
+          <p>Simple picks to get started fast.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">CG</div>
+                <div>
+                  <h3>ChatGPT</h3>
+                  <div class="meta">AI Assistant & Productivity</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Use AI to brainstorm ideas, draft content, summarize information, and speed up everyday business tasks.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Writing</span>
+              <span class="tag">Ideas</span>
+              <span class="tag">Productivity</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Get Started</a>
+              <a href="#" class="mini-btn">Learn More</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">CL</div>
+                <div>
+                  <h3>Claude</h3>
+                  <div class="meta">Writing & Long-Form Thinking</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Generate polished writing, refine ideas, and work through longer business documents with clarity.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Writing</span>
+              <span class="tag">Analysis</span>
+              <span class="tag">Documents</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start with Claude</a>
+              <a href="#" class="mini-btn">Explore Features</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">NA</div>
+                <div>
+                  <h3>Notion AI</h3>
+                  <div class="meta">Workspace AI & Team Support</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Improve notes, summarize pages, and assist project workflows directly inside your workspace.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Workspace</span>
+              <span class="tag">Notes</span>
+              <span class="tag">Summaries</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Using Notion AI</a>
+              <a href="#" class="mini-btn">See How It Works</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai-categories">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Complete AI Tools Stack</h2>
+            <p>Explore the essential categories that support writing, automation, content creation, and visual productivity.</p>
+          </div>
+          <p>Choose what supports your current workflow.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Writing & Content</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Create drafts faster, improve clarity, and generate content ideas for your business and audience.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>ChatGPT</strong>
+                  <span class="meta">Draft blog ideas, emails, social posts, summaries, and everyday business content.</span>
+                </div>
+                <a href="#" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>Claude</strong>
+                  <span class="meta">Refine long-form writing and work through more detailed documents or analysis tasks.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Automation & Productivity</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Save time by combining AI with tools that simplify repetitive tasks and business workflows.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>Notion AI</strong>
+                  <span class="meta">Support note-taking, summaries, documentation, and internal workflow improvement.</span>
+                </div>
+                <a href="#" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>Zapier AI</strong>
+                  <span class="meta">Automate workflows and connect tools with AI-assisted task routing and logic.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Design & Visual Creation</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Create visuals, presentations, and marketing assets faster with AI-assisted design tools.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>Canva AI</strong>
+                  <span class="meta">Generate visual content, edit designs, and speed up branding or marketing creation.</span>
+                </div>
+                <a href="#" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>Adobe Express AI</strong>
+                  <span class="meta">Build quick graphics and branded materials with simple AI-assisted creation tools.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Business Support & Research</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Use AI to organize research, compare options, and improve business decision-making.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>Perplexity</strong>
+                  <span class="meta">Research topics, gather quick answers, and explore online information more efficiently.</span>
+                </div>
+                <a href="#" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>ChatGPT</strong>
+                  <span class="meta">Summarize findings, compare tools, and turn raw information into usable insights.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Top Picks for AI Productivity</h2>
+            <p>Start with tools that offer strong practical value for writing, workflow support, and content acceleration.</p>
+          </div>
+          <p>Recommended starting points.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="stars">★ Best all-purpose AI assistant</div>
+            <h3>ChatGPT</h3>
+            <p class="tool-desc">
+              A strong starting point for drafting, brainstorming, summarizing, and speeding up business tasks.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start with ChatGPT</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stars">★ Best for writing and clarity</div>
+            <h3>Claude</h3>
+            <p class="tool-desc">
+              Ideal for thoughtful writing, document refinement, and long-form content support.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Using Claude</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stars">★ Best AI inside a workspace</div>
+            <h3>Notion AI</h3>
+            <p class="tool-desc">
+              A practical option for teams and entrepreneurs who want AI embedded inside their daily work environment.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Use Notion AI</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="use-cases">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Build Faster With AI</h2>
+            <p>Use ready-made combinations based on your current business goals and workflow needs.</p>
+          </div>
+          <p>Simple paths to take action.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Write Faster</h3>
+            <p class="tool-desc">
+              Create ideas, drafts, outlines, and short-form content more quickly with AI writing assistance.
+            </p>
+            <div class="tag-row">
+              <span class="tag">ChatGPT</span>
+              <span class="tag">Claude</span>
+              <span class="tag">Writing</span>
+            </div>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">View Setup</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Organize Your Workflow</h3>
+            <p class="tool-desc">
+              Combine workspace tools and AI support to keep notes, projects, and internal systems more efficient.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Notion AI</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Productivity</span>
+            </div>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">See Workflow Stack</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Create Better Content</h3>
+            <p class="tool-desc">
+              Use AI to generate visuals, improve copy, and accelerate your marketing content production.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Canva AI</span>
+              <span class="tag">ChatGPT</span>
+              <span class="tag">Design</span>
+            </div>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Explore Growth Tools</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel hero-card" style="padding:26px;">
+          <div class="section-head" style="margin-bottom:0;">
+            <div>
+              <h2>Start Building Your AI Stack</h2>
+              <p>Choose the right tools to improve productivity, simplify work, and support the growth of your digital business.</p>
+            </div>
+            <a href="#starter-stack" class="btn">Explore the Full Stack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 IBCB LLC. All rights reserved.</span>
+      <span>AI Tools • IBCB-HUB</span>
+    </div>
+  </footer>
+</body>
+</html>
+
+

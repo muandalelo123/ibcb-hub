@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>iBCB-HUB — Tools, Resources, Services</title>
+  <meta
+    name="description"
+    content="Discover curated tools, business stacks, automation workflows, and iBCB RocketMail to help entrepreneurs launch and scale faster."
+  />
+  <style>
+    :root{
+      --bg0:#040816;
+      --bg1:#081127;
+      --bg2:#0d1834;
+      --panel:#111f43;
+      --panel-soft:#0e1a37;
+      --line:rgba(255,255,255,.08);
+      --text:#eef3ff;
+      --muted:#b9c7e8;
+      --muted-2:#94a8d6;
+      --gold:#f0c63c;
+      --gold-2:#d6a92a;
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --radius:22px;
+      --radius-lg:28px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 14%, rgba(34,89,255,.18), transparent 0 24%),
+        radial-gradient(circle at 85% 12%, rgba(240,198,60,.10), transparent 0 18%),
+        linear-gradient(180deg, #030712 0%, #061027 34%, #07122b 100%);
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(4,8,22,.72);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .brand-mark{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:#111827;
+      background:linear-gradient(180deg, var(--gold), #ddb22f);
+      box-shadow:0 10px 22px rgba(240,198,60,.22);
+      font-weight:900;
+    }
+
+    .brand-text{
+      color:var(--gold);
+      font-weight:800;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 20px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      box-shadow:0 14px 28px rgba(240,198,60,.18);
+    }
+
+    .btn-secondary{
+      color:var(--gold);
+      border:1px solid rgba(240,198,60,.7);
+      background:rgba(255,255,255,.02);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(240,198,60,.06);
+    }
+
+    .section{
+      padding:44px 0;
+    }
+
+    .hero{
+      padding:48px 0 30px;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.35fr .95fr;
+      gap:34px;
+      align-items:stretch;
+    }
+
+    h1,h2,h3{
+      margin:0 0 12px;
+      line-height:1.08;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    h1{
+      font-size:clamp(2.6rem,4vw,4.6rem);
+      letter-spacing:-.04em;
+      font-weight:900;
+    }
+
+    h2{
+      font-size:clamp(1.8rem,2.5vw,2.8rem);
+      letter-spacing:-.03em;
+      font-weight:850;
+    }
+
+    h3{
+      font-size:1.25rem;
+      font-weight:800;
+    }
+
+    .accent{color:var(--gold)}
+
+    .lead{
+      max-width:760px;
+      color:var(--muted);
+      font-size:1.12rem;
+      margin:18px 0 26px;
+    }
+
+    .pill-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:0 0 26px;
+    }
+
+    .pill{
+      padding:11px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+      font-size:.98rem;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .panel,
+    .card,
+    .wide-panel{
+      border:1px solid rgba(116,145,212,.16);
+      background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-copy{
+      padding-top:12px;
+    }
+
+    .side-panel{
+      padding:28px 26px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .side-panel::before{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,198,60,.16), transparent 65%);
+      pointer-events:none;
+    }
+
+    .side-title{
+      color:var(--gold);
+      font-size:1.05rem;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .check-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:14px;
+    }
+
+    .check-list li{
+      color:var(--muted);
+      position:relative;
+      padding-left:24px;
+      font-size:1rem;
+    }
+
+    .check-list li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      color:#22c55e;
+      font-weight:900;
+    }
+
+    .section-head{
+      margin-bottom:20px;
+    }
+
+    .section-kicker{
+      color:var(--gold);
+      font-size:1rem;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .section-copy{
+      color:var(--muted);
+      max-width:760px;
+      margin:0;
+      font-size:1.04rem;
+    }
+
+    .grid{
+      display:grid;
+      gap:22px;
+    }
+
+    .grid-3{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .card{
+      padding:24px 22px;
+      transition:.2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(240,198,60,.22);
+    }
+
+    .icon-box{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      margin-bottom:16px;
+      background:linear-gradient(180deg, rgba(240,198,60,.18), rgba(240,198,60,.08));
+      border:1px solid rgba(240,198,60,.24);
+      color:var(--gold);
+      font-weight:900;
+      box-shadow:0 10px 20px rgba(240,198,60,.08);
+    }
+
+    .card p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .tag-row{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.07);
+      color:var(--muted-2);
+      background:rgba(255,255,255,.03);
+      font-size:.84rem;
+    }
+
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 14px;
+      border-radius:12px;
+      font-weight:800;
+      margin-top:16px;
+    }
+
+    .mini-btn.gold{
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+    }
+
+    .mini-btn.outline{
+      color:var(--gold);
+      border:1px solid rgba(240,198,60,.6);
+      background:rgba(255,255,255,.02);
+      margin-left:10px;
+    }
+
+    .rocketmail{
+      padding:30px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .rocketmail::before{
+      content:"";
+      position:absolute;
+      top:-40px;
+      right:-40px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,110,255,.24), transparent 66%);
+      pointer-events:none;
+    }
+
+    .rocketmail-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.2fr .9fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .feature-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
+      display:grid;
+      gap:12px;
+    }
+
+    .feature-list li{
+      color:var(--muted);
+      padding:13px 15px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stats{
+      display:grid;
+      gap:14px;
+    }
+
+    .mini-stat{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stat strong{
+      display:block;
+      color:var(--gold);
+      font-size:1rem;
+      margin-bottom:6px;
+    }
+
+    .mini-stat span{
+      color:var(--muted);
+      display:block;
+    }
+
+    .article-card h3{
+      margin-bottom:8px;
+    }
+
+    .article-card p{
+      margin-bottom:14px;
+    }
+
+    .cta-band{
+      padding:28px;
+    }
+
+    .cta-band-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer{
+      border-top:1px solid rgba(255,255,255,.05);
+      margin-top:26px;
+      padding:26px 0 48px;
+      color:var(--muted-2);
+      font-size:.95rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:1060px){
+      .hero-wrap,
+      .grid-3,
+      .rocketmail-inner{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:720px){
+      .nav{
+        padding:14px 0;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links,
+      .nav-actions{
+        width:100%;
+      }
+
+      .section{
+        padding:34px 0;
+      }
+
+      .side-panel,
+      .card,
+      .rocketmail,
+      .cta-band{
+        padding:22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/ibcb-hub/index.html" class="brand">
+        <span class="brand-mark">iB</span>
+        <span class="brand-text">iBCB-HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/ibcb-hub/index.html" class="active">Home</a>
+        <a href="/ibcb-hub/tools/index.html">Tools</a>
+        <a href="/ibcb-hub/resources/index.html">Resources</a>
+        <a href="/ibcb-hub/about/index.html">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="/ibcb-hub/tools/index.html">Explore Tools</a>
+        <a class="btn btn-primary" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="hero-copy">
+          <h1>One Platform for <span class="accent">Tools, Resources, and Business Growth</span></h1>
+          <p class="lead">
+            Discover curated tools, practical business stacks, automation workflows,
+            and product infrastructure designed to help entrepreneurs launch, operate,
+            and scale with more clarity.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill">Curated tools</span>
+            <span class="pill">Business stacks</span>
+            <span class="pill">Automation systems</span>
+            <span class="pill">RocketMail SaaS</span>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/ibcb-hub/rocketmail/">Launch with RocketMail</a>
+            <a class="btn btn-secondary" href="/ibcb-hub/tools/index.html">Explore Tools</a>
+          </div>
+        </div>
+
+        <aside class="panel side-panel">
+          <div class="side-title">Why use iBCB-HUB?</div>
+          <ul class="check-list">
+            <li>Explore structured tools for launching and growing a business</li>
+            <li>Access curated recommendations instead of scattered software choices</li>
+            <li>Move from discovery to execution with business stacks and workflows</li>
+            <li>See a platform that also builds its own SaaS product layer</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Why iBCB-HUB</div>
+          <h2>Built to help entrepreneurs move faster and smarter</h2>
+          <p class="section-copy">
+            iBCB-HUB combines trusted recommendations, execution-ready structures,
+            and scalable systems in one business-focused ecosystem.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="icon-box">CT</div>
+            <h3>Curated Tools</h3>
+            <p>We select practical tools that support real business use cases and measurable progress.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">SA</div>
+            <h3>Smart Automation</h3>
+            <p>We highlight workflows and systems that reduce manual work and improve efficiency.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">TR</div>
+            <h3>Trusted Resources</h3>
+            <p>We provide structured pages, guides, and stacks that help users take action with confidence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel rocketmail">
+          <div class="rocketmail-inner">
+            <div>
+              <div class="section-kicker">Featured Product</div>
+              <h2>Meet <span class="accent">iBCB RocketMail</span></h2>
+              <p class="section-copy">
+                Our own email automation platform designed to help businesses capture leads,
+                send campaigns, build follow-up workflows, and scale outreach with more control.
+              </p>
+
+              <ul class="feature-list">
+                <li>Email campaigns and structured outreach</li>
+                <li>Lead capture and segmentation logic</li>
+                <li>Automation workflows for follow-up and nurture</li>
+                <li>A stronger SaaS signal for the entire iBCB ecosystem</li>
+              </ul>
+
+              <div class="cta-row" style="margin-top:20px;">
+                <a class="btn btn-primary" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+                <a class="btn btn-secondary" href="/ibcb-hub/about/index.html">Learn About iBCB</a>
+              </div>
+            </div>
+
+            <div class="mini-stats">
+              <div class="mini-stat">
+                <strong>Why it matters</strong>
+                <span>RocketMail gives iBCB a proprietary product layer in addition to its tools and resources.</span>
+              </div>
+              <div class="mini-stat">
+                <strong>Best fit</strong>
+                <span>Ideal for founders and teams who want email automation inside a broader business ecosystem.</span>
+              </div>
+              <div class="mini-stat">
+                <strong>Strategic role</strong>
+                <span>It positions iBCB as both a platform and a product company.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Core Categories</div>
+          <h2>Explore the main pillars of the platform</h2>
+          <p class="section-copy">
+            Navigate the ecosystem through focused pages built around practical business goals.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="icon-box">AI</div>
+            <h3>AI Tools</h3>
+            <p>Use AI to create faster, automate work, and improve daily productivity.</p>
+            <div class="tag-row">
+              <span class="tag">Writing</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Productivity</span>
+            </div>
+            <a class="mini-btn gold" href="/ibcb-hub/tools/ai-tools/">Explore AI Tools</a>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">EM</div>
+            <h3>Email Marketing</h3>
+            <p>Build email systems, collect leads, automate campaigns, and improve delivery.</p>
+            <div class="tag-row">
+              <span class="tag">Campaigns</span>
+              <span class="tag">SMTP</span>
+              <span class="tag">Automation</span>
+            </div>
+            <a class="mini-btn gold" href="/ibcb-hub/tools/email-marketing/">Explore Email Marketing</a>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">BS</div>
+            <h3>Business Stack</h3>
+            <p>Find the essential tools to launch, manage, and scale your business operations.</p>
+            <div class="tag-row">
+              <span class="tag">Payments</span>
+              <span class="tag">Workspace</span>
+              <span class="tag">Growth</span>
+            </div>
+            <a class="mini-btn gold" href="/ibcb-hub/tools/business-stack/">Explore Business Stack</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Featured Tools</div>
+          <h2>Start with proven tools used by entrepreneurs</h2>
+          <p class="section-copy">
+            These featured picks help users take action quickly while you keep building your ecosystem.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="icon-box">GW</div>
+            <h3>Google Workspace</h3>
+            <p>Set up professional email, manage documents, and collaborate efficiently from day one.</p>
+            <a class="mini-btn gold" href="#">Start with Google Workspace</a>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">NO</div>
+            <h3>Notion</h3>
+            <p>Organize projects, tasks, notes, and business systems in one workspace.</p>
+            <a class="mini-btn gold" href="#">Start Using Notion</a>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">CV</div>
+            <h3>Canva</h3>
+            <p>Create branded visuals, marketing assets, and presentations without complex design tools.</p>
+            <a class="mini-btn gold" href="#">Create with Canva</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Latest Insights</div>
+          <h2>Content that supports search, trust, and decision-making</h2>
+          <p class="section-copy">
+            Publish practical articles that help founders discover your platform through SEO.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card article-card">
+            <h3>How to Create a Business Email</h3>
+            <p>Help entrepreneurs choose the right tools and set up a professional business presence.</p>
+            <a class="mini-btn gold" href="#">Read Article</a>
+          </article>
+
+          <article class="card article-card">
+            <h3>Best AI Tools for Entrepreneurs</h3>
+            <p>Compare useful AI platforms for writing, research, automation, and business support.</p>
+            <a class="mini-btn gold" href="#">Read Article</a>
+          </article>
+
+          <article class="card article-card">
+            <h3>Productivity Tools That Save Time</h3>
+            <p>Show founders how to simplify daily operations and work with more structure.</p>
+            <a class="mini-btn gold" href="#">Read Article</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="wide-panel cta-band">
+          <div class="cta-band-inner">
+            <div>
+              <div class="section-kicker">Start Building with iBCB</div>
+              <h2 style="margin-bottom:8px;">Explore the ecosystem or begin with RocketMail</h2>
+              <p class="section-copy" style="max-width:700px;">
+                Discover curated tools, structured stacks, and the SaaS product layer that strengthens the iBCB platform.
+              </p>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn btn-secondary" href="/ibcb-hub/tools/index.html">Explore Tools</a>
+              <a class="btn btn-primary" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 iBCB LLC. All rights reserved.</span>
+      <span>Home • iBCB-HUB</span>
+    </div>
+  </footer>
+</body>
+</html>
+

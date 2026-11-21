@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Our Stores | iBCB-HUB</title>
+  <meta name="description" content="Discover iBCB online shopping platforms, curated stores, premium products, and future specialized marketplaces." />
+  <style>
+    :root {
+      --bg: #030817;
+      --bg-2: #070f24;
+      --card: rgba(23, 39, 82, 0.72);
+      --card-2: rgba(14, 27, 61, 0.9);
+      --border: rgba(255, 203, 55, 0.22);
+      --border-blue: rgba(96, 131, 205, 0.28);
+      --gold: #ffd033;
+      --gold-2: #f4b91e;
+      --text: #eef3ff;
+      --muted: #b9c5df;
+      --soft: #7f8ba8;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      --radius: 26px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(255, 208, 51, 0.14), transparent 22%),
+        radial-gradient(circle at 75% 0%, rgba(61, 96, 177, 0.18), transparent 28%),
+        linear-gradient(180deg, #030713 0%, #071126 48%, #030817 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(3, 8, 23, 0.84);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 38px));
+      margin: 0 auto;
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #091021;
+      font-weight: 1000;
+      font-style: italic;
+      background: linear-gradient(145deg, var(--gold), var(--gold-2));
+      box-shadow: 0 12px 28px rgba(255, 208, 51, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #cbd5f0;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      padding: 12px 16px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      border: 1px solid rgba(255, 208, 51, 0.35);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .nav-actions { display: flex; gap: 12px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 208, 51, 0.48);
+      font-weight: 900;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn.gold {
+      color: #061026;
+      border: 0;
+      background: linear-gradient(145deg, var(--gold), var(--gold-2));
+      box-shadow: 0 16px 36px rgba(255, 208, 51, 0.18);
+    }
+
+    .btn.outline { color: var(--gold); }
+
+    main {
+      width: min(var(--max), calc(100% - 38px));
+      margin: 0 auto;
+      padding: 72px 0 90px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-blue);
+      border-radius: 34px;
+      padding: 58px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255, 208, 51, 0.17), transparent 24%),
+        linear-gradient(135deg, rgba(25, 45, 95, 0.88), rgba(7, 15, 36, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -160px;
+      top: -150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 208, 51, 0.22), transparent 66%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 1000;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 5.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+    }
+
+    .subtitle {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.18rem);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .section-head {
+      margin: 62px 0 24px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.75rem, 3vw, 2.55rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .store-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 255px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(27, 47, 99, 0.93), rgba(10, 20, 48, 0.96));
+      border: 1px solid var(--border-blue);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .store-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 208, 51, 0.42);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.34);
+    }
+
+    .store-card.inactive { opacity: 0.88; }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 24px;
+      padding: 26px;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 190px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 208, 51, 0.22);
+      background:
+        radial-gradient(circle at 35% 22%, rgba(255, 208, 51, 0.26), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.16));
+    }
+
+    .icon svg { width: 94px; height: 94px; filter: drop-shadow(0 12px 22px rgba(0,0,0,.36)); }
+
+    .content { display: flex; flex-direction: column; min-width: 0; }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 208, 51, 0.12);
+      border: 1px solid rgba(255, 208, 51, 0.28);
+      color: var(--gold);
+      font-weight: 950;
+      font-size: 0.82rem;
+    }
+
+    .store-card h3 {
+      margin: 0;
+      font-size: 1.55rem;
+      letter-spacing: -0.035em;
+    }
+
+    .store-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      color: #c9d4ec;
+      border: 1px solid rgba(171, 190, 233, 0.18);
+      background: rgba(255, 255, 255, 0.035);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.8rem;
+      font-weight: 650;
+    }
+
+    .card-action { margin-top: auto; padding-top: 22px; }
+
+    .open-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 13px;
+      background: linear-gradient(145deg, var(--gold), var(--gold-2));
+      color: #061026;
+      font-weight: 1000;
+    }
+
+    .disabled-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 13px;
+      border: 1px solid rgba(255, 208, 51, 0.28);
+      color: var(--gold);
+      font-weight: 1000;
+      background: rgba(255, 208, 51, 0.07);
+    }
+
+    .coming-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .coming-grid .card-inner { display: block; }
+    .coming-grid .visual { min-height: 145px; margin-bottom: 22px; }
+    .coming-grid .store-card { min-height: 360px; }
+
+    .footer-note {
+      margin-top: 46px;
+      padding: 24px 28px;
+      border-radius: 22px;
+      color: var(--muted);
+      border: 1px solid rgba(255, 208, 51, 0.18);
+      background: rgba(255, 255, 255, 0.035);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 960px) {
+      .nav { min-height: 80px; }
+      .nav-links { display: none; }
+      .hero { padding: 40px 28px; }
+      .grid, .coming-grid { grid-template-columns: 1fr; }
+      .card-inner { grid-template-columns: 135px 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-actions { display: none; }
+      main { padding-top: 38px; }
+      .hero { border-radius: 24px; }
+      .section-head { display: block; }
+      .card-inner { display: block; }
+      .visual { min-height: 145px; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../index.html" aria-label="iBCB-HUB Home">
+        <span class="brand-mark">iB</span>
+        <span>IBCB-HUB</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../resources/index.html">Resources</a>
+        <a href="../about/index.html">About</a>
+        <a href="../contact/index.html">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="btn outline" href="../tools/index.html">Explore Tools</a>
+        <a class="btn gold" href="../resources/index.html">View Resources</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">iBCB Shopping Network</p>
+      <h1>Explore Our Stores</h1>
+      <p class="subtitle">Discover iBCB online shopping platforms, curated stores, premium products, and future specialized marketplaces.</p>
+      <div class="hero-actions">
+        <a class="btn gold" href="#active-stores">View Active Stores</a>
+        <a class="btn outline" href="#coming-soon">Future Marketplaces</a>
+      </div>
+    </section>
+
+    <section id="active-stores" aria-labelledby="active-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Current active stores</p>
+          <h2 id="active-title">Shop from our live platforms</h2>
+          <p>Each card opens the selected store in a new tab.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="store-card">
+          <div class="card-inner">
+            <div class="visual icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="14" y="20" width="92" height="86" rx="25" fill="url(#bagBg)"/>
+                <path d="M39 45V37C39 25.4 48.4 16 60 16s21 9.4 21 21v8" stroke="#061026" stroke-width="8" stroke-linecap="round"/>
+                <path d="M39 48V37C39 25.4 48.4 16 60 16s21 9.4 21 21v11" stroke="#FFE78B" stroke-width="4" stroke-linecap="round"/>
+                <path d="M37 72c8 9.5 22.7 14.6 43 0" stroke="#061026" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="44" cy="56" r="4" fill="#061026"/>
+                <circle cx="76" cy="56" r="4" fill="#061026"/>
+                <text x="60" y="98" text-anchor="middle" font-size="22" font-weight="900" font-style="italic" fill="#061026">iBCB</text>
+                <defs>
+                  <linearGradient id="bagBg" x1="20" y1="20" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFF0A6"/>
+                    <stop offset="0.48" stop-color="#FFD033"/>
+                    <stop offset="1" stop-color="#C98500"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="content">
+              <div class="status-row"><span class="badge">Active Store</span></div>
+              <h3>iBCB-A Store</h3>
+              <p>Best Selling Products Store</p>
+              <div class="tags"><span class="tag">Amazon</span><span class="tag">Best Sellers</span><span class="tag">Online Shopping</span></div>
+              <div class="card-action"><a class="open-link" href="https://ibcb-a.com" target="_blank" rel="noopener noreferrer">Open Store</a></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="store-card">
+          <div class="card-inner">
+            <div class="visual icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="60" r="39" fill="#05070d" stroke="url(#watchGold)" stroke-width="7"/>
+                <path d="M45 21l5-13h20l5 13M45 99l5 13h20l5-13" stroke="url(#watchGold)" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="60" cy="60" r="29" fill="url(#dial)" stroke="#FFD85A" stroke-width="2"/>
+                <path d="M60 42v20l14 9" stroke="#FFE79B" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="60" cy="60" r="4" fill="#FFE79B"/>
+                <path d="M32 60h6M82 60h6M60 32v6M60 82v6" stroke="#FFD85A" stroke-width="4" stroke-linecap="round"/>
+                <defs>
+                  <linearGradient id="watchGold" x1="23" y1="6" x2="94" y2="111" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFF0A6"/>
+                    <stop offset="0.52" stop-color="#FFD033"/>
+                    <stop offset="1" stop-color="#9B6400"/>
+                  </linearGradient>
+                  <radialGradient id="dial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48 43) rotate(50) scale(56)">
+                    <stop stop-color="#3B2C12"/>
+                    <stop offset="1" stop-color="#090909"/>
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="content">
+              <div class="status-row"><span class="badge">Active Store</span></div>
+              <h3>Royal Watches Store</h3>
+              <p>Premium and luxury watches for men, women, and gift buyers.</p>
+              <div class="tags"><span class="tag">Luxury Watches</span><span class="tag">Gifts</span><span class="tag">Premium</span></div>
+              <div class="card-action"><a class="open-link" href="https://www.royalwatchesstore.com/" target="_blank" rel="noopener noreferrer">Open Store</a></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="coming-soon" aria-labelledby="coming-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Future stores</p>
+          <h2 id="coming-title">Specialized marketplaces coming soon</h2>
+          <p>These cards prepare the portal for future iBCB projects.</p>
+        </div>
+      </div>
+
+      <div class="grid coming-grid">
+        <article class="store-card inactive">
+          <div class="card-inner">
+            <div class="visual icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M35 28h50l11 25H24l11-25Z" fill="#FFD033"/>
+                <path d="M31 54h58l-6 45H37l-6-45Z" fill="url(#fashion)"/>
+                <path d="M48 28c2 13 22 13 24 0" stroke="#081022" stroke-width="6" stroke-linecap="round"/>
+                <defs><linearGradient id="fashion" x1="31" y1="54" x2="87" y2="101"><stop stop-color="#FFF0A6"/><stop offset="1" stop-color="#B87400"/></linearGradient></defs>
+              </svg>
+            </div>
+            <div class="content">
+              <span class="badge">Coming Soon</span>
+              <h3>Men &amp; Women High Quality Fashion</h3>
+              <p>Premium fashion selections for men and women.</p>
+              <div class="tags"><span class="tag">Fashion</span><span class="tag">Men</span><span class="tag">Women</span></div>
+              <div class="card-action"><span class="disabled-link">Coming Soon</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="store-card inactive">
+          <div class="card-inner">
+            <div class="visual icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="57" r="37" fill="url(#tour)"/>
+                <path d="M60 102s27-28 27-50a27 27 0 1 0-54 0c0 22 27 50 27 50Z" stroke="#FFD033" stroke-width="8"/>
+                <circle cx="60" cy="52" r="11" fill="#081022"/>
+                <path d="M22 101h76" stroke="#FFE78B" stroke-width="7" stroke-linecap="round"/>
+                <defs><radialGradient id="tour" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48 38) rotate(53) scale(71)"><stop stop-color="#FFE78B"/><stop offset="1" stop-color="#B87400"/></radialGradient></defs>
+              </svg>
+            </div>
+            <div class="content">
+              <span class="badge">Coming Soon</span>
+              <h3>Tourism Directory</h3>
+              <p>A curated tourism directory organized by category, state, and destination.</p>
+              <div class="tags"><span class="tag">Tourism</span><span class="tag">Directory</span><span class="tag">Destinations</span></div>
+              <div class="card-action"><span class="disabled-link">Coming Soon</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="store-card inactive">
+          <div class="card-inner">
+            <div class="visual icon" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 72l10-22c3-7 9-11 17-11h21c8 0 14 4 17 11l10 22" fill="url(#car)"/>
+                <path d="M25 72h70c7 0 12 5 12 12v8H13v-8c0-7 5-12 12-12Z" fill="#FFD033"/>
+                <circle cx="36" cy="92" r="10" fill="#081022" stroke="#FFE78B" stroke-width="4"/>
+                <circle cx="84" cy="92" r="10" fill="#081022" stroke="#FFE78B" stroke-width="4"/>
+                <path d="M43 48h34l7 18H36l7-18Z" fill="#081022" opacity=".9"/>
+                <defs><linearGradient id="car" x1="23" y1="39" x2="92" y2="79"><stop stop-color="#FFF0A6"/><stop offset="1" stop-color="#B87400"/></linearGradient></defs>
+              </svg>
+            </div>
+            <div class="content">
+              <span class="badge">Coming Soon</span>
+              <h3>Premium Vehicles Store</h3>
+              <p>High-end vehicles and premium automotive selections.</p>
+              <div class="tags"><span class="tag">Vehicles</span><span class="tag">Premium</span><span class="tag">Automotive</span></div>
+              <div class="card-action"><span class="disabled-link">Coming Soon</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      Recommended HUB update: replace the Amazon &amp; E-Commerce button label with <strong>Explore Stores</strong> and link it to this intermediate page instead of opening iBCB-A directly.
+    </div>
+  </main>
+</body>
+</html>

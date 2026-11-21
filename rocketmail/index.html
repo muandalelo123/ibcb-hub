@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iBCB RocketMail — Email Automation Platform</title>
+  <meta
+    name="description"
+    content="iBCB RocketMail is an email automation platform designed to help businesses capture leads, send campaigns, and scale communication workflows."
+  />
+
+  <style>
+    :root{
+      --bg0:#040816;
+      --bg1:#081127;
+      --bg2:#0d1834;
+      --panel:#111f43;
+      --panel-soft:#0e1a37;
+      --line:rgba(255,255,255,.08);
+      --text:#eef3ff;
+      --muted:#b9c7e8;
+      --muted-2:#94a8d6;
+      --gold:#f0c63c;
+      --gold-2:#d6a92a;
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 18% 14%, rgba(34,89,255,.18), transparent 0 24%),
+        radial-gradient(circle at 85% 12%, rgba(240,198,60,.10), transparent 0 18%),
+        linear-gradient(180deg, #030712 0%, #061027 34%, #07122b 100%);
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+      padding:20px 0 80px;
+    }
+
+    .topbar{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:6px 0 10px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .logo{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:#111827;
+      background:linear-gradient(180deg, var(--gold), #ddb22f);
+      box-shadow:0 10px 22px rgba(240,198,60,.22);
+      font-weight:900;
+    }
+
+    .brand b{
+      color:var(--gold);
+      font-size:14px;
+      letter-spacing:.6px;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      border:1px solid transparent;
+      transition:.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    nav a.active{
+      border-color:rgba(240,198,60,.25);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn.primary{
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      box-shadow:0 14px 28px rgba(240,198,60,.18);
+    }
+
+    .btn.secondary{
+      color:var(--gold);
+      border:1px solid rgba(240,198,60,.6);
+      background:rgba(255,255,255,.02);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .btn.secondary:hover{
+      background:rgba(240,198,60,.06);
+    }
+
+    .hero{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:1.28fr .92fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-copy{
+      padding-top:10px;
+    }
+
+    .crumb{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:var(--muted);
+      font-size:12px;
+      padding:7px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+
+    h1,h2,h3{
+      margin:0 0 12px;
+      line-height:1.08;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    h1{
+      margin-top:14px;
+      font-size:clamp(2.7rem,4vw,4.5rem);
+      letter-spacing:-.04em;
+      font-weight:900;
+    }
+
+    h2{
+      font-size:clamp(1.8rem,2.5vw,2.6rem);
+      letter-spacing:-.03em;
+      font-weight:850;
+    }
+
+    h3{
+      font-size:1.16rem;
+      font-weight:800;
+    }
+
+    .gold{color:var(--gold)}
+
+    .lead{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:62ch;
+      margin:16px 0 24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .panel,
+    .card,
+    .wide-panel{
+      border:1px solid rgba(116,145,212,.16);
+      background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .side-panel{
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .side-panel::before{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,198,60,.16), transparent 65%);
+      pointer-events:none;
+    }
+
+    .side-title{
+      color:var(--gold);
+      font-size:1.02rem;
+      font-weight:900;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .side-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .side-list li{
+      color:var(--muted);
+      padding-left:24px;
+      position:relative;
+    }
+
+    .side-list li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      color:#22c55e;
+      font-weight:900;
+    }
+
+    .section{
+      margin-top:34px;
+    }
+
+    .section-head{
+      margin-bottom:18px;
+    }
+
+    .section-kicker{
+      color:var(--gold);
+      font-size:1rem;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .section-copy{
+      margin:0;
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:16px;
+    }
+
+    .card{
+      padding:18px;
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 100% 0%, rgba(46,110,255,.10), transparent 30%);
+      pointer-events:none;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(240,198,60,.25);
+      box-shadow:0 22px 50px rgba(0,0,0,.45);
+    }
+
+    .icon{
+      width:46px;
+      height:46px;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(240,198,60,.18), rgba(240,198,60,.08));
+      border:1px solid rgba(240,198,60,.24);
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      color:var(--gold);
+      box-shadow:0 10px 20px rgba(240,198,60,.08);
+      margin-bottom:14px;
+      position:relative;
+      z-index:1;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      position:relative;
+      z-index:1;
+      font-size:.96rem;
+    }
+
+    .product-band{
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .product-band::before{
+      content:"";
+      position:absolute;
+      top:-40px;
+      right:-40px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,110,255,.24), transparent 66%);
+      pointer-events:none;
+    }
+
+    .product-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.15fr .9fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .feature-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
+      display:grid;
+      gap:12px;
+    }
+
+    .feature-list li{
+      color:var(--muted);
+      padding:13px 15px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stats{
+      display:grid;
+      gap:14px;
+    }
+
+    .mini-stat{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stat strong{
+      display:block;
+      color:var(--gold);
+      font-size:1rem;
+      margin-bottom:6px;
+    }
+
+    .mini-stat span{
+      color:var(--muted);
+      display:block;
+      font-size:.96rem;
+    }
+
+    .cta-band{
+      padding:28px;
+    }
+
+    .cta-band-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:20px;
+      border-top:1px solid var(--line);
+      color:var(--muted-2);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:1060px){
+      .hero,
+      .product-inner{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:860px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:36px;
+      }
+    }
+
+    @media (max-width:720px){
+      .topbar{
+        padding:10px 0;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      nav,
+      .nav-actions{
+        width:100%;
+      }
+
+      .side-panel,
+      .product-band,
+      .cta-band{
+        padding:22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">iB</div>
+        <b>IBCB-HUB</b>
+      </div>
+
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../tools/">Tools</a>
+        <a href="../resources/">Resources</a>
+        <a href="../about/">About</a>
+        <a class="active" href="./">RocketMail</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn secondary" href="../tools/email-marketing/">Email Marketing</a>
+        <a class="btn primary" href="../about/">About iBCB</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="crumb">Product • SaaS • Email Automation</div>
+        <h1>Launch smarter with <span class="gold">iBCB RocketMail</span></h1>
+        <p class="lead">
+          iBCB RocketMail is our email automation platform designed to help businesses
+          capture leads, send campaigns, structure follow-up workflows, and scale communication
+          with more control.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="../tools/email-marketing/">Explore Email Tools</a>
+          <a class="btn secondary" href="../index.html">Back to Home</a>
+        </div>
+
+        <div class="pillrow">
+          <div class="pill">Lead capture</div>
+          <div class="pill">Campaign workflows</div>
+          <div class="pill">Automation logic</div>
+          <div class="pill">Scalable communication</div>
+        </div>
+      </div>
+
+      <aside class="panel side-panel">
+        <div class="side-title">Why RocketMail matters</div>
+        <ul class="side-list">
+          <li>Supports the iBCB platform with a proprietary SaaS layer</li>
+          <li>Strengthens startup credibility for partners and programs</li>
+          <li>Connects naturally with the Email Marketing category</li>
+          <li>Creates a clearer product identity inside the ecosystem</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="section-kicker">Core Benefits</div>
+        <h2>Built for structured outreach and business growth</h2>
+        <p class="section-copy">
+          RocketMail is positioned as the product layer of the iBCB ecosystem,
+          helping businesses automate communication with more consistency and control.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">LC</div>
+          <h3>Lead Capture</h3>
+          <p>Support list building and audience collection with a product designed for structured growth.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">AC</div>
+          <h3>Automated Campaigns</h3>
+          <p>Launch campaigns and follow-up logic in a more scalable and organized way.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">SC</div>
+          <h3>Scalable Communication</h3>
+          <p>Strengthen outreach systems with a platform built around consistency and control.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel product-band">
+        <div class="product-inner">
+          <div>
+            <div class="section-kicker">Product Positioning</div>
+            <h2>More than a tool page — a real product signal</h2>
+            <p class="section-copy">
+              RocketMail turns iBCB into more than a curation hub. It signals that the platform
+              is building proprietary product infrastructure for entrepreneurs and business operators.
+            </p>
+
+            <ul class="feature-list">
+              <li>Email campaign management for structured outreach</li>
+              <li>Automation workflows for follow-up and nurture logic</li>
+              <li>Lead routing and segmentation potential</li>
+              <li>Natural fit inside the broader iBCB SaaS and tools ecosystem</li>
+            </ul>
+
+            <div class="hero-actions" style="margin-top:20px;">
+              <a class="btn primary" href="../about/">Learn About iBCB</a>
+              <a class="btn secondary" href="../tools/">Explore the Platform</a>
+            </div>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <strong>Startup signal</strong>
+              <span>RocketMail helps present iBCB as a platform with proprietary product ambition.</span>
+            </div>
+
+            <div class="mini-stat">
+              <strong>Strategic fit</strong>
+              <span>It aligns directly with Email Marketing, automation, and entrepreneur workflows.</span>
+            </div>
+
+            <div class="mini-stat">
+              <strong>Business value</strong>
+              <span>It gives the ecosystem a stronger SaaS foundation and product narrative.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wide-panel cta-band">
+        <div class="cta-band-inner">
+          <div>
+            <div class="section-kicker">Next Step</div>
+            <h2 style="margin-bottom:8px;">Explore the ecosystem around RocketMail</h2>
+            <p class="section-copy">
+              Navigate back to the platform, discover related tools, and connect RocketMail
+              to the broader iBCB product story.
+            </p>
+          </div>
+
+          <div class="hero-actions" style="margin:0;">
+            <a class="btn secondary" href="../tools/">Explore Tools</a>
+            <a class="btn primary" href="../index.html">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 IBCB. All rights reserved.</div>
+      <div>Product page: <span style="opacity:.9">/ibcb-hub/rocketmail/</span></div>
+    </footer>
+  </div>
+</body>
+</html>
+
+
+
+
+

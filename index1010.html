@@ -1,0 +1,896 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IBCB-HUB — Home</title>
+  <meta name="description" content="IBCB-HUB helps entrepreneurs discover business tools, curated stacks, automation systems, and digital resources from one centralized platform." />
+
+  <style>
+    :root{
+      --bg0:#070a12;
+      --bg1:#0b1020;
+      --card:#0e152b;
+      --card2:#0b1124;
+      --line:rgba(255,255,255,.08);
+      --text:#e9edf7;
+      --muted:rgba(233,237,247,.72);
+      --gold:#d8b36a;
+      --gold2:#b89245;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:22px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(216,179,106,.18), transparent 60%),
+        radial-gradient(900px 500px at 20% 20%, rgba(90,130,255,.16), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(255,150,90,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(7,10,18,.55);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:18px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.3px;
+    }
+
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      display:grid; place-items:center;
+      border:1px solid rgba(216,179,106,.35);
+      background:linear-gradient(180deg, rgba(216,179,106,.18), rgba(255,255,255,.04));
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      font-weight:800;
+      color:var(--gold);
+    }
+
+    .brand span{font-size:15px}
+    .brand .gold{color:var(--gold)}
+
+    .menu{
+      display:flex; gap:18px; align-items:center;
+      font-size:14px; color:var(--muted);
+    }
+
+    .menu a{
+      padding:10px 10px; border-radius:12px;
+    }
+
+    .menu a:hover,
+    .menu a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      transition:transform .08s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+
+    .btn:hover{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.14);
+    }
+
+    .btn:active{transform:translateY(1px)}
+
+    .btn.primary{
+      border-color:rgba(216,179,106,.45);
+      background:linear-gradient(180deg, rgba(216,179,106,.22), rgba(255,255,255,.02));
+    }
+
+    .btn.primary:hover{border-color:rgba(216,179,106,.65)}
+
+    .hamburger{display:none}
+
+    .hero{
+      padding:58px 0 28px;
+    }
+
+    .heroCard{
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      box-shadow:var(--shadow);
+      padding:44px 28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(600px 240px at 50% 0%, rgba(216,179,106,.18), transparent 70%),
+        radial-gradient(560px 240px at 0% 40%, rgba(90,130,255,.12), transparent 70%),
+        radial-gradient(560px 240px at 100% 40%, rgba(255,150,90,.08), transparent 70%);
+      pointer-events:none;
+      filter:blur(10px);
+      opacity:.9;
+    }
+
+    .heroInner{position:relative}
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(216,179,106,.25);
+      background:rgba(216,179,106,.08);
+      color:rgba(233,237,247,.9);
+      font-size:12px;
+      letter-spacing:.2px;
+      margin-bottom:14px;
+    }
+
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background:var(--gold);
+      box-shadow:0 0 0 4px rgba(216,179,106,.18);
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(32px, 5vw, 46px);
+      letter-spacing:.4px;
+      line-height:1.08;
+      font-family:ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-weight:700;
+    }
+
+    h1 .gold{color:var(--gold)}
+
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.55;
+      max-width:62ch;
+    }
+
+    .heroActions{
+      margin-top:18px;
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+
+    .heroMeta{
+      margin-top:20px;
+      display:flex; gap:14px; flex-wrap:wrap;
+      color:rgba(233,237,247,.65);
+      font-size:13px;
+    }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    .pill svg{opacity:.8}
+
+    section{padding:26px 0}
+
+    .sectionTitle{
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+      margin:0 0 14px;
+    }
+
+    .sectionTitle h2{
+      margin:0;
+      font-size:22px;
+      font-family:ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+
+    .sectionTitle p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .card{
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      padding:18px 16px;
+      box-shadow:0 14px 44px rgba(0,0,0,.30);
+      transition:transform .12s ease, border-color .15s ease, background .15s ease;
+      min-height:160px;
+    }
+
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(216,179,106,.28);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(255,255,255,.01));
+    }
+
+    .iconBox{
+      width:42px; height:42px; border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid rgba(216,179,106,.20);
+      background:rgba(216,179,106,.08);
+      margin-bottom:12px;
+      color:var(--gold);
+    }
+
+    .card h3{
+      margin:0 0 8px;
+      font-size:18px;
+      font-weight:700;
+      font-family:ui-serif, Georgia, "Times New Roman", Times, serif;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .why{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+    }
+
+    .why .card{min-height:150px}
+
+    .tools{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+
+    .toolCard{
+      border-radius:var(--radius2);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .toolLogo{
+      height:74px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800;
+      letter-spacing:.4px;
+      color:rgba(233,237,247,.85);
+    }
+
+    .toolLogo small{opacity:.8; font-weight:700}
+    .toolCard h3{margin:0; font-size:18px}
+    .toolCard p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
+    .toolCard .actions{margin-top:auto; display:flex; gap:10px; flex-wrap:wrap}
+    .toolsCtaRow{display:flex; justify-content:center; margin-top:14px}
+
+    .posts{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+    }
+
+    .post{
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:16px;
+      transition:border-color .15s ease, transform .12s ease;
+    }
+
+    .post:hover{
+      border-color:rgba(216,179,106,.25);
+      transform:translateY(-1px);
+    }
+
+    .post .tag{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(216,179,106,.22);
+      background:rgba(216,179,106,.08);
+      color:rgba(233,237,247,.86);
+      font-size:12px;
+      margin-bottom:10px;
+    }
+
+    .post h3{margin:0 0 6px; font-size:16px}
+    .post p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
+
+    .featureRow{
+      display:grid;
+      grid-template-columns:1.2fr .9fr;
+      gap:16px;
+    }
+
+    .featurePanel{
+      border-radius:var(--radius2);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(216,179,106,.08), rgba(255,255,255,.01));
+      box-shadow:var(--shadow);
+      padding:22px 18px;
+    }
+
+    .featurePanel h3{
+      margin:0 0 10px;
+      font-size:22px;
+      font-family:ui-serif, Georgia, "Times New Roman", Times, serif;
+    }
+
+    .featurePanel p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .featurePanel .actions{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter{
+      border-radius:var(--radius2);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(255,255,255,.01));
+      box-shadow:var(--shadow);
+      padding:18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .newsletter h3{margin:0; font-size:18px}
+    .newsletter p{margin:4px 0 0; color:var(--muted); font-size:13px}
+
+    .form{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+
+    input[type="email"]{
+      width:min(360px, 72vw);
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.20);
+      color:var(--text);
+      outline:none;
+    }
+
+    input[type="email"]::placeholder{color:rgba(233,237,247,.50)}
+    input[type="email"]:focus{border-color:rgba(216,179,106,.45)}
+
+    footer{
+      padding:34px 0 26px;
+      border-top:1px solid var(--line);
+      background:rgba(0,0,0,.14);
+      margin-top:16px;
+    }
+
+    .footGrid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .footCol h4{
+      margin:0 0 10px;
+      font-size:14px;
+      color:rgba(233,237,247,.92);
+      letter-spacing:.2px;
+    }
+
+    .footCol a{
+      display:block;
+      padding:7px 0;
+      color:rgba(233,237,247,.66);
+      font-size:13px;
+    }
+
+    .footCol a:hover{color:var(--text)}
+
+    .bottom{
+      margin-top:18px;
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      flex-wrap:wrap;
+      color:rgba(233,237,247,.55);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      padding-top:14px;
+    }
+
+    .social{display:flex; gap:10px; align-items:center}
+
+    .social a{
+      width:36px; height:36px; border-radius:12px;
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      background:rgba(255,255,255,.03);
+    }
+
+    .social a:hover{border-color:rgba(216,179,106,.25)}
+    .arrow{opacity:.9}
+
+    @media (max-width: 980px){
+      .grid{grid-template-columns:repeat(2, 1fr)}
+      .why{grid-template-columns:1fr}
+      .tools{grid-template-columns:1fr}
+      .posts{grid-template-columns:1fr}
+      .featureRow{grid-template-columns:1fr}
+      .footGrid{grid-template-columns:repeat(2, 1fr)}
+      .menu{display:none}
+      .hamburger{display:inline-flex}
+    }
+
+    @media (max-width: 520px){
+      .heroCard{padding:36px 18px}
+      .card{min-height:auto}
+      .footGrid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="/ibcb-hub/">
+          <div class="logo">iB</div>
+          <span>IBCB-<span class="gold">HUB</span></span>
+        </a>
+
+        <nav class="menu" aria-label="Primary navigation">
+          <a class="active" href="/ibcb-hub/">Home</a>
+          <a href="/ibcb-hub/tools/">Tools</a>
+          <a href="/ibcb-hub/blog/">Blog</a>
+          <a href="/ibcb-hub/resources/">Resources</a>
+          <a href="/ibcb-hub/about/">About</a>
+          <a href="/ibcb-hub/contact/">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="/ibcb-hub/tools/">Explore Tools <span class="arrow">›</span></a>
+          <a class="btn primary" href="/ibcb-hub/resources/">View Resources <span class="arrow">›</span></a>
+          <button class="btn hamburger" type="button" aria-label="Open menu" onclick="toggleMobileMenu()">Menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobileMenu" style="display:none; border-bottom:1px solid rgba(255,255,255,.08); background:rgba(7,10,18,.75); backdrop-filter:blur(14px);">
+    <div class="wrap" style="padding:12px 20px 16px;">
+      <div style="display:grid; gap:8px;">
+        <a class="btn" href="/ibcb-hub/">Home</a>
+        <a class="btn" href="/ibcb-hub/tools/">Tools</a>
+        <a class="btn" href="/ibcb-hub/blog/">Blog</a>
+        <a class="btn" href="/ibcb-hub/resources/">Resources</a>
+        <a class="btn" href="/ibcb-hub/about/">About</a>
+        <a class="btn" href="/ibcb-hub/contact/">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="heroCard">
+        <div class="heroInner">
+          <div class="kicker"><span class="dot"></span> One platform • Tools • Resources • Services</div>
+          <h1>Welcome to <span class="gold">IBCB-HUB</span></h1>
+          <p class="sub">
+            Access powerful digital tools, curated business stacks, and smart solutions to build, launch, and grow your business from one centralized platform.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn primary" href="/ibcb-hub/tools/">Explore Tools <span class="arrow">›</span></a>
+            <a class="btn" href="/ibcb-hub/resources/">Discover Resources <span class="arrow">›</span></a>
+            <a class="btn" href="/ibcb-hub/rocketmail/">Try RocketMail <span class="arrow">›</span></a>
+          </div>
+
+          <div class="heroMeta" aria-label="Highlights">
+            <span class="pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Curated recommendations
+            </span>
+            <span class="pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 8v6M4 12h6m8 0h6M7 7l4 4m6 6l-4-4M17 7l-4 4M7 17l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Smart automation ideas
+            </span>
+            <span class="pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7l-6-4H6a2 2 0 0 0-2 2v14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 3v4a2 2 0 0 0 2 2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Guides & templates
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Core Categories</h2>
+        <p>Choose a space to explore.</p>
+      </div>
+
+      <div class="grid" role="list">
+        <a class="card" role="listitem" href="https://ibcb-a.com/" target="_blank" rel="noopener">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18c0 2 2 3 4 3 3 0 4-1 4-4v-6c0-3-1-5-5-5-3 0-5 1-5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17 14c0 3-2 5-5 5-2 0-3-1-3-3 0-2 2-3 4-3h4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Amazon &amp; E-Commerce</h3>
+          <p>Affiliate products and tools for online selling and e-commerce solutions.</p>
+        </a>
+
+        <a class="card" role="listitem" href="/ibcb-hub/tools/email-marketing/">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" />
+              <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Email Marketing</h3>
+          <p>Email campaign platforms, automation tools, and marketing solutions.</p>
+        </a>
+
+        <a class="card" role="listitem" href="/ibcb-hub/tools/business-stack/">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3l9 5-9 5-9-5 9-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M3 12l9 5 9-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M3 17l9 5 9-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Business Stack</h3>
+          <p>Essential tools every entrepreneur needs to build and manage a digital business.</p>
+        </a>
+
+        <a class="card" role="listitem" href="/ibcb-hub/tools/ai-tools/">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M9 4a3 3 0 0 1 6 0v1a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a3 3 0 0 1-3 3v1a3 3 0 0 1-6 0v-1a3 3 0 0 1-3-3v-1a3 3 0 0 1 0-6V8a3 3 0 0 1 3-3V4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 7h6M9 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>AI Tools</h3>
+          <p>Artificial intelligence tools designed to boost productivity and automate tasks.</p>
+        </a>
+
+        <a class="card" role="listitem" href="/ibcb-hub/resources/">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3 2 8l10 5 10-5-10-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M6 10v6c0 2 3 4 6 4s6-2 6-4v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Online Courses</h3>
+          <p>Training programs, tutorials, and educational resources to develop new skills.</p>
+        </a>
+
+        <a class="card" role="listitem" href="/ibcb-hub/resources/">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M16 8a3 3 0 1 0-2.8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 14a3 3 0 1 0 0-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 21a3 3 0 1 0 0-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8.7 10.7 14 8.3M8.7 13.3 14 15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Social Media</h3>
+          <p>Platforms, strategies, and tools to grow your audience online.</p>
+        </a>
+
+        <a class="card" role="listitem" href="/ibcb-hub/resources/">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 16l1-5a3 3 0 0 1 3-2h6a3 3 0 0 1 3 2l1 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 16h10v3H7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M7.5 11h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Auto &amp; Travel</h3>
+          <p>Transportation services, vehicle solutions, and travel resources.</p>
+        </a>
+
+        <a class="card" role="listitem" href="/ibcb-hub/resources/">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M19.4 15a7.7 7.7 0 0 0 .1-2l2-1.2-2-3.4-2.3.6a7.7 7.7 0 0 0-1.7-1l-.3-2.4H11l-.3 2.4a7.7 7.7 0 0 0-1.7 1L6.7 8.4 4.7 11.8l2 1.2a7.7 7.7 0 0 0 .1 2l-2 1.2 2 3.4 2.3-.6a7.7 7.7 0 0 0 1.7 1l.3 2.4h4l.3-2.4a7.7 7.7 0 0 0 1.7-1l2.3.6 2-3.4-2-1.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Digital Resources</h3>
+          <p>Guides, templates, and recommended digital platforms.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Why IBCB-HUB?</h2>
+        <p>Built to help entrepreneurs move faster.</p>
+      </div>
+
+      <div class="why">
+        <div class="card">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Curated Tools</h3>
+          <p>We select high-impact tools that are useful for real business outcomes.</p>
+        </div>
+
+        <div class="card">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2v6m0 8v6M4 12h6m8 0h6M7 7l4 4m6 6l-4-4M17 7l-4 4M7 17l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Smart Automation</h3>
+          <p>Discover workflows and platforms that save time and scale your operations.</p>
+        </div>
+
+        <div class="card">
+          <div class="iconBox" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7l-6-4H6a2 2 0 0 0-2 2v14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M14 3v4a2 2 0 0 0 2 2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Trusted Resources</h3>
+          <p>Use guides, tutorials, and templates to build and grow with confidence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>About iBCB</h2>
+        <p>Built as a platform for real entrepreneurs.</p>
+      </div>
+
+      <div class="featureRow">
+        <div class="featurePanel">
+          <h3>What iBCB is building</h3>
+          <p>
+            iBCB LLC is developing a digital business platform that helps entrepreneurs launch, manage, and scale their operations through curated tools, structured business stacks, automation workflows, and integrated systems.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="/ibcb-hub/about/">Learn More About iBCB <span class="arrow">›</span></a>
+          </div>
+        </div>
+
+        <div class="featurePanel">
+          <h3>Meet iBCB RocketMail</h3>
+          <p>
+            RocketMail is our email automation product designed to support lead capture, campaign sending, and scalable communication workflows for growing businesses.
+          </p>
+          <div class="actions">
+            <a class="btn" href="/ibcb-hub/rocketmail/">Explore RocketMail <span class="arrow">›</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Featured Tools</h2>
+        <p>Popular picks to get started quickly.</p>
+      </div>
+
+      <div class="tools">
+        <div class="toolCard">
+          <div class="toolLogo" aria-label="Google Workspace">Google <small>&nbsp;Workspace</small></div>
+          <h3>Google Workspace</h3>
+          <p>Set up a professional business email, manage documents, and collaborate efficiently from day one.</p>
+          <div class="actions">
+            <a class="btn" href="/ibcb-hub/tools/business-stack/">View Stack <span class="arrow">›</span></a>
+            <a class="btn primary" href="/ibcb-hub/tools/business-stack/">Explore Tools <span class="arrow">›</span></a>
+          </div>
+        </div>
+
+        <div class="toolCard">
+          <div class="toolLogo" aria-label="Notion">NOTION</div>
+          <h3>Notion</h3>
+          <p>Organize your business, tasks, and projects in one place to stay productive and focused.</p>
+          <div class="actions">
+            <a class="btn" href="/ibcb-hub/tools/business-stack/">View Stack <span class="arrow">›</span></a>
+            <a class="btn primary" href="/ibcb-hub/tools/business-stack/">Explore Tools <span class="arrow">›</span></a>
+          </div>
+        </div>
+
+        <div class="toolCard">
+          <div class="toolLogo" aria-label="Canva">CANVA</div>
+          <h3>Canva</h3>
+          <p>Create professional designs, marketing visuals, and presentations without advanced design skills.</p>
+          <div class="actions">
+            <a class="btn" href="/ibcb-hub/tools/ai-tools/">View Tool <span class="arrow">›</span></a>
+            <a class="btn primary" href="/ibcb-hub/tools/ai-tools/">Explore Tools <span class="arrow">›</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolsCtaRow">
+        <a class="btn primary" href="/ibcb-hub/tools/">Explore All Tools <span class="arrow">›</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Latest Insights</h2>
+        <p>SEO-friendly content that builds trust over time.</p>
+      </div>
+
+      <div class="posts">
+        <a class="post" href="/ibcb-hub/blog/">
+          <span class="tag">Email</span>
+          <h3>How to Create a Professional Business Email</h3>
+          <p>Step-by-step setup guidance and best practices for a credible brand presence.</p>
+        </a>
+
+        <a class="post" href="/ibcb-hub/blog/">
+          <span class="tag">AI</span>
+          <h3>Best AI Tools for Entrepreneurs</h3>
+          <p>A curated list of AI solutions to save time, write faster, and automate tasks.</p>
+        </a>
+
+        <a class="post" href="/ibcb-hub/blog/">
+          <span class="tag">Productivity</span>
+          <h3>Top Productivity Tools for Digital Businesses</h3>
+          <p>Tools and workflows to stay organized, ship faster, and keep your business running.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="newsletter">
+        <div>
+          <h3>Stay Ahead in the Digital World</h3>
+          <p>Get the latest tools, AI resources, and digital business insights.</p>
+        </div>
+        <form class="form" onsubmit="return handleSubscribe(event)">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button class="btn primary" type="submit">Subscribe <span class="arrow">›</span></button>
+        </form>
+      </div>
+      <p style="margin:10px 0 0; color:rgba(233,237,247,.52); font-size:12px;">
+        Powered by iBCB RocketMail. You can unsubscribe anytime.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footGrid">
+        <div class="footCol">
+          <h4>About iBCB</h4>
+          <a href="/ibcb-hub/about/">About Us</a>
+          <a href="/ibcb-hub/about/">Our Vision</a>
+        </div>
+
+        <div class="footCol">
+          <h4>Resources</h4>
+          <a href="/ibcb-hub/blog/">Blog</a>
+          <a href="/ibcb-hub/resources/">Guides</a>
+        </div>
+
+        <div class="footCol">
+          <h4>Recommended Tools</h4>
+          <a href="/ibcb-hub/tools/business-stack/">Business Stack</a>
+          <a href="/ibcb-hub/tools/email-marketing/">Email Marketing</a>
+          <a href="/ibcb-hub/tools/ai-tools/">AI Tools</a>
+        </div>
+
+        <div class="footCol">
+          <h4>Contact</h4>
+          <a href="/ibcb-hub/contact/">Support</a>
+          <a href="/ibcb-hub/contact/">Email Us</a>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="social" aria-label="Social links">
+          <a href="#" aria-label="Twitter/X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6 6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 12s0-4-1-5-3-1-9-1-8 0-9 1-1 5-1 5 0 4 1 5 3 1 9 1 8 0 9-1 1-5 1-5Z" stroke="currentColor" stroke-width="2"/><path d="M10 9l6 3-6 3V9Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9v12M6 6.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM10 21v-7a4 4 0 0 1 8 0v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <div>© <span id="year"></span> iBCB LLC. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu(){
+      const el = document.getElementById("mobileMenu");
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+
+    function handleSubscribe(event){
+      event.preventDefault();
+      const email = event.target.email.value.trim();
+      alert("Subscribed: " + email);
+      event.target.reset();
+      return false;
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+

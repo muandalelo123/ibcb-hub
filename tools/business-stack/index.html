@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IBCB-HUB — Business Stack</title>
+  <meta name="description" content="Discover the essential business tools to build, manage, and scale your digital business." />
+  <style>
+    :root{
+      --bg0:#070a12;
+      --bg1:#0b1020;
+      --card:#0e152b;
+      --card2:#0b1124;
+      --line:rgba(255,255,255,.08);
+      --text:#e9edf7;
+      --muted:rgba(233,237,247,.72);
+      --gold:#d8b36a;
+      --gold2:#b89245;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:24px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(26,69,190,.20), transparent 28%),
+        radial-gradient(circle at 80% 18%, rgba(216,179,106,.12), transparent 24%),
+        linear-gradient(180deg,var(--bg0),#050814 55%, #060a17 100%);
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(7,10,18,.72);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      border:1px solid rgba(216,179,106,.28);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.03));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+      font-weight:800;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border:1px solid rgba(216,179,106,.34);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.04));
+      color:#f5e7c8;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(216,179,106,.5);
+      box-shadow:0 10px 24px rgba(0,0,0,.24);
+    }
+
+    .btn.secondary{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    .section{
+      padding:42px 0;
+    }
+
+    .hero{
+      padding:54px 0 24px;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.25fr .95fr;
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background:
+        radial-gradient(circle at 78% 12%, rgba(216,179,106,.10), transparent 28%),
+        radial-gradient(circle at 12% 18%, rgba(41,89,221,.16), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{
+      padding:28px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:.92rem;
+      background:rgba(255,255,255,.03);
+      margin-bottom:16px;
+    }
+
+    h1,h2,h3{
+      margin:0 0 12px;
+      line-height:1.1;
+      font-family:Georgia,"Times New Roman",serif;
+    }
+
+    h1{
+      font-size:clamp(2.3rem,4vw,4rem);
+      letter-spacing:-.03em;
+    }
+
+    h2{
+      font-size:clamp(1.7rem,2.6vw,2.5rem);
+      letter-spacing:-.02em;
+    }
+
+    h3{
+      font-size:1.35rem;
+    }
+
+    .accent{color:var(--gold)}
+
+    .lead{
+      font-size:1.08rem;
+      color:var(--muted);
+      max-width:62ch;
+      margin:0 0 22px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .pill-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      padding:10px 13px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      font-size:.95rem;
+    }
+
+    .hero-side{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      justify-content:center;
+    }
+
+    .search{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      padding:15px 16px;
+      outline:none;
+      font-size:1rem;
+    }
+
+    .search::placeholder{color:rgba(233,237,247,.42)}
+
+    .mini-note{
+      color:var(--muted);
+      font-size:.95rem;
+      margin:0;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:56ch;
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .grid-3{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .grid-2{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .tool-card{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:100%;
+    }
+
+    .tool-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .tool-badge{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(216,179,106,.26);
+      color:var(--gold);
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.03));
+      font-weight:800;
+      flex:0 0 auto;
+    }
+
+    .tool-label{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:.97rem;
+      margin-top:2px;
+    }
+
+    .tool-desc{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+    }
+
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:rgba(255,255,255,.02);
+      font-size:.84rem;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
+
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .mini-btn.gold{
+      border-color:rgba(216,179,106,.34);
+      color:#f5e7c8;
+      background:linear-gradient(180deg, rgba(216,179,106,.10), rgba(216,179,106,.04));
+    }
+
+    .stack-block{
+      margin-top:18px;
+    }
+
+    .stack-title{
+      font-size:1.15rem;
+      font-weight:800;
+      margin:0 0 6px;
+    }
+
+    .stack-copy{
+      color:var(--muted);
+      margin:0 0 16px;
+    }
+
+    .list{
+      display:grid;
+      gap:12px;
+    }
+
+    .list-item{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+
+    .list-item strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .stars{
+      color:var(--gold);
+      font-weight:700;
+      margin-bottom:10px;
+      letter-spacing:.02em;
+    }
+
+    .use-cases .card{
+      min-height:100%;
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      margin-top:28px;
+      padding:26px 0 50px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 1060px){
+      .hero-wrap,
+      .grid-3,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 720px){
+      .nav{
+        padding:14px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav-links,
+      .nav-actions{
+        width:100%;
+      }
+
+      .hero-card,
+      .hero-side{
+        padding:20px;
+      }
+
+      .section{
+        padding:34px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/ibcb-hub/index.html" class="brand">
+        <span class="brand-mark">iB</span>
+        <span>IBCB-HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/ibcb-hub/index.html">Home</a>
+        <a href="/ibcb-hub/tools/index.html" class="active">Tools</a>
+        <a href="/ibcb-hub/blog.html">Blog</a>
+        <a href="/ibcb-hub/resources.html">Resources</a>
+        <a href="/ibcb-hub/about.html">About</a>
+        <a href="/ibcb-hub/contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn secondary" href="#starter-stack">Explore Tools</a>
+        <a class="btn" href="#complete-stack">View Stack</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="panel hero-card">
+          <span class="eyebrow">Business Tools • Operations • Payments • Growth</span>
+          <h1>Build Your <span class="accent">Business Stack</span></h1>
+          <p class="lead">
+            Everything you need to start, manage, and scale your business from one place.
+            Explore the essential tools for communication, productivity, payments, and growth.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#starter-stack" class="btn">Explore Tools</a>
+            <a href="#use-cases" class="btn secondary">Start Your Setup</a>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Curated recommendations</span>
+            <span class="pill">Founder essentials</span>
+            <span class="pill">Growth-ready tools</span>
+          </div>
+        </div>
+
+        <aside class="panel hero-side">
+          <input class="search" type="text" placeholder="Search tools (e.g., email, payments, productivity)..." />
+          <div class="pill-row">
+            <span class="pill">Google Workspace</span>
+            <span class="pill">Notion</span>
+            <span class="pill">Stripe</span>
+            <span class="pill">Slack</span>
+            <span class="pill">Analytics</span>
+          </div>
+          <p class="mini-note">
+            Start with a small, effective stack. Add more tools only when your business really needs them.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="starter-stack">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Recommended Starter Stack</h2>
+            <p>These are the first tools most entrepreneurs need to launch with confidence and operate efficiently.</p>
+          </div>
+          <p>Simple picks to get started fast.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">GW</div>
+                <div>
+                  <h3>Google Workspace</h3>
+                  <div class="meta">Business Email & Collaboration</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Set up a professional business email, manage documents, and collaborate efficiently from day one.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Email</span>
+              <span class="tag">Docs</span>
+              <span class="tag">Collaboration</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Get Started</a>
+              <a href="#" class="mini-btn">Learn More</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">NO</div>
+                <div>
+                  <h3>Notion</h3>
+                  <div class="meta">Workspace & Operations</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Organize your tasks, projects, notes, and business operations in one place to stay focused and productive.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Tasks</span>
+              <span class="tag">Projects</span>
+              <span class="tag">Docs</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Using Notion</a>
+              <a href="#" class="mini-btn">Explore Features</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">ST</div>
+                <div>
+                  <h3>Stripe</h3>
+                  <div class="meta">Payments & Revenue</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Accept payments, manage transactions, and create a reliable payment flow for your digital business.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Payments</span>
+              <span class="tag">Checkout</span>
+              <span class="tag">Revenue</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Accepting Payments</a>
+              <a href="#" class="mini-btn">See How It Works</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="complete-stack">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Complete Business Stack</h2>
+            <p>Explore the essential categories that support communication, operations, payments, and growth.</p>
+          </div>
+          <p>Choose only what supports your current stage.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <div class="stack-block">
+              <h3 class="stack-title">Communication</h3>
+              <p class="stack-copy">Communicate professionally and collaborate with your team or clients more efficiently.</p>
+
+              <div class="list">
+                <div class="list-item">
+                  <div>
+                    <strong>Google Workspace</strong>
+                    <span class="meta">Professional email, calendar, documents, and team collaboration.</span>
+                  </div>
+                  <a href="#" class="mini-btn gold">View Tool</a>
+                </div>
+
+                <div class="list-item">
+                  <div>
+                    <strong>Slack</strong>
+                    <span class="meta">Fast team communication and organized conversations for daily operations.</span>
+                  </div>
+                  <a href="#" class="mini-btn">View Tool</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stack-block">
+              <h3 class="stack-title">Productivity & Management</h3>
+              <p class="stack-copy">Keep your work organized, your projects visible, and your business workflows under control.</p>
+
+              <div class="list">
+                <div class="list-item">
+                  <div>
+                    <strong>Notion</strong>
+                    <span class="meta">Manage notes, SOPs, projects, and internal systems in one workspace.</span>
+                  </div>
+                  <a href="#" class="mini-btn gold">View Tool</a>
+                </div>
+
+                <div class="list-item">
+                  <div>
+                    <strong>Trello</strong>
+                    <span class="meta">Track tasks and workflows with a simple board-based project system.</span>
+                  </div>
+                  <a href="#" class="mini-btn">View Tool</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stack-block">
+              <h3 class="stack-title">Payments & Finance</h3>
+              <p class="stack-copy">Get paid reliably and manage the financial side of your business with fewer frictions.</p>
+
+              <div class="list">
+                <div class="list-item">
+                  <div>
+                    <strong>Stripe</strong>
+                    <span class="meta">Accept online payments and build a modern checkout experience.</span>
+                  </div>
+                  <a href="#" class="mini-btn gold">View Tool</a>
+                </div>
+
+                <div class="list-item">
+                  <div>
+                    <strong>PayPal</strong>
+                    <span class="meta">Offer a familiar payment option for customers who prefer PayPal checkout.</span>
+                  </div>
+                  <a href="#" class="mini-btn">View Tool</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stack-block">
+              <h3 class="stack-title">Analytics & Growth</h3>
+              <p class="stack-copy">Track performance, understand user behavior, and make better business decisions.</p>
+
+              <div class="list">
+                <div class="list-item">
+                  <div>
+                    <strong>Google Analytics</strong>
+                    <span class="meta">Measure traffic, conversions, and user activity across your website.</span>
+                  </div>
+                  <a href="#" class="mini-btn gold">View Tool</a>
+                </div>
+
+                <div class="list-item">
+                  <div>
+                    <strong>Hotjar</strong>
+                    <span class="meta">See how visitors interact with your pages and identify conversion bottlenecks.</span>
+                  </div>
+                  <a href="#" class="mini-btn">View Tool</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Top Picks for Entrepreneurs</h2>
+            <p>Start with the essentials that deliver the highest practical value for most small businesses.</p>
+          </div>
+          <p>Recommended starting points.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="stars">★ Best for business email</div>
+            <h3>Google Workspace</h3>
+            <p class="tool-desc">
+              A strong first step if you want a professional brand image and better communication.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start with Google Workspace</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stars">★ Best all-in-one workspace</div>
+            <h3>Notion</h3>
+            <p class="tool-desc">
+              Ideal for organizing systems, documenting processes, and keeping business tasks aligned.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Using Notion</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stars">★ Best payment solution</div>
+            <h3>Stripe</h3>
+            <p class="tool-desc">
+              A practical option to accept payments online and build revenue workflows with confidence.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Accepting Payments</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section use-cases" id="use-cases">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Build Your Business Faster</h2>
+            <p>Use ready-made tool combinations based on your business goals and current stage.</p>
+          </div>
+          <p>Simple paths to take action.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Start a Business</h3>
+            <p class="tool-desc">
+              Launch with the essentials: business email, workspace, and payment system.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Google Workspace</span>
+              <span class="tag">Notion</span>
+              <span class="tag">Stripe</span>
+            </div>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">View Setup</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Organize Your Workflow</h3>
+            <p class="tool-desc">
+              Bring clarity to tasks, communication, and everyday operations as your business grows.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Notion</span>
+              <span class="tag">Slack</span>
+              <span class="tag">Trello</span>
+            </div>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">See Workflow Stack</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Track and Scale</h3>
+            <p class="tool-desc">
+              Understand what works, optimize your funnel, and improve business performance over time.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Analytics</span>
+              <span class="tag">Hotjar</span>
+              <span class="tag">Stripe</span>
+            </div>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Explore Growth Tools</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel hero-card" style="padding:26px;">
+          <div class="section-head" style="margin-bottom:0;">
+            <div>
+              <h2>Start Building Your Business Today</h2>
+              <p>Choose the right tools, create a stronger business foundation, and scale with more confidence.</p>
+            </div>
+            <a href="#starter-stack" class="btn">Explore the Full Stack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 IBCB LLC. All rights reserved.</span>
+      <span>Business Stack • IBCB-HUB</span>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+

@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IBCB-HUB — Email Marketing</title>
+  <meta name="description" content="Explore email marketing tools, platforms, and workflows to build your list, automate campaigns, and grow your business." />
+  <style>
+    :root{
+      --bg0:#040816;
+      --bg1:#081127;
+      --bg2:#0d1834;
+      --card:#111f43;
+      --card2:#0e1a37;
+      --line:rgba(255,255,255,.08);
+      --text:#eef3ff;
+      --muted:#b9c7e8;
+      --muted-2:#94a8d6;
+      --gold:#f0c63c;
+      --gold2:#d6a92a;
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+      --radius:20px;
+      --radius2:28px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(34,89,255,.18), transparent 30%),
+        radial-gradient(circle at 80% 18%, rgba(240,198,60,.10), transparent 24%),
+        linear-gradient(180deg,var(--bg0),#050814 56%, #07122b 100%);
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(4,8,22,.72);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .brand-mark{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:#111827;
+      background:linear-gradient(180deg, var(--gold), #ddb22f);
+      box-shadow:0 10px 22px rgba(240,198,60,.22);
+      font-weight:900;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:var(--muted);
+      transition:.2s ease;
+      border:1px solid transparent;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+    }
+
+    .nav-links a.active{
+      border-color:rgba(240,198,60,.25);
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn.primary{
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      box-shadow:0 14px 28px rgba(240,198,60,.18);
+    }
+
+    .btn.secondary{
+      color:var(--gold);
+      border:1px solid rgba(240,198,60,.6);
+      background:rgba(255,255,255,.02);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .btn.secondary:hover{
+      background:rgba(240,198,60,.06);
+    }
+
+    .section{
+      padding:44px 0;
+    }
+
+    .hero{
+      padding:54px 0 24px;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.25fr .95fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background:
+        radial-gradient(circle at 78% 12%, rgba(240,198,60,.10), transparent 28%),
+        radial-gradient(circle at 12% 18%, rgba(41,89,221,.18), transparent 28%),
+        linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border:1px solid rgba(116,145,212,.16);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{
+      padding:30px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:.92rem;
+      background:rgba(255,255,255,.03);
+      margin-bottom:16px;
+    }
+
+    h1,h2,h3{
+      margin:0 0 12px;
+      line-height:1.08;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    h1{
+      font-size:clamp(2.5rem,4vw,4.2rem);
+      letter-spacing:-.04em;
+      font-weight:900;
+    }
+
+    h2{
+      font-size:clamp(1.8rem,2.6vw,2.6rem);
+      letter-spacing:-.03em;
+      font-weight:850;
+    }
+
+    h3{
+      font-size:1.24rem;
+      font-weight:800;
+    }
+
+    .accent{color:var(--gold)}
+
+    .lead{
+      font-size:1.08rem;
+      color:var(--muted);
+      max-width:62ch;
+      margin:0 0 24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .pill-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      padding:10px 13px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      font-size:.95rem;
+    }
+
+    .hero-side{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-side::before{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(240,198,60,.14), transparent 65%);
+      pointer-events:none;
+    }
+
+    .search{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      padding:15px 16px;
+      outline:none;
+      font-size:1rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .search::placeholder{color:rgba(233,237,247,.42)}
+
+    .mini-note{
+      color:var(--muted);
+      font-size:.95rem;
+      margin:0;
+      position:relative;
+      z-index:1;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:56ch;
+    }
+
+    .section-kicker{
+      color:var(--gold);
+      font-size:1rem;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .grid-3{
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .grid-2{
+      grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(22,35,74,.98), rgba(14,26,55,.98));
+      border:1px solid rgba(116,145,212,.16);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 100% 0%, rgba(46,110,255,.10), transparent 30%);
+      pointer-events:none;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(240,198,60,.25);
+      box-shadow:0 22px 50px rgba(0,0,0,.45);
+    }
+
+    .tool-card{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:100%;
+    }
+
+    .tool-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .tool-label{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .tool-badge{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(240,198,60,.24);
+      color:var(--gold);
+      background:linear-gradient(180deg, rgba(240,198,60,.18), rgba(240,198,60,.08));
+      font-weight:900;
+      flex:0 0 auto;
+      box-shadow:0 10px 20px rgba(240,198,60,.08);
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:.97rem;
+      margin-top:2px;
+    }
+
+    .tool-desc{
+      color:var(--muted);
+      margin:0;
+      position:relative;
+      z-index:1;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background:rgba(255,255,255,.02);
+      font-size:.84rem;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+      position:relative;
+      z-index:1;
+    }
+
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-weight:800;
+    }
+
+    .mini-btn.gold{
+      border:none;
+      color:#0c142b;
+      background:linear-gradient(180deg, #f7d55b, #ebb91f);
+      box-shadow:0 12px 24px rgba(240,198,60,.16);
+    }
+
+    .list{
+      display:grid;
+      gap:12px;
+    }
+
+    .list-item{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:flex-start;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+
+    .list-item strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .stars{
+      color:var(--gold);
+      font-weight:800;
+      margin-bottom:10px;
+      letter-spacing:.02em;
+    }
+
+    .rocketmail{
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .rocketmail::before{
+      content:"";
+      position:absolute;
+      top:-40px;
+      right:-40px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,110,255,.24), transparent 66%);
+      pointer-events:none;
+    }
+
+    .rocketmail-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.15fr .9fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .feature-list{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
+      display:grid;
+      gap:12px;
+    }
+
+    .feature-list li{
+      color:var(--muted);
+      padding:13px 15px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stats{
+      display:grid;
+      gap:14px;
+    }
+
+    .mini-stat{
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .mini-stat strong{
+      display:block;
+      color:var(--gold);
+      font-size:1rem;
+      margin-bottom:6px;
+    }
+
+    .mini-stat span{
+      color:var(--muted);
+      display:block;
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      margin-top:28px;
+      padding:26px 0 50px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 1060px){
+      .hero-wrap,
+      .grid-3,
+      .grid-2,
+      .rocketmail-inner{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 720px){
+      .nav{
+        padding:14px 0;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav-links,
+      .nav-actions{
+        width:100%;
+      }
+
+      .hero-card,
+      .hero-side,
+      .rocketmail{
+        padding:20px;
+      }
+
+      .section{
+        padding:34px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/ibcb-hub/index.html" class="brand">
+        <span class="brand-mark">iB</span>
+        <span>IBCB-HUB</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/ibcb-hub/index.html">Home</a>
+        <a href="/ibcb-hub/tools/index.html" class="active">Tools</a>
+        <a href="/ibcb-hub/blog/">Blog</a>
+        <a href="/ibcb-hub/resources/">Resources</a>
+        <a href="/ibcb-hub/about/">About</a>
+        <a href="/ibcb-hub/contact/">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn secondary" href="#starter-stack">Explore Tools</a>
+        <a class="btn primary" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div class="panel hero-card">
+          <span class="eyebrow">Email Campaigns • Automation • Deliverability • Growth</span>
+          <h1>Build Your <span class="accent">Email Marketing Stack</span></h1>
+          <p class="lead">
+            Discover the tools you need to collect leads, send campaigns, automate follow-ups,
+            and grow stronger customer relationships through email.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#starter-stack" class="btn primary">Explore Tools</a>
+            <a href="#use-cases" class="btn secondary">Start Your Setup</a>
+            <a href="/ibcb-hub/rocketmail/" class="btn secondary">Launch RocketMail</a>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Campaign platforms</span>
+            <span class="pill">Automation tools</span>
+            <span class="pill">Growth-ready systems</span>
+            <span class="pill">RocketMail SaaS</span>
+          </div>
+        </div>
+
+        <aside class="panel hero-side">
+          <input class="search" type="text" placeholder="Search tools (e.g., SMTP, email platform, automation)..." />
+          <div class="pill-row">
+            <span class="pill">RocketMail</span>
+            <span class="pill">Mailchimp</span>
+            <span class="pill">ConvertKit</span>
+            <span class="pill">SendGrid</span>
+            <span class="pill">Brevo</span>
+          </div>
+          <p class="mini-note">
+            Start with the simplest system that lets you capture leads, send emails, and automate follow-ups.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel rocketmail">
+          <div class="rocketmail-inner">
+            <div>
+              <div class="section-kicker">Featured Product</div>
+              <h2>Meet <span class="accent">iBCB RocketMail</span></h2>
+              <p class="lead" style="margin-bottom:0;max-width:60ch;">
+                RocketMail is our email automation platform designed to help businesses capture leads,
+                launch campaigns, structure follow-up workflows, and scale communication more efficiently.
+              </p>
+
+              <ul class="feature-list">
+                <li>Email campaigns and structured outreach</li>
+                <li>Lead capture and segmentation logic</li>
+                <li>Automation workflows for follow-up and nurture</li>
+                <li>A stronger SaaS signal across the full iBCB ecosystem</li>
+              </ul>
+
+              <div class="hero-actions" style="margin-top:20px;margin-bottom:0;">
+                <a class="btn primary" href="/ibcb-hub/rocketmail/">Try RocketMail</a>
+                <a class="btn secondary" href="/ibcb-hub/about/">Learn About iBCB</a>
+              </div>
+            </div>
+
+            <div class="mini-stats">
+              <div class="mini-stat">
+                <strong>Why it matters</strong>
+                <span>RocketMail adds a proprietary product layer to the iBCB platform.</span>
+              </div>
+
+              <div class="mini-stat">
+                <strong>Best fit</strong>
+                <span>Ideal for founders and teams who want email automation inside a broader business ecosystem.</span>
+              </div>
+
+              <div class="mini-stat">
+                <strong>Strategic role</strong>
+                <span>It helps position iBCB as both a platform and a product company.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="starter-stack">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Recommended Starter Stack</div>
+            <h2>Start with practical platforms for lead capture and campaigns</h2>
+            <p>These are strong starting options for entrepreneurs who want to build an email list and send campaigns efficiently.</p>
+          </div>
+          <p>Simple picks to get started fast.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">RM</div>
+                <div>
+                  <h3>iBCB RocketMail</h3>
+                  <div class="meta">Email Automation Platform</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Capture leads, launch campaigns, and build automated follow-up workflows inside the iBCB ecosystem.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Lead Capture</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Workflows</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="/ibcb-hub/rocketmail/" class="mini-btn gold">Launch RocketMail</a>
+              <a href="/ibcb-hub/about/" class="mini-btn">Learn More</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">MC</div>
+                <div>
+                  <h3>Mailchimp</h3>
+                  <div class="meta">Email Platform & Automation</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Build your email list, send campaigns, and automate simple customer journeys from one dashboard.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">Campaigns</span>
+              <span class="tag">Forms</span>
+              <span class="tag">Automation</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Get Started</a>
+              <a href="#" class="mini-btn">Learn More</a>
+            </div>
+          </article>
+
+          <article class="card tool-card">
+            <div class="tool-top">
+              <div class="tool-label">
+                <div class="tool-badge">SG</div>
+                <div>
+                  <h3>SendGrid</h3>
+                  <div class="meta">SMTP & Email Delivery</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="tool-desc">
+              Send transactional and marketing emails with reliable infrastructure and scalable email delivery.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag">SMTP</span>
+              <span class="tag">Delivery</span>
+              <span class="tag">API</span>
+            </div>
+
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Sending Emails</a>
+              <a href="#" class="mini-btn">See How It Works</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="campaign-types">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Complete Email Marketing Stack</div>
+            <h2>Explore the essential layers of email growth</h2>
+            <p>Explore the categories that support list building, campaign sending, automation, and deliverability.</p>
+          </div>
+          <p>Choose what fits your current stage.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>List Building & Capture</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Use forms, landing pages, and lead magnets to grow a qualified email audience.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>iBCB RocketMail</strong>
+                  <span class="meta">Use RocketMail as your ecosystem-native option for lead capture and communication workflows.</span>
+                </div>
+                <a href="/ibcb-hub/rocketmail/" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>Mailchimp</strong>
+                  <span class="meta">Create signup forms, simple landing pages, and audience lists for your campaigns.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Campaign Platforms</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Send newsletters, promotional emails, and segmented campaigns from one platform.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>Brevo</strong>
+                  <span class="meta">Launch email campaigns with automation, contact management, and marketing tools.</span>
+                </div>
+                <a href="#" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>MailerLite</strong>
+                  <span class="meta">A simple email platform for newsletters, automations, and landing pages.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Automation & Sequences</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Automate follow-ups, onboarding, and nurture flows that save time and improve conversions.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>iBCB RocketMail</strong>
+                  <span class="meta">Build automated workflows and follow-up logic inside your own growing iBCB ecosystem.</span>
+                </div>
+                <a href="/ibcb-hub/rocketmail/" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>ConvertKit</strong>
+                  <span class="meta">Build automated email sequences and subscriber journeys with tags and triggers.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>SMTP & Deliverability</h3>
+            <p class="tool-desc" style="margin-bottom:16px;">
+              Improve sending reliability, transaction email delivery, and domain-level email performance.
+            </p>
+
+            <div class="list">
+              <div class="list-item">
+                <div>
+                  <strong>SendGrid</strong>
+                  <span class="meta">Reliable email infrastructure for transactional and high-volume delivery needs.</span>
+                </div>
+                <a href="#" class="mini-btn gold">View Tool</a>
+              </div>
+
+              <div class="list-item">
+                <div>
+                  <strong>Amazon SES</strong>
+                  <span class="meta">Scalable email sending service for developers and businesses with technical setups.</span>
+                </div>
+                <a href="#" class="mini-btn">View Tool</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Top Picks for Email Growth</div>
+            <h2>Use the strongest starting points for capture, campaigns, and delivery</h2>
+            <p>Start with tools that offer the highest practical value for lead capture, campaign sending, and automation.</p>
+          </div>
+          <p>Recommended starting points.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="stars">★ Best ecosystem-native product</div>
+            <h3>iBCB RocketMail</h3>
+            <p class="tool-desc">
+              The strategic choice if you want email automation inside the broader iBCB platform and product vision.
+            </p>
+            <div class="cta-row">
+              <a href="/ibcb-hub/rocketmail/" class="mini-btn gold">Launch RocketMail</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stars">★ Best all-in-one beginner platform</div>
+            <h3>Mailchimp</h3>
+            <p class="tool-desc">
+              A solid starting point for businesses that want forms, lists, campaigns, and simple automations in one place.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start with Mailchimp</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="stars">★ Best for email delivery infrastructure</div>
+            <h3>SendGrid</h3>
+            <p class="tool-desc">
+              A practical solution for businesses that need dependable sending, API support, and scalable email delivery.
+            </p>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Start Sending with SendGrid</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="use-cases">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Use Cases</div>
+            <h2>Build your email system faster with clear starting paths</h2>
+            <p>Use ready-made tool combinations based on your current email marketing goals and business stage.</p>
+          </div>
+          <p>Simple paths to take action.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Start Building a List</h3>
+            <p class="tool-desc">
+              Launch a simple system to collect subscribers, create forms, and send your first campaigns.
+            </p>
+            <div class="tag-row">
+              <span class="tag">RocketMail</span>
+              <span class="tag">Forms</span>
+              <span class="tag">Lead Capture</span>
+            </div>
+            <div class="cta-row">
+              <a href="/ibcb-hub/rocketmail/" class="mini-btn gold">View Setup</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Automate Follow-Ups</h3>
+            <p class="tool-desc">
+              Build welcome emails, nurture flows, and follow-up sequences that save time and increase engagement.
+            </p>
+            <div class="tag-row">
+              <span class="tag">RocketMail</span>
+              <span class="tag">Sequences</span>
+              <span class="tag">Automation</span>
+            </div>
+            <div class="cta-row">
+              <a href="/ibcb-hub/rocketmail/" class="mini-btn gold">See Workflow Stack</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Improve Delivery</h3>
+            <p class="tool-desc">
+              Strengthen your email infrastructure and deliver transactional or bulk emails more reliably.
+            </p>
+            <div class="tag-row">
+              <span class="tag">SendGrid</span>
+              <span class="tag">SMTP</span>
+              <span class="tag">Deliverability</span>
+            </div>
+            <div class="cta-row">
+              <a href="#" class="mini-btn gold">Explore Growth Tools</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel hero-card" style="padding:26px;">
+          <div class="section-head" style="margin-bottom:0;">
+            <div>
+              <div class="section-kicker">Next Step</div>
+              <h2>Start building your email marketing system today</h2>
+              <p>Choose the right tools to grow your list, automate campaigns, and improve email performance over time.</p>
+            </div>
+            <div class="hero-actions" style="margin:0;">
+              <a href="#starter-stack" class="btn secondary">Explore the Stack</a>
+              <a href="/ibcb-hub/rocketmail/" class="btn primary">Try RocketMail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 IBCB LLC. All rights reserved.</span>
+      <span>Email Marketing • IBCB-HUB</span>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+
