@@ -1,0 +1,4 @@
+# The page template is only read by send.php, never served directly.
+<Files "page.tpl">
+    Require all denied
+</Files>

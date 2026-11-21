@@ -1,8 +1,23 @@
+# iBCB-HUB (/ibcb-hub/) — static site rules.
+# Replaces the WordPress rules that were copied here: they sent every
+# missing page to the WordPress 404 of the main site.
+
+# Never show raw folder listings ("Index of ...").
+Options -Indexes
+
+# Serve index.html for folder URLs like /ibcb-hub/tools/.
+DirectoryIndex index.html index.php
+
+# Branded "page not found" page for the hub.
+ErrorDocument 404 /ibcb-hub/404.html
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
-    RewriteRule ^index\.php$ - [L]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /index.php [L]
+    RewriteBase /ibcb-hub/
+
+    # Old address of the iBCB Network page.
+    RewriteRule ^tools/explore-our-stores\.html$ /ibcb-hub/network/ [R=301,L]
+
+    # Old links to /ibcb-hub/blog.html, resources.html, about.html, contact.html.
+    RewriteRule ^(blog|resources|about|contact)\.html$ /ibcb-hub/$1/ [R=301,L]
 </IfModule>
