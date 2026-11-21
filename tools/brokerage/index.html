@@ -999,6 +999,7 @@
   </style>
   <link rel="icon" type="image/svg+xml" href="/ibcb-hub/assets/icons/favicon.svg" />
   <link rel="stylesheet" href="/ibcb-hub/assets/css/hub-shell.css" />
+  <link rel="stylesheet" href="/ibcb-hub/assets/css/funding.css" />
 </head>
 <body>
 
@@ -1111,10 +1112,10 @@
           <!-- AGENT ENTRY -->
           <div class="agent-inline">
             <div class="agent-inline-text">
-              <strong>Need help choosing the right funding option?</strong>
-              <p>Ask the assistant before filling out the form and get guided toward the best fit.</p>
+              <strong>Not sure which lender fits?</strong>
+              <p>Answer 5 quick questions and see which lenders may fit your business.</p>
             </div>
-            <button class="btn btn-primary btn-small" type="button" onclick="openAgent()">Ask Assistant</button>
+            <button class="btn btn-primary btn-small" type="button" data-finder-open aria-controls="finder" aria-expanded="false">Find my options</button>
           </div>
 
           <div class="form-card">
@@ -1193,45 +1194,8 @@
           </p>
         </div>
 
-        <div class="top-picks-grid">
-          <article class="top-pick-card">
-            <span class="top-pick-rank">1</span>
-            <div class="offer-tags">
-              <span class="offer-tag gold">Top Pick</span>
-              <span class="offer-tag outline-gold">Fast Approval</span>
-            </div>
-            <h3>Clarify Capital</h3>
-            <p>For businesses looking for speed and a wide range of funding amounts.</p>
-            <a href="#" class="btn btn-primary btn-small">Check Eligibility</a>
-            <div class="cta-soft">Good starting point if you need a fast decision.</div>
-          </article>
-
-          <article class="top-pick-card">
-            <span class="top-pick-rank">2</span>
-            <div class="offer-tags">
-              <span class="offer-tag gold">Popular Option</span>
-              <span class="offer-tag">Small Business</span>
-            </div>
-            <h3>Reliant Funding</h3>
-            <p>A solid option for entrepreneurs seeking structured financing support and mainstream business funding.</p>
-            <a href="#" class="btn btn-primary btn-small">See Funding Options</a>
-            <div class="cta-soft">Best suited to established businesses with steady revenue.</div>
-          </article>
-
-          <article class="top-pick-card">
-            <span class="top-pick-rank">3</span>
-            <div class="offer-tags">
-              <span class="offer-tag gold">Best for Growth</span>
-              <span class="offer-tag">Working Capital</span>
-            </div>
-            <h3>Fast Business Financial</h3>
-            <p>A good fit for quicker capital needs, working capital requests, and short-term business momentum.</p>
-            <a href="#" class="btn btn-primary btn-small">Start Request</a>
-            <div class="cta-soft">Useful for short-term cash needs.</div>
-          </article>
-        </div>
-
-        
+        <div class="top-picks-grid" id="lender-picks" aria-live="polite"></div>
+        <noscript><p class="section-subtitle">Turn on JavaScript to see the lender list, or <a href="/ibcb-hub/contact/">contact us</a>.</p></noscript>
       </div>
     </section>
 
@@ -1240,64 +1204,15 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Lenders</div>
-          <h2 class="section-title">Featured Business Lenders</h2>
+          <h2 class="section-title">Business Lenders and Funding Platforms</h2>
           <p class="section-subtitle">
-            Funding ranges and approval times as published by each lender. Always confirm the
-            current terms with the lender before applying.
+            Requirements as published by each lender or platform. “Not published” means the lender does not
+            disclose it: ask them before applying, and always confirm current terms.
           </p>
         </div>
 
-        <div class="cards-grid">
-          <article class="card">
-            <div class="offer-tags">
-              <span class="offer-tag gold">Top Pick</span>
-              <span class="offer-tag outline-gold">Fast Approval</span>
-            </div>
-            <h3>Clarify Capital</h3>
-            <p>Flexible financing solutions for small businesses and growth-focused companies.</p>
-            <div class="meta">
-              <span><strong>Funding Range:</strong> $10K - $5M</span>
-              <span><strong>Best For:</strong> Expansion and fast approvals</span>
-              <span><strong>Approval Time:</strong> 24h</span>
-            </div>
-            <a href="#" class="btn btn-primary btn-small">Check Eligibility</a>
-            <div class="cta-soft">A strong option for businesses seeking speed and larger funding potential.</div>
-          </article>
-
-          <article class="card">
-            <div class="offer-tags">
-              <span class="offer-tag gold">Popular Option</span>
-              <span class="offer-tag">Small Business</span>
-            </div>
-            <h3>Reliant Funding</h3>
-            <p>Working capital loans and funding support for established and growing businesses.</p>
-            <div class="meta">
-              <span><strong>Funding Range:</strong> $5K - $2M</span>
-              <span><strong>Best For:</strong> Small business financing</span>
-              <span><strong>Approval Time:</strong> 48h</span>
-            </div>
-            <a href="#" class="btn btn-primary btn-small">See Funding Options</a>
-            <div class="cta-soft">Well suited for entrepreneurs looking for structured funding support.</div>
-          </article>
-
-          <article class="card">
-            <div class="offer-tags">
-              <span class="offer-tag gold">Best for Growth</span>
-              <span class="offer-tag">Working Capital</span>
-            </div>
-            <h3>Fast Business Financial</h3>
-            <p>Quick approval and flexible repayment options for short-term business funding needs.</p>
-            <div class="meta">
-              <span><strong>Funding Range:</strong> $10K - $1M</span>
-              <span><strong>Best For:</strong> Working capital</span>
-              <span><strong>Approval Time:</strong> 24h</span>
-            </div>
-            <a href="#" class="btn btn-primary btn-small">Start Request</a>
-            <div class="cta-soft">Useful for short-term capital needs and faster operational decisions.</div>
-          </article>
-        </div>
-
-        
+        <div class="cards-grid" id="lender-cards" aria-live="polite"></div>
+        <noscript><p class="section-subtitle">Turn on JavaScript to see the lender list, or <a href="/ibcb-hub/contact/">contact us</a>.</p></noscript>
       </div>
     </section>
 
@@ -1306,9 +1221,9 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Compare</div>
-          <h2 class="section-title">Compare Business Loan Options</h2>
+          <h2 class="section-title">Compare Lenders Side by Side</h2>
           <p class="section-subtitle">
-            Funding range, typical approval time and best use, side by side. Figures are indicative and come from
+            Amounts, requirements and speed at a glance. Figures are indicative and come from
             each lender: confirm current terms before applying (see our <a href="/ibcb-hub/legal/financial-disclaimer/">Financial Disclaimer</a>).
           </p>
         </div>
@@ -1317,113 +1232,16 @@
           <table>
             <thead>
               <tr>
-                <th>Lender</th>
-                <th>Loan Range</th>
-                <th>Approval Time</th>
-                <th>Best For</th>
-                <th>Action</th>
+                <th scope="col">Lender</th>
+                <th scope="col">Amounts</th>
+                <th scope="col">Min. credit score</th>
+                <th scope="col">Time in business</th>
+                <th scope="col">Speed</th>
+                <th scope="col"><span class="visually-hidden">Link</span></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><strong>Clarify Capital</strong></td>
-                <td>$10K - $5M</td>
-                <td>24h</td>
-                <td>Business expansion</td>
-                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
-              </tr>
-              <tr>
-                <td><strong>Reliant Funding</strong></td>
-                <td>$5K - $2M</td>
-                <td>48h</td>
-                <td>Small business financing</td>
-                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
-              </tr>
-              <tr>
-                <td><strong>Fast Business Financial</strong></td>
-                <td>$10K - $1M</td>
-                <td>24h</td>
-                <td>Working capital</td>
-                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
-              </tr>
-              <tr>
-                <td><strong>Honeycomb Credit</strong></td>
-                <td>$25K - $1M</td>
-                <td>3-5 days</td>
-                <td>Community funding</td>
-                <td><a href="#" class="btn btn-secondary btn-small">Apply</a></td>
-              </tr>
-            </tbody>
+            <tbody id="lender-table"></tbody>
           </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPANDED LENDER NETWORK -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">More lenders</div>
-          <h2 class="section-title">Other Lenders and Funding Platforms</h2>
-          <p class="section-subtitle">
-            More options to explore, from community lenders to funding marketplaces.
-          </p>
-        </div>
-
-        <div class="network-grid">
-          <div class="network-item">
-            <h4>GoFundShop</h4>
-            <p>Access to business financing opportunities through a network of providers.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>Pacific Community Ventures</h4>
-            <p>Small business lending and support-oriented financing programs.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>Liberty Capital Group</h4>
-            <p>Business funding partner solutions for entrepreneurs and growing companies.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>1st Merchant Funding</h4>
-            <p>Alternative business financing options for revenue-based operations.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>United Capital Source</h4>
-            <p>Funding marketplace that connects businesses with several lenders.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>NextWave Funding</h4>
-            <p>Business loans with a focus on quick decisions.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>Breakout Finance</h4>
-            <p>Flexible capital solutions for businesses seeking operational growth.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>Honeycomb Credit</h4>
-            <p>Community-centered capital access for small business funding campaigns.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
-
-          <div class="network-item">
-            <h4>BNC Finance</h4>
-            <p>Finance solutions for small businesses.</p>
-            <a href="#" class="btn btn-secondary btn-small">Learn More</a>
-          </div>
         </div>
       </div>
     </section>
@@ -1440,42 +1258,7 @@
           </p>
         </div>
 
-        <div class="credit-grid">
-          <article class="credit-card">
-            <div class="offer-tags">
-              <span class="offer-tag gold">Top Card</span>
-              <span class="offer-tag outline-gold">Rewards</span>
-            </div>
-            <h4>American Express Business Gold</h4>
-            <p>Reward-focused business card designed for recurring professional expenses.</p>
-            <a href="#" class="btn btn-primary btn-small">View Card Details</a>
-            <div class="cta-soft">A strong option for businesses with frequent category-based spending.</div>
-          </article>
-
-          <article class="credit-card">
-            <div class="offer-tags">
-              <span class="offer-tag gold">Popular Choice</span>
-              <span class="offer-tag">Startup-Friendly</span>
-            </div>
-            <h4>Chase Ink Business Preferred</h4>
-            <p>A strong option for startups and entrepreneurs managing business purchases.</p>
-            <a href="#" class="btn btn-primary btn-small">Compare Card Benefits</a>
-            <div class="cta-soft">Well suited for founders who want flexible business spending support.</div>
-          </article>
-
-          <article class="credit-card">
-            <div class="offer-tags">
-              <span class="offer-tag gold">Everyday Spend</span>
-              <span class="offer-tag">Flexible Use</span>
-            </div>
-            <h4>Capital One Spark Business</h4>
-            <p>Flexible business credit solutions for everyday operational spending.</p>
-            <a href="#" class="btn btn-primary btn-small">Explore This Card</a>
-            <div class="cta-soft">Useful for ongoing operational expenses and day-to-day business purchases.</div>
-          </article>
-        </div>
-
-        
+        <div class="credit-grid" id="card-offers" aria-live="polite"></div>
       </div>
     </section>
 
@@ -1621,21 +1404,20 @@
     </section>
   </main>
 
-  <!-- FLOATING AGENT -->
+  <!-- FUNDING FINDER -->
   <div class="agent-floating">
-    <button class="agent-button" onclick="toggleAgent()">AI</button>
+    <button class="agent-button finder-button" type="button" data-finder-open aria-controls="finder" aria-expanded="false" aria-label="Open the Funding Finder">Find funding</button>
   </div>
 
-  <!-- CHAT PANEL -->
-  <div id="agentChat" class="agent-chat">
-    <div class="agent-chat-header">Funding Assistant</div>
-    <div class="agent-chat-body" id="chatBody">
-      <div class="agent-msg"><strong>Assistant:</strong> Ask about funding options, lender fit, working capital, revenue range, or which offer may suit your business.</div>
+  <div id="finder" class="finder" role="dialog" aria-labelledby="finder-title" hidden>
+    <div class="finder-head">
+      <div>
+        <strong id="finder-title">Funding Finder</strong>
+        <span class="finder-progress"></span>
+      </div>
+      <button type="button" class="finder-close" aria-label="Close the Funding Finder">×</button>
     </div>
-    <div class="agent-chat-input">
-      <input id="chatInput" placeholder="Type a question..." />
-      <button onclick="sendMessage()">→</button>
-    </div>
+    <div class="finder-body" aria-live="polite"></div>
   </div>
 
 
@@ -1690,46 +1472,7 @@
     </div>
   </footer>
 
-  <script>
-    function toggleAgent(){
-      const chat = document.getElementById("agentChat");
-      chat.style.display = chat.style.display === "flex" ? "none" : "flex";
-    }
-
-    function openAgent(){
-      document.getElementById("agentChat").style.display = "flex";
-    }
-
-    function sendMessage(){
-      const input = document.getElementById("chatInput");
-      const body = document.getElementById("chatBody");
-      const value = input.value.trim();
-
-      if(!value) return;
-
-      body.innerHTML += '<div class="agent-msg"><strong>You:</strong> ' + escapeHtml(value) + '</div>';
-      body.innerHTML += '<div class="agent-msg"><strong>Assistant:</strong> Based on your question, compare the Top Picks first, then use the funding request form if you want options matched to your business. You can also email us at supportbcb@ibcb-s.com.</div>';
-
-      input.value = "";
-      body.scrollTop = body.scrollHeight;
-    }
-
-    function escapeHtml(str){
-      return str
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-    document.getElementById("chatInput").addEventListener("keydown", function(e){
-      if(e.key === "Enter"){
-        e.preventDefault();
-        sendMessage();
-      }
-    });
-  </script>
+  <script src="/ibcb-hub/assets/js/funding.js" defer></script>
   <script src="/ibcb-hub/assets/js/hub-shell.js" defer></script>
 </body>
 </html>

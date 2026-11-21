@@ -2,3 +2,12 @@
 <Files "page.tpl">
     Require all denied
 </Files>
+
+# Settings and downloaded copies are read by PHP only.
+<Files "config.php">
+    Require all denied
+</Files>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^cache/ - [F,L]
+</IfModule>

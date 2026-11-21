@@ -1,0 +1,40 @@
+{
+    "items": [
+        {
+            "id": "amex-business-gold",
+            "name": "American Express Business Gold Card",
+            "issuer": "American Express",
+            "tags": "Rewards, Top Card",
+            "bestFor": "Businesses with frequent spending in the same categories",
+            "description": "Reward-focused business card designed for recurring professional expenses.",
+            "rank": 1,
+            "website": null,
+            "affiliate": null,
+            "verified": null
+        },
+        {
+            "id": "chase-ink-business-preferred",
+            "name": "Chase Ink Business Preferred",
+            "issuer": "Chase",
+            "tags": "Popular Choice, Startup-Friendly",
+            "bestFor": "Founders who want flexible business spending",
+            "description": "A strong option for startups and entrepreneurs managing business purchases.",
+            "rank": 2,
+            "website": null,
+            "affiliate": null,
+            "verified": null
+        },
+        {
+            "id": "capital-one-spark",
+            "name": "Capital One Spark Business",
+            "issuer": "Capital One",
+            "tags": "Everyday Spend, Flexible Use",
+            "bestFor": "Day-to-day operating expenses",
+            "description": "Flexible business credit for everyday operational spending.",
+            "rank": 3,
+            "website": null,
+            "affiliate": null,
+            "verified": null
+        }
+    ]
+}
