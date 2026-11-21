@@ -1,0 +1,135 @@
+/* Business Funding page: Funding Finder and data-driven lender list. */
+
+.visually-hidden{
+  position:absolute !important;
+  width:1px;height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap;
+}
+
+#lender-table td small{color:#94a8d6;font-weight:500}
+#lender-table td{vertical-align:top}
+
+.finder-button{
+  width:auto !important;
+  height:auto !important;
+  min-height:52px;
+  padding:0 20px;
+  border-radius:999px !important;
+  font-size:.98rem;
+}
+
+.finder{
+  position:fixed;
+  right:20px;
+  bottom:86px;
+  z-index:1000;
+  width:min(400px, calc(100vw - 32px));
+  max-height:min(620px, calc(100vh - 120px));
+  display:flex;
+  flex-direction:column;
+  border-radius:20px;
+  border:1px solid rgba(240,198,60,.25);
+  background:#0b1630;
+  color:#eef3ff;
+  box-shadow:0 24px 70px rgba(0,0,0,.55);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+
+.finder[hidden]{display:none}
+
+.finder-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px 18px 12px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.finder-head strong{display:block;color:#f0c63c;font-size:1.02rem}
+.finder-progress{display:block;color:#94a8d6;font-size:.84rem;margin-top:2px}
+
+.finder-close{
+  width:36px;height:36px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;
+  background:transparent;
+  color:#eef3ff;
+  font-size:1.3rem;
+  line-height:1;
+  cursor:pointer;
+}
+
+.finder-body{padding:16px 18px 18px;overflow-y:auto}
+.finder-body p{margin:0 0 12px;color:#c9d5f0;font-size:.95rem}
+.finder-body .finder-q{color:#eef3ff;font-weight:800;font-size:1.05rem}
+
+.finder-options{display:grid;gap:8px}
+
+.finder-option{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  color:#eef3ff;
+  font:inherit;
+  font-weight:600;
+  text-align:left;
+  cursor:pointer;
+}
+
+.finder-option:hover,
+.finder-option:focus-visible{border-color:#f0c63c;background:rgba(240,198,60,.08)}
+
+.finder-back{
+  margin-top:12px;
+  padding:6px 0;
+  border:0;
+  background:none;
+  color:#94a8d6;
+  font:inherit;
+  font-size:.9rem;
+  cursor:pointer;
+}
+
+.finder-results{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:10px}
+.finder-results li{
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  font-size:.94rem;
+}
+.finder-results li span,.finder-results small{color:#94a8d6}
+.finder-results .finder-warn{color:#f4d27a}
+.finder-link{color:#f0c63c;font-weight:700;font-size:.9rem}
+.finder-note{font-size:.82rem !important;color:#94a8d6 !important}
+.finder-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+
+.finder-option:focus-visible,
+.finder-close:focus-visible,
+.finder-back:focus-visible,
+.finder-link:focus-visible{outline:2px solid #f0c63c;outline-offset:2px}
+
+@media (max-width:560px){
+  .finder{right:16px;bottom:80px}
+}
+
+/* Long lender names must wrap inside buttons on small screens. */
+#lender-picks .btn,
+#lender-cards .btn,
+#card-offers .btn{
+  white-space:normal;
+  text-align:center;
+  max-width:100%;
+  height:auto;
+  min-height:44px;
+  line-height:1.25;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.comparison-wrap{max-width:100%;position:relative}
