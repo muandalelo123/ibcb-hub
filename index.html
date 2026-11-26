@@ -309,6 +309,10 @@
     .grid-3{
       grid-template-columns:repeat(3,1fr);
     }
+    .grid-4{
+      grid-template-columns:repeat(4,1fr);
+    }
+    @media (max-width:1100px){ .grid-4{ grid-template-columns:repeat(2,1fr); } }
 
     .card{
       padding:24px 22px;
@@ -709,17 +713,24 @@
           <div class="section-kicker">Featured Tools</div>
           <h2>Start with proven tools used by entrepreneurs</h2>
           <p class="section-copy">
-            Three tools most new businesses need in their first week.
+            Four tools most new businesses need in their first weeks.
           </p>
         </div>
 
-        <div class="grid grid-3">
+        <div class="grid grid-3 grid-4">
           <article class="card">
             <div class="icon-box">GW</div>
             <h3>Google Workspace</h3>
             <p>Set up professional email, manage documents, and collaborate efficiently from day one.</p>
-            <a class="mini-btn gold" href="#">Start with Google Workspace</a>
+            <a class="mini-btn gold" href="https://sharegoogleworkspace.advocate.impact.com/mzZsDM6" target="_blank" rel="sponsored noopener noreferrer">Try Google Workspace</a>
           </article>
+          <article class="card">
+            <div class="icon-box">GC</div>
+            <h3>Google Cloud</h3>
+            <p>Host your website, apps, and data on Google's infrastructure, with free credits to get started.</p>
+            <a class="mini-btn gold" href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer" data-affiliate="pending">Explore Google Cloud</a>
+          </article>
+
 
           <article class="card">
             <div class="icon-box">NO</div>
